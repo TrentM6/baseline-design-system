@@ -11,8 +11,8 @@ export default function HeuristicPrinciples() {
       </h2>
       <p className="text-[14px] leading-relaxed mb-8" style={{ color: "var(--bl-fg-secondary)" }}>
         Jakob Nielsen's 10 usability heuristics, applied to the Baseline design
-        system. These are broad rules of thumb — not specific usability
-        guidelines — but they catch the majority of usability problems.
+        system. These are broad rules of thumb - not specific usability
+        guidelines - but they catch the majority of usability problems.
       </p>
 
       <DocSection eyebrow="01" heading="Visibility of system status">
@@ -33,7 +33,7 @@ export default function HeuristicPrinciples() {
       <DocSection eyebrow="02" heading="Match between system and real world">
         <p>
           Use language and concepts familiar to the user, not system-oriented
-          terms. Follow real-world conventions — information appears in a
+          terms. Follow real-world conventions - information appears in a
           natural and logical order.
         </p>
         <DocKeyValue
@@ -48,7 +48,7 @@ export default function HeuristicPrinciples() {
       <DocSection eyebrow="03" heading="User control and freedom">
         <p>
           Users often perform actions by mistake. They need a clearly marked
-          "emergency exit" — undo, cancel, back. Support this without requiring
+          "emergency exit" - undo, cancel, back. Support this without requiring
           a confirmation dialog for every action.
         </p>
         <DocKeyValue
@@ -98,7 +98,7 @@ export default function HeuristicPrinciples() {
         </p>
         <DocKeyValue
           rows={[
-            { k: "Labels", v: "Always label inputs. Placeholder text is not a label — it disappears on focus." },
+            { k: "Labels", v: "Always label inputs. Placeholder text is not a label - it disappears on focus." },
             { k: "Context", v: "Show relevant information in context. Don't make users navigate away to find what they need." },
             { k: "Recent items", v: "Show recently used items, recent searches, or recent files to reduce recall burden." },
           ]}
@@ -107,7 +107,7 @@ export default function HeuristicPrinciples() {
 
       <DocSection eyebrow="07" heading="Flexibility and efficiency of use">
         <p>
-          Accelerators — unseen by novices — may speed up interaction for
+          Accelerators - unseen by novices - may speed up interaction for
           experts. Allow users to tailor frequent actions.
         </p>
         <DocKeyValue
@@ -129,7 +129,7 @@ export default function HeuristicPrinciples() {
           rows={[
             { k: "Content density", v: "Default to comfortable spacing. Offer compact mode for data-heavy screens." },
             { k: "Progressive disclosure", v: "Show summary first, details on demand. Accordions, drawers, drill-downs." },
-            { k: "Visual noise", v: "Minimize borders, reduce color variety, use whitespace to separate — not lines." },
+            { k: "Visual noise", v: "Minimize borders, reduce color variety, use whitespace to separate - not lines." },
           ]}
         />
       </DocSection>

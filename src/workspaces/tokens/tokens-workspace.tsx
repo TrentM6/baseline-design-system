@@ -30,16 +30,16 @@ function TokensWorkspace() {
             Brand Palette
           </h2>
           <p className="text-[13px] mb-4" style={{ color: "var(--bl-fg-muted)" }}>
-            Base palette — authoring only. Components consume semantic tokens, not these directly.
+            Base palette - authoring only. Components consume semantic tokens, not these directly.
           </p>
           <div className="space-y-4">
             {([
-              { name: "orange", label: "Orange — brand accent", steps: [50,100,200,300,400,500,600,700,800,900], flip: 400 },
-              { name: "zinc", label: "Zinc — neutral", steps: [50,100,200,300,400,500,600,700,800,900,950], flip: 500 },
-              { name: "emerald", label: "Emerald — success", steps: [50,100,200,300,400,500,600,700,800,900], flip: 400 },
-              { name: "red", label: "Red — danger", steps: [50,100,200,300,400,500,600,700,800,900], flip: 400 },
-              { name: "blue", label: "Blue — info", steps: [50,100,200,300,400,500,600,700,800,900], flip: 400 },
-              { name: "yellow", label: "Yellow — warning", steps: [50,100,200,300,400,500,600,700,800,900], flip: 500 },
+              { name: "orange", label: "Orange - brand accent", steps: [50,100,200,300,400,500,600,700,800,900], flip: 400 },
+              { name: "zinc", label: "Zinc - neutral", steps: [50,100,200,300,400,500,600,700,800,900,950], flip: 500 },
+              { name: "emerald", label: "Emerald - success", steps: [50,100,200,300,400,500,600,700,800,900], flip: 400 },
+              { name: "red", label: "Red - danger", steps: [50,100,200,300,400,500,600,700,800,900], flip: 400 },
+              { name: "blue", label: "Blue - info", steps: [50,100,200,300,400,500,600,700,800,900], flip: 400 },
+              { name: "yellow", label: "Yellow - warning", steps: [50,100,200,300,400,500,600,700,800,900], flip: 500 },
             ] as const).map((ramp) => (
               <div key={ramp.name}>
                 <p className="text-[12px] font-mono mb-2" style={{ color: "var(--bl-fg-muted)" }}>{ramp.label}</p>
@@ -122,16 +122,16 @@ function TokensWorkspace() {
             style={{ borderColor: "var(--bl-border-card)", backgroundColor: "var(--bl-bg-surface)" }}
           >
             <p className="text-lg font-medium" style={{ color: "var(--bl-fg-primary)" }}>
-              fg-primary — Headlines and primary text
+              fg-primary - Headlines and primary text
             </p>
             <p className="text-[15px]" style={{ color: "var(--bl-fg-secondary)" }}>
-              fg-secondary — Body copy, descriptions, and supporting text
+              fg-secondary - Body copy, descriptions, and supporting text
             </p>
             <p className="text-[14px]" style={{ color: "var(--bl-fg-muted)" }}>
-              fg-muted — Labels, captions, and tertiary text
+              fg-muted - Labels, captions, and tertiary text
             </p>
             <p className="text-[14px]" style={{ color: "var(--bl-fg-link)" }}>
-              fg-link — Hyperlinks and interactive text
+              fg-link - Hyperlinks and interactive text
             </p>
           </div>
         </section>
@@ -147,10 +147,10 @@ function TokensWorkspace() {
           >
             <p className="text-[36px] sm:text-hero font-heading font-medium leading-none" style={{ letterSpacing: "-0.03em" }}>Hero 64</p>
             <p className="text-[28px] sm:text-section font-heading font-medium" style={{ letterSpacing: "-0.025em" }}>Section 44</p>
-            <p className="text-h3 font-heading font-medium">Heading 3 — 24px</p>
-            <p className="text-h4 font-heading font-medium">Heading 4 — 20px</p>
-            <p className="text-body font-body">Body — 16px. The quick brown fox jumps over the lazy dog.</p>
-            <p className="text-label font-body" style={{ color: "var(--bl-fg-muted)" }}>Label — 13px</p>
+            <p className="text-h3 font-heading font-medium">Heading 3 - 24px</p>
+            <p className="text-h4 font-heading font-medium">Heading 4 - 20px</p>
+            <p className="text-body font-body">Body - 16px. The quick brown fox jumps over the lazy dog.</p>
+            <p className="text-label font-body" style={{ color: "var(--bl-fg-muted)" }}>Label - 13px</p>
           </div>
         </section>
 

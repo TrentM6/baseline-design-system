@@ -11,7 +11,7 @@ export default function ColorPsychology() {
       </h2>
       <p className="text-[14px] leading-relaxed mb-8" style={{ color: "var(--bl-fg-secondary)" }}>
         How color affects perception and behavior, and why Baseline chose warm
-        orange as its brand color. Color is never decorative — it carries meaning,
+        orange as its brand color. Color is never decorative - it carries meaning,
         sets tone, and shapes how users feel about the product before they read a
         single word.
       </p>
@@ -19,7 +19,7 @@ export default function ColorPsychology() {
       <DocSection eyebrow="BRAND" heading="Why orange">
         <p className="text-[14px] leading-relaxed" style={{ color: "var(--bl-fg-secondary)" }}>
           Orange communicates energy, confidence, warmth, and approachability. It
-          sits between red's urgency and yellow's optimism — inheriting the best
+          sits between red's urgency and yellow's optimism - inheriting the best
           of both without the baggage of either. For a design system consultancy,
           it signals creative confidence without the aggression of red or the
           caution of yellow. Orange is rare in enterprise software, which means
@@ -33,7 +33,7 @@ export default function ColorPsychology() {
           rows={[
             {
               k: "Orange",
-              v: "Energy, confidence, warmth, creativity. Baseline's primary identity color — used for brand accents, interactive elements, and emphasis.",
+              v: "Energy, confidence, warmth, creativity. Baseline's primary identity color - used for brand accents, interactive elements, and emphasis.",
             },
             {
               k: "Red",
@@ -53,7 +53,7 @@ export default function ColorPsychology() {
             },
             {
               k: "Grey",
-              v: "Neutral, sophisticated, balanced, subdued. The backbone of the interface — surfaces, borders, secondary text, and disabled states.",
+              v: "Neutral, sophisticated, balanced, subdued. The backbone of the interface - surfaces, borders, secondary text, and disabled states.",
             },
           ]}
         />
@@ -65,7 +65,7 @@ export default function ColorPsychology() {
           lightness creates visual cohesion without the complexity of managing
           complementary or triadic palettes. Every color in the system reinforces
           the brand. A monochromatic palette is also dramatically easier to
-          maintain across dark and light modes — you're tuning one hue curve, not
+          maintain across dark and light modes - you're tuning one hue curve, not
           juggling the relationships between multiple hue families. The result is
           a system where every screen feels unmistakably Baseline without
           requiring a designer to manually balance color harmony.
@@ -76,23 +76,23 @@ export default function ColorPsychology() {
         <DocKeyValue
           rows={[
             {
-              k: "Success — green",
+              k: "Success - green",
               v: "Universal 'go' signal. Used for completed actions, valid inputs, positive deltas, and healthy status. Maps to --bl-status-success tokens.",
             },
             {
-              k: "Error — red",
+              k: "Error - red",
               v: "Universal 'stop' signal. Used for failed actions, invalid inputs, destructive confirmations, and critical alerts. Maps to --bl-status-error tokens.",
             },
             {
-              k: "Warning — yellow",
+              k: "Warning - yellow",
               v: "Universal 'caution' signal. Used for degraded status, approaching limits, and actions with side effects. Maps to --bl-status-warning tokens.",
             },
             {
-              k: "Info — blue",
+              k: "Info - blue",
               v: "Neutral informational signal. Used for tips, documentation callouts, and non-urgent system messages. Maps to --bl-status-info tokens.",
             },
             {
-              k: "Brand / primary — orange",
+              k: "Brand / primary - orange",
               v: "Baseline identity. Used for primary CTAs, active states, selected items, focus rings, and any element that says 'this is interactive.' Maps to --bl-accent tokens.",
             },
           ]}
@@ -104,7 +104,7 @@ export default function ColorPsychology() {
           <RuleCard
             type="do"
             title="Use functional colors for their intended semantic meaning"
-            description="Green means success. Red means error. Yellow means warning. These associations are universal and deeply ingrained — leverage them, don't fight them."
+            description="Green means success. Red means error. Yellow means warning. These associations are universal and deeply ingrained - leverage them, don't fight them."
           />
           <RuleCard
             type="dont"
@@ -119,7 +119,7 @@ export default function ColorPsychology() {
           <RuleCard
             type="dont"
             title="Introduce additional hue families for visual variety"
-            description="Adding purples, teals, or pinks for variety fractures the brand and creates maintenance burden. If a new color is needed, it should serve a semantic purpose — not a decorative one."
+            description="Adding purples, teals, or pinks for variety fractures the brand and creates maintenance burden. If a new color is needed, it should serve a semantic purpose - not a decorative one."
           />
         </div>
       </DocSection>

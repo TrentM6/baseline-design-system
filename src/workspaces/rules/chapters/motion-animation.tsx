@@ -32,19 +32,19 @@ export default function MotionAnimation() {
         <DocKeyValue
           rows={[
             {
-              k: "--dur-instant — 100ms",
-              v: "Hover states, focus rings, color shifts. Interactions that need to feel instantaneous — the user shouldn't perceive a delay, just a smooth state change.",
+              k: "--dur-instant - 100ms",
+              v: "Hover states, focus rings, color shifts. Interactions that need to feel instantaneous - the user shouldn't perceive a delay, just a smooth state change.",
             },
             {
-              k: "--dur-quick — 200ms",
+              k: "--dur-quick - 200ms",
               v: "Button press, toggle switch, tooltip appear, popover open/close. Fast enough to feel responsive, slow enough for the eye to register the transition.",
             },
             {
-              k: "--dur-medium — 300ms",
+              k: "--dur-medium - 300ms",
               v: "Drawer slide, accordion expand/collapse, modal entrance. These elements move larger distances and need enough time to communicate their spatial origin.",
             },
             {
-              k: "--dur-slow — 500ms",
+              k: "--dur-slow - 500ms",
               v: "Full-screen transitions and complex multi-element reveals. Reserved for moments where the entire view is changing and the user needs time to reorient.",
             },
           ]}
@@ -56,11 +56,11 @@ export default function MotionAnimation() {
           rows={[
             {
               k: "ease-out",
-              v: "Entrances. The element arrives quickly and settles into its final position. Objects entering the viewport should decelerate — they're coming to rest.",
+              v: "Entrances. The element arrives quickly and settles into its final position. Objects entering the viewport should decelerate - they're coming to rest.",
             },
             {
               k: "ease-in",
-              v: "Exits. The element starts slowly and accelerates away. Objects leaving the viewport should speed up — they're departing and the user's attention should release.",
+              v: "Exits. The element starts slowly and accelerates away. Objects leaving the viewport should speed up - they're departing and the user's attention should release.",
             },
             {
               k: "ease-in-out",
@@ -78,11 +78,11 @@ export default function MotionAnimation() {
         <p className="text-[14px] leading-relaxed" style={{ color: "var(--bl-fg-secondary)" }}>
           Always wrap animations in a <code>prefers-reduced-motion</code> media
           query. When reduced motion is preferred, replace transitions with
-          instant cuts — use opacity changes only, no transforms. Never remove
+          instant cuts - use opacity changes only, no transforms. Never remove
           information that animation conveys. If a slide-in transition reveals
           content, make the content appear immediately instead of animating it.
           The information must arrive; only the motion is optional. This is not a
-          nice-to-have — it's a WCAG 2.2 AA requirement and a non-negotiable
+          nice-to-have - it's a WCAG 2.2 AA requirement and a non-negotiable
           part of every component's accessibility checklist.
         </p>
       </DocSection>
@@ -92,7 +92,7 @@ export default function MotionAnimation() {
           <RuleCard
             type="do"
             title="Use --dur-quick for tooltips and popovers"
-            description="200ms is the sweet spot for small overlays — fast enough that they feel responsive, slow enough that the appearance isn't jarring."
+            description="200ms is the sweet spot for small overlays - fast enough that they feel responsive, slow enough that the appearance isn't jarring."
           />
           <RuleCard
             type="dont"
@@ -102,11 +102,11 @@ export default function MotionAnimation() {
           <RuleCard
             type="do"
             title="Honor prefers-reduced-motion: reduce"
-            description="Wrap every animation in a reduced-motion media query. Replace transforms with opacity-only transitions or instant cuts. Never skip content — only skip motion."
+            description="Wrap every animation in a reduced-motion media query. Replace transforms with opacity-only transitions or instant cuts. Never skip content - only skip motion."
           />
           <RuleCard
             type="dont"
-            title="Use animation for decoration — every motion must have a functional purpose"
+            title="Use animation for decoration - every motion must have a functional purpose"
             description="Bouncing icons, pulsing badges, and gratuitous parallax add visual noise without serving feedback, spatial, attention, or context purposes. Remove them."
           />
         </div>

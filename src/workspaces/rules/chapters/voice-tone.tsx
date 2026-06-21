@@ -10,14 +10,14 @@ export default function VoiceTone() {
         Voice & Tone
       </h2>
       <p className="text-[14px] leading-relaxed mb-8" style={{ color: "var(--bl-fg-secondary)" }}>
-        How Baseline communicates — in product copy, error messages, onboarding,
+        How Baseline communicates - in product copy, error messages, onboarding,
         and every surface where words meet the user. The voice is confident,
         direct, human, honest, and premium without being pretentious.
       </p>
 
       <DocSection eyebrow="FOUNDATIONS" heading="Voice principles">
         <p>
-          Voice is who we are. It doesn't change with context — only the tone
+          Voice is who we are. It doesn't change with context - only the tone
           adjusts. These six principles define how Baseline sounds everywhere.
         </p>
         <DocKeyValue
@@ -44,7 +44,7 @@ export default function VoiceTone() {
             },
             {
               k: "Premium, not pretentious",
-              v: "The product should feel high-quality without performing luxury. Clean, precise language — not marketing fluff or unnecessary formality.",
+              v: "The product should feel high-quality without performing luxury. Clean, precise language - not marketing fluff or unnecessary formality.",
             },
           ]}
         />
@@ -107,14 +107,14 @@ export default function VoiceTone() {
           <RuleCard
             type="dont"
             title="Get started with our revolutionary platform today!"
-            description="Marketing-speak in product UI erodes trust. The user already signed up — they don't need to be sold again."
+            description="Marketing-speak in product UI erodes trust. The user already signed up - they don't need to be sold again."
           />
         </div>
       </DocSection>
 
       <DocSection heading="Tone spectrum">
         <p>
-          Voice stays constant — tone flexes with context. Think of it as a
+          Voice stays constant - tone flexes with context. Think of it as a
           dial between casual and serious, adjusted by what the user is
           experiencing.
         </p>
@@ -122,11 +122,11 @@ export default function VoiceTone() {
           rows={[
             {
               k: "Onboarding & empty states",
-              v: "Warmer, more encouraging. The user is learning — be patient and inviting. \"Create your first project\" feels welcoming.",
+              v: "Warmer, more encouraging. The user is learning - be patient and inviting. \"Create your first project\" feels welcoming.",
             },
             {
               k: "In-flow actions",
-              v: "Neutral and efficient. The user is in the zone — stay out of the way. Short confirmations, minimal interruption.",
+              v: "Neutral and efficient. The user is in the zone - stay out of the way. Short confirmations, minimal interruption.",
             },
             {
               k: "Errors & failures",
@@ -138,7 +138,7 @@ export default function VoiceTone() {
             },
             {
               k: "Success moments",
-              v: "Brief and clear. A simple confirmation is enough — don't celebrate routine actions. Save enthusiasm for genuine milestones.",
+              v: "Brief and clear. A simple confirmation is enough - don't celebrate routine actions. Save enthusiasm for genuine milestones.",
             },
           ]}
         />

@@ -27,7 +27,7 @@ const RINGS: Ring[] = [
 ];
 
 /**
- * ProfitRings — concentric, monochromatic-orange nested circles showing profit
+ * ProfitRings - concentric, monochromatic-orange nested circles showing profit
  * bands. Pure tokenized SVG-free composition. Composes Card + Select.
  */
 export function ProfitRings() {

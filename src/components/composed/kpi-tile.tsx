@@ -10,7 +10,7 @@ export interface KpiTileProps {
 }
 
 /**
- * KpiTile — metric with a target and progress toward it.
+ * KpiTile - metric with a target and progress toward it.
  * Composes: Card, Badge, Progress.
  */
 export function KpiTile({ label, value, target, progress }: KpiTileProps) {

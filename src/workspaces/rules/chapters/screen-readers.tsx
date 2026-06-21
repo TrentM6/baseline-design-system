@@ -11,8 +11,8 @@ export default function ScreenReaders() {
       </h2>
       <p className="text-[14px] leading-relaxed mb-8" style={{ color: "var(--bl-fg-secondary)" }}>
         Screen readers translate visual interfaces into spoken or braille
-        output. Proper semantics and ARIA usage ensure that every user —
-        regardless of how they perceive the page — gets the same information
+        output. Proper semantics and ARIA usage ensure that every user -
+        regardless of how they perceive the page - gets the same information
         and the same controls.
       </p>
 
@@ -26,7 +26,7 @@ export default function ScreenReaders() {
           rows={[
             {
               k: "Native HTML first",
-              v: "Use button, nav, main, dialog, and other semantic elements before adding ARIA roles. A <button> already has role=\"button\", keyboard handling, and activation — a <div role=\"button\"> requires you to rebuild all of that.",
+              v: "Use button, nav, main, dialog, and other semantic elements before adding ARIA roles. A <button> already has role=\"button\", keyboard handling, and activation - a <div role=\"button\"> requires you to rebuild all of that.",
             },
             {
               k: "role=\"dialog\"",
@@ -34,7 +34,7 @@ export default function ScreenReaders() {
             },
             {
               k: "role=\"alert\"",
-              v: "For urgent error messages that need immediate attention. The content is announced as soon as it appears — use sparingly to avoid overwhelming the user.",
+              v: "For urgent error messages that need immediate attention. The content is announced as soon as it appears - use sparingly to avoid overwhelming the user.",
             },
             {
               k: "role=\"status\"",
@@ -51,7 +51,7 @@ export default function ScreenReaders() {
       <DocSection heading="Live regions">
         <p>
           Live regions are how screen readers learn about dynamic content
-          changes — toast notifications, form validation, autosave
+          changes - toast notifications, form validation, autosave
           confirmations, and real-time updates. Without them, these changes
           happen silently.
         </p>
@@ -67,11 +67,11 @@ export default function ScreenReaders() {
             },
             {
               k: "aria-atomic",
-              v: "When set to \"true\", the entire live region is re-read on any change — not just the part that changed. Use for elements like countdown timers or score displays where partial reads are confusing.",
+              v: "When set to \"true\", the entire live region is re-read on any change - not just the part that changed. Use for elements like countdown timers or score displays where partial reads are confusing.",
             },
             {
               k: "Toast notifications",
-              v: "Every toast must render inside an aria-live region. Without it, the toast appears visually but is completely invisible to screen reader users — a silent failure.",
+              v: "Every toast must render inside an aria-live region. Without it, the toast appears visually but is completely invisible to screen reader users - a silent failure.",
             },
           ]}
         />
@@ -92,11 +92,11 @@ export default function ScreenReaders() {
             },
             {
               k: "nav",
-              v: "Navigation blocks. Label each with aria-label when there are multiple (\"Primary navigation\", \"Breadcrumb\"). Don't wrap every list of links in nav — only true navigation.",
+              v: "Navigation blocks. Label each with aria-label when there are multiple (\"Primary navigation\", \"Breadcrumb\"). Don't wrap every list of links in nav - only true navigation.",
             },
             {
               k: "aside",
-              v: "Complementary content that is related to but separate from the main content — sidebars, related links, supplementary information.",
+              v: "Complementary content that is related to but separate from the main content - sidebars, related links, supplementary information.",
             },
             {
               k: "header / footer",
@@ -119,7 +119,7 @@ export default function ScreenReaders() {
             },
             {
               k: "Empty alt for decorative images",
-              v: "Decorative images — visual flourishes, background patterns, illustrative graphics — must use alt=\"\" (empty string). This tells screen readers to skip them entirely.",
+              v: "Decorative images - visual flourishes, background patterns, illustrative graphics - must use alt=\"\" (empty string). This tells screen readers to skip them entirely.",
             },
             {
               k: "aria-label for icon-only buttons",
@@ -127,7 +127,7 @@ export default function ScreenReaders() {
             },
             {
               k: "No 'image of' prefix",
-              v: "Screen readers already announce \"image\" before reading the alt text. Writing \"Image of a sunset\" results in \"image, image of a sunset\" — redundant and noisy.",
+              v: "Screen readers already announce \"image\" before reading the alt text. Writing \"Image of a sunset\" results in \"image, image of a sunset\" - redundant and noisy.",
             },
           ]}
         />
@@ -138,7 +138,7 @@ export default function ScreenReaders() {
           <RuleCard
             type="do"
             title="Use semantic HTML (button, nav, main) before reaching for ARIA"
-            description="Native elements come with built-in roles, keyboard handling, and screen reader support. ARIA is a repair tool for when HTML semantics fall short — not a first choice."
+            description="Native elements come with built-in roles, keyboard handling, and screen reader support. ARIA is a repair tool for when HTML semantics fall short - not a first choice."
           />
           <RuleCard
             type="dont"
@@ -148,7 +148,7 @@ export default function ScreenReaders() {
           <RuleCard
             type="do"
             title="Test with a real screen reader (VoiceOver, NVDA)"
-            description="Automated tools catch structural issues but miss the lived experience. Turn on VoiceOver, close your eyes, and try to complete a task — that's the real test."
+            description="Automated tools catch structural issues but miss the lived experience. Turn on VoiceOver, close your eyes, and try to complete a task - that's the real test."
           />
           <RuleCard
             type="dont"

@@ -24,27 +24,27 @@ export default function FeedbackPatterns() {
           rows={[
             {
               k: "Inline validation",
-              v: "Immediate — field border color + helper text. Fires on blur to confirm or correct input while the user is still in context.",
+              v: "Immediate - field border color + helper text. Fires on blur to confirm or correct input while the user is still in context.",
             },
             {
               k: "Toast notification",
-              v: "Transient — 4-5 seconds, auto-dismiss, action optional. For confirmations and non-critical alerts that don't require the user to stop what they're doing.",
+              v: "Transient - 4-5 seconds, auto-dismiss, action optional. For confirmations and non-critical alerts that don't require the user to stop what they're doing.",
             },
             {
               k: "Progress indicator",
-              v: "Ongoing — determinate bar or indeterminate spinner. Shows that work is happening and, when possible, how much remains.",
+              v: "Ongoing - determinate bar or indeterminate spinner. Shows that work is happening and, when possible, how much remains.",
             },
             {
               k: "Empty state",
-              v: "Informational — explains absence + suggests next step. Fills what would otherwise be a confusing blank area with guidance.",
+              v: "Informational - explains absence + suggests next step. Fills what would otherwise be a confusing blank area with guidance.",
             },
             {
               k: "Skeleton screen",
-              v: "Anticipatory — shows layout shape during load. Reduces perceived wait time by giving the user a preview of the structure they're about to see.",
+              v: "Anticipatory - shows layout shape during load. Reduces perceived wait time by giving the user a preview of the structure they're about to see.",
             },
             {
               k: "Optimistic update",
-              v: "Immediate — shows expected result before server confirms. The UI assumes success and rolls back only if the server rejects the change.",
+              v: "Immediate - shows expected result before server confirms. The UI assumes success and rolls back only if the server rejects the change.",
             },
           ]}
         />
@@ -55,11 +55,11 @@ export default function FeedbackPatterns() {
           rows={[
             {
               k: "Duration",
-              v: "4-5 seconds for informational toasts. Errors that require user action must persist until dismissed — don't auto-remove a message the user needs to read.",
+              v: "4-5 seconds for informational toasts. Errors that require user action must persist until dismissed - don't auto-remove a message the user needs to read.",
             },
             {
               k: "Placement",
-              v: "Top-right or bottom-right, consistent across the entire application. Pick one position and never vary it — users build spatial memory for notifications.",
+              v: "Top-right or bottom-right, consistent across the entire application. Pick one position and never vary it - users build spatial memory for notifications.",
             },
             {
               k: "Stacking",
@@ -82,11 +82,11 @@ export default function FeedbackPatterns() {
           rows={[
             {
               k: "Validate on blur",
-              v: "Not on every keystroke — that's too aggressive. Let the user finish typing before judging their input. Keystroke validation creates anxiety.",
+              v: "Not on every keystroke - that's too aggressive. Let the user finish typing before judging their input. Keystroke validation creates anxiety.",
             },
             {
               k: "Show success state",
-              v: "Green check when a field is valid. Positive feedback is as important as error feedback — it tells the user they can move on with confidence.",
+              v: "Green check when a field is valid. Positive feedback is as important as error feedback - it tells the user they can move on with confidence.",
             },
             {
               k: "Show error inline",
@@ -98,7 +98,7 @@ export default function FeedbackPatterns() {
             },
             {
               k: "Submit button",
-              v: "Disable only if you show why — otherwise let them submit and show errors. A disabled button with no explanation is a dead end with no diagnosis.",
+              v: "Disable only if you show why - otherwise let them submit and show errors. A disabled button with no explanation is a dead end with no diagnosis.",
             },
           ]}
         />
@@ -115,7 +115,7 @@ export default function FeedbackPatterns() {
           <li>
             <strong>Explain the absence.</strong> "No projects yet" tells the
             user this is normal, not broken. "Something went wrong" is an error
-            — different state, different treatment.
+            - different state, different treatment.
           </li>
           <li>
             <strong>Show what will go here.</strong> A subtle illustration or

@@ -19,7 +19,7 @@ export default function ProgressiveDisclosure() {
       <DocSection heading="Core principle">
         <p>
           Show the summary first, let users drill into details on demand. Every
-          screen has a "default view" that serves 80% of users — the people who
+          screen has a "default view" that serves 80% of users - the people who
           need the most common information or the most frequent action. The
           remaining 20% of complexity is one click away, not crowding the
           default.
@@ -28,7 +28,7 @@ export default function ProgressiveDisclosure() {
           This isn't about hiding things to make the UI look cleaner. It's
           about respecting the user's attention. A settings page with 40
           visible options is harder to use than one with 8 visible options and
-          an "Advanced" section — even though they contain the same controls.
+          an "Advanced" section - even though they contain the same controls.
         </p>
       </DocSection>
 
@@ -37,7 +37,7 @@ export default function ProgressiveDisclosure() {
           rows={[
             {
               k: "Accordion",
-              v: "Show the heading, expand for content. Best for long pages with distinct sections where the user needs one section at a time — FAQs, settings groups, filter panels.",
+              v: "Show the heading, expand for content. Best for long pages with distinct sections where the user needs one section at a time - FAQs, settings groups, filter panels.",
             },
             {
               k: "Drawer",
@@ -45,7 +45,7 @@ export default function ProgressiveDisclosure() {
             },
             {
               k: "Tooltip",
-              v: "Contextual help on hover or focus. Use for inline definitions, icon labels, and short explanations. Not for essential information — tooltips are invisible to touch users without focus management.",
+              v: "Contextual help on hover or focus. Use for inline definitions, icon labels, and short explanations. Not for essential information - tooltips are invisible to touch users without focus management.",
             },
             {
               k: "Drill-down",
@@ -57,13 +57,13 @@ export default function ProgressiveDisclosure() {
             },
             {
               k: "Tabs",
-              v: "Parallel content, visible one at a time. Use when the user needs to compare or switch between related views — not for sequential steps (use a stepper for that).",
+              v: "Parallel content, visible one at a time. Use when the user needs to compare or switch between related views - not for sequential steps (use a stepper for that).",
             },
           ]}
         />
       </DocSection>
 
-      <DocSection heading="When to use — and when not to">
+      <DocSection heading="When to use - and when not to">
         <p>
           Not everything should be hidden. Critical information, primary
           actions, and navigation should always be visible. Progressive
@@ -74,7 +74,7 @@ export default function ProgressiveDisclosure() {
           A good test: if more than 30% of users need it on every visit, it
           belongs in the default view. If fewer than 30% need it, or they only
           need it occasionally, it's a candidate for disclosure. Never hide
-          something just because it makes the design look simpler — hide it
+          something just because it makes the design look simpler - hide it
           because the user genuinely doesn't need it yet.
         </p>
       </DocSection>
@@ -99,7 +99,7 @@ export default function ProgressiveDisclosure() {
           <RuleCard
             type="dont"
             title="Make users click three times to reach frequently needed content"
-            description="If analytics show a feature is used daily, it belongs on the surface — not buried behind a menu, then a tab, then an accordion. Depth should correlate with infrequency."
+            description="If analytics show a feature is used daily, it belongs on the surface - not buried behind a menu, then a tab, then an accordion. Depth should correlate with infrequency."
           />
         </div>
       </DocSection>

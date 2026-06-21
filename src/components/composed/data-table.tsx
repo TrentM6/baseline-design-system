@@ -114,7 +114,7 @@ function SortHeader({
 }
 
 /**
- * DataTable — product-grade table built on TanStack Table.
+ * DataTable - product-grade table built on TanStack Table.
  * Global search, per-column sort, status filter, column visibility, row
  * selection, and pagination. Composes shadcn Table/Input/Select/Checkbox/
  * Badge/Avatar/DropdownMenu/Button + Phosphor icons; fully tokenized.

@@ -21,7 +21,7 @@ export default function CognitiveLoad() {
           rows={[
             {
               k: "Intrinsic load",
-              v: "The complexity inherent to the task itself. Filing taxes is inherently complex — no interface can make the tax code simple. Intrinsic load can be managed but not eliminated.",
+              v: "The complexity inherent to the task itself. Filing taxes is inherently complex - no interface can make the tax code simple. Intrinsic load can be managed but not eliminated.",
             },
             {
               k: "Extraneous load",
@@ -29,7 +29,7 @@ export default function CognitiveLoad() {
             },
             {
               k: "Germane load",
-              v: "Mental effort that builds understanding — learning how the system works, forming mental models, recognizing patterns. Good design maximizes germane load by making the system learnable.",
+              v: "Mental effort that builds understanding - learning how the system works, forming mental models, recognizing patterns. Good design maximizes germane load by making the system learnable.",
             },
           ]}
         />
@@ -72,7 +72,7 @@ export default function CognitiveLoad() {
           This doesn't mean every menu must have fewer than 7 items. Navigation
           with 12 items is fine if grouped into 3 categories of 4. The key is
           chunking: the user processes 3 groups, not 12 individual items. Apply
-          this to nav menus, filter panels, form sections, and settings pages —
+          this to nav menus, filter panels, form sections, and settings pages -
           any time you present a set of options.
         </p>
       </DocSection>
@@ -87,7 +87,7 @@ export default function CognitiveLoad() {
           <RuleCard
             type="dont"
             title="Present 15+ ungrouped options in a single menu"
-            description="A flat list of 15 options forces the user to read every item to find what they want. Group them, add headings, or use search — anything to reduce the scan."
+            description="A flat list of 15 options forces the user to read every item to find what they want. Group them, add headings, or use search - anything to reduce the scan."
           />
           <RuleCard
             type="do"
@@ -97,7 +97,7 @@ export default function CognitiveLoad() {
           <RuleCard
             type="dont"
             title="Make everything the same size, weight, and color"
-            description="When nothing stands out, everything demands equal attention. The user must read every element to determine what matters — that's maximum extraneous load."
+            description="When nothing stands out, everything demands equal attention. The user must read every element to determine what matters - that's maximum extraneous load."
           />
         </div>
       </DocSection>

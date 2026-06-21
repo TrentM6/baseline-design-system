@@ -20,7 +20,7 @@ const CARD_DATA: PaymentMethod = {
 };
 
 /**
- * PaymentMethodCard — visual credit card display with brand, masked digits,
+ * PaymentMethodCard - visual credit card display with brand, masked digits,
  * expiry, and management actions. Composes: Card, Badge, Button, Phosphor
  * CreditCard icon.
  */

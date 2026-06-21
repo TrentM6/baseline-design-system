@@ -1,5 +1,5 @@
 /**
- * Slot sizing — the plug-and-play grid system for dashboards, the Playground
+ * Slot sizing -the plug-and-play grid system for dashboards, the Playground
  * canvas, and the Components gallery. Everything lays out on a 12-column grid;
  * a component declares (or is assigned) a slot size that maps to a column span.
  *

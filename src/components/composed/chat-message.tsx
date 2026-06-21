@@ -16,7 +16,7 @@ interface Message {
 const MESSAGES: Message[] = [
   { id: "1", sender: { name: "Sarah Chen", initials: "SC" }, text: "Hey, did you see the latest design review feedback?", time: "10:23 AM", isOwn: false },
   { id: "2", sender: { name: "You", initials: "TC" }, text: "Yeah, looks like they want us to tighten up the spacing on the dashboard cards.", time: "10:24 AM", isOwn: true },
-  { id: "3", sender: { name: "Sarah Chen", initials: "SC" }, text: "I was thinking we could use the slot system for that — half/third sizing instead of full-width.", time: "10:25 AM", isOwn: false },
+  { id: "3", sender: { name: "Sarah Chen", initials: "SC" }, text: "I was thinking we could use the slot system for that - half/third sizing instead of full-width.", time: "10:25 AM", isOwn: false },
   { id: "4", sender: { name: "You", initials: "TC" }, text: "Good call. I'll update the surface and push it for review.", time: "10:26 AM", isOwn: true },
   { id: "5", sender: { name: "Sarah Chen", initials: "SC" }, text: "Perfect. Also, the chart animations are looking much smoother now with the natural curve type.", time: "10:28 AM", isOwn: false },
 ];

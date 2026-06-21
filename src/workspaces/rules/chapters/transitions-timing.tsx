@@ -29,7 +29,7 @@ export default function TransitionsTiming() {
             },
             {
               k: "Button press / toggle",
-              v: "--dur-quick / 200ms. The sweet spot for micro-interactions — perceptible motion without blocking the user's next action.",
+              v: "--dur-quick / 200ms. The sweet spot for micro-interactions - perceptible motion without blocking the user's next action.",
             },
             {
               k: "Tooltip appear / dismiss",
@@ -45,7 +45,7 @@ export default function TransitionsTiming() {
             },
             {
               k: "Modal open / close",
-              v: "--dur-medium / 300ms. Modals combine a backdrop fade with a panel entrance — the medium duration accommodates both.",
+              v: "--dur-medium / 300ms. Modals combine a backdrop fade with a panel entrance - the medium duration accommodates both.",
             },
             {
               k: "Drawer slide",
@@ -69,19 +69,19 @@ export default function TransitionsTiming() {
           rows={[
             {
               k: "ease-out",
-              v: "cubic-bezier(0, 0, 0.2, 1) — for entrances. The element arrives fast and decelerates into place. This mimics how physical objects come to rest.",
+              v: "cubic-bezier(0, 0, 0.2, 1) - for entrances. The element arrives fast and decelerates into place. This mimics how physical objects come to rest.",
             },
             {
               k: "ease-in",
-              v: "cubic-bezier(0.4, 0, 1, 1) — for exits. The element starts slow and accelerates away. It picks up speed as it leaves, which feels decisive rather than abrupt.",
+              v: "cubic-bezier(0.4, 0, 1, 1) - for exits. The element starts slow and accelerates away. It picks up speed as it leaves, which feels decisive rather than abrupt.",
             },
             {
               k: "ease-in-out",
-              v: "cubic-bezier(0.4, 0, 0.2, 1) — for repositioning. The element moves between two on-screen positions, cushioning both the start and the stop.",
+              v: "cubic-bezier(0.4, 0, 0.2, 1) - for repositioning. The element moves between two on-screen positions, cushioning both the start and the stop.",
             },
             {
               k: "linear",
-              v: "No acceleration curve — constant speed. Only for progress bars, loading indicators, and continuous animations where uniform motion is the correct metaphor.",
+              v: "No acceleration curve - constant speed. Only for progress bars, loading indicators, and continuous animations where uniform motion is the correct metaphor.",
             },
           ]}
         />
@@ -101,7 +101,7 @@ export default function TransitionsTiming() {
           </li>
           <li>
             <strong>Exits</strong> pair ease-in with --dur-instant or
-            --dur-quick. Exits should be faster than entrances — this makes the
+            --dur-quick. Exits should be faster than entrances - this makes the
             interface feel snappy and responsive. The user initiated the
             dismissal; don't make them wait.
           </li>
@@ -114,7 +114,7 @@ export default function TransitionsTiming() {
           <li>
             <strong>The asymmetry is intentional.</strong> Entrances are slower
             than exits because arriving content needs time to register. Exiting
-            content is already understood — get it out of the way quickly.
+            content is already understood - get it out of the way quickly.
           </li>
         </ul>
       </DocSection>
@@ -124,7 +124,7 @@ export default function TransitionsTiming() {
           <RuleCard
             type="do"
             title="Use the duration token that matches the interaction type"
-            description="The token table maps every interaction category to its duration. Reference the token in code — the value may be tuned system-wide later."
+            description="The token table maps every interaction category to its duration. Reference the token in code - the value may be tuned system-wide later."
           />
           <RuleCard
             type="dont"
@@ -133,12 +133,12 @@ export default function TransitionsTiming() {
           />
           <RuleCard
             type="do"
-            title="Make exits faster than entrances — it feels snappier"
+            title="Make exits faster than entrances - it feels snappier"
             description="Asymmetric timing mirrors user intent. They want arriving content to be legible and departing content to get out of the way. The speed difference is subtle but it shapes perception."
           />
           <RuleCard
             type="dont"
-            title="Use ease-in for entrances — elements should decelerate into place, not accelerate"
+            title="Use ease-in for entrances - elements should decelerate into place, not accelerate"
             description="Ease-in starts slow and speeds up, which is the opposite of what arrival motion should feel like. It makes elements appear to accelerate into their resting position, which feels unnatural."
           />
         </div>

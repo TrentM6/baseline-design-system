@@ -32,7 +32,7 @@ const VARIANT_STYLES: Record<Activity["variant"], { bg: string; fg: string }> = 
 
 const ACTIVITIES: Activity[] = [
   { id: "1", user: { name: "Sarah Chen", initials: "SC" }, action: "deployed", target: "v2.4.1 to production", time: "2m ago", icon: ArrowUp, variant: "success" },
-  { id: "2", user: { name: "James Wilson", initials: "JW" }, action: "approved", target: "PR 847 — Auth refactor", time: "18m ago", icon: ShieldCheck, variant: "info" },
+  { id: "2", user: { name: "James Wilson", initials: "JW" }, action: "approved", target: "PR 847 - Auth refactor", time: "18m ago", icon: ShieldCheck, variant: "info" },
   { id: "3", user: { name: "Mia Torres", initials: "MT" }, action: "invited", target: "alex@company.com", time: "1h ago", icon: UserPlus, variant: "default" },
   { id: "4", user: { name: "Liam Park", initials: "LP" }, action: "updated", target: "billing settings", time: "2h ago", icon: Gear, variant: "warning" },
   { id: "5", user: { name: "Aisha Patel", initials: "AP" }, action: "rolled back", target: "v2.4.0 from staging", time: "3h ago", icon: ArrowDown, variant: "default" },

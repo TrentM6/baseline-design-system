@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 
 /**
- * MetricChartCard — a titled card that frames a chart primitive.
+ * MetricChartCard - a titled card that frames a chart primitive.
  * Composes: Card + CardHeader + CardContent + CardFooter.
  * Pattern: title → description → chart visual → footer insight.
  */

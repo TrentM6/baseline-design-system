@@ -41,7 +41,7 @@ function AssetRow({ label, asset }: { label: string; asset: Asset }) {
 }
 
 /**
- * BalanceCard — total balance + an inline currency-exchange widget.
+ * BalanceCard - total balance + an inline currency-exchange widget.
  * Composes: Card, Button, Separator, Phosphor icons. Tokens throughout.
  */
 export function BalanceCard() {

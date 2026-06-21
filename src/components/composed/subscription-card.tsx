@@ -29,7 +29,7 @@ function formatUsage(current: number, limit: number, unit: string): string {
 }
 
 /**
- * SubscriptionCard — current plan overview with usage meters, billing info,
+ * SubscriptionCard -current plan overview with usage meters, billing info,
  * and management actions. Composes: Card, Badge, Button, Progress, Phosphor
  * CrownSimple icon.
  */

@@ -18,9 +18,9 @@ export default function ContentDensity() {
       <DocSection eyebrow="MODES" heading="Two density modes">
         <p className="text-[14px] leading-relaxed" style={{ color: "var(--bl-fg-secondary)" }}>
           Baseline supports two density modes. <strong>Comfortable</strong> is
-          the default — generous spacing, clear visual separation between
+          the default - generous spacing, clear visual separation between
           elements, and optimized for scanning and comprehension. It prioritizes
-          readability over quantity. <strong>Compact</strong> is opt-in — tighter
+          readability over quantity. <strong>Compact</strong> is opt-in - tighter
           spacing, more data visible per viewport, and optimized for power users
           who work with large tables, long lists, and data-heavy dashboards.
           Compact never sacrifices legibility; it reduces whitespace, not content.
@@ -111,7 +111,7 @@ export default function ContentDensity() {
           <RuleCard
             type="do"
             title="Let users toggle density in data-heavy views"
-            description="Power users working with tables and lists should be able to switch to compact mode. Offer a density toggle in the view controls — don't force one size on everyone."
+            description="Power users working with tables and lists should be able to switch to compact mode. Offer a density toggle in the view controls - don't force one size on everyone."
           />
           <RuleCard
             type="dont"

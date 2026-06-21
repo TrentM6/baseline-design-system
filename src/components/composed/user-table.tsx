@@ -45,7 +45,7 @@ const USERS: User[] = [
 ];
 
 /**
- * UserTable — user management table with avatars, role badges, status, and
+ * UserTable -user management table with avatars, role badges, status, and
  * per-row action menus. Composes: Card, Table, Avatar, Badge, Button,
  * DropdownMenu, Phosphor icons.
  */

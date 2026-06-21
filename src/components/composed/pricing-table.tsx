@@ -22,7 +22,7 @@ export interface PricingTier {
 }
 
 /**
- * PricingTable — side-by-side plan cards, one optionally featured.
+ * PricingTable - side-by-side plan cards, one optionally featured.
  * Composes: Card, Button, Badge, Separator, Phosphor check.
  */
 export function PricingTable({ tiers }: { tiers: PricingTier[] }) {

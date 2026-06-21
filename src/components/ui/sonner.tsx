@@ -11,7 +11,7 @@ import { Toaster as Sonner } from "sonner";
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 
 /**
- * Toaster — Baseline-themed sonner. Reads our `data-mode` attribute
+ * Toaster -Baseline-themed sonner. Reads our `data-mode` attribute
  * (not next-themes) and uses Phosphor icons. Styling flows through
  * --bl-* tokens via the mapped Tailwind color utilities.
  */

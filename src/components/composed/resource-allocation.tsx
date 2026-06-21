@@ -45,7 +45,7 @@ function getUtilizationBadge(percent: number): { label: string; color: string } 
 }
 
 /**
- * ResourceAllocation — team resource/capacity allocation view.
+ * ResourceAllocation - team resource/capacity allocation view.
  * Composes: Card, Avatar, AvatarFallback, Badge, Phosphor Users icon.
  * Tokens: --bl-fg-primary, --bl-fg-secondary, --bl-fg-muted, --bl-bg-surface,
  *         --bl-bg-active, --bl-bg-elevated, --bl-fill-success, --bl-fill-warning,

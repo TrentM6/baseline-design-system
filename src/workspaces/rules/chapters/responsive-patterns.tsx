@@ -12,14 +12,14 @@ export default function ResponsivePatterns() {
       <p className="text-[14px] leading-relaxed mb-8" style={{ color: "var(--bl-fg-secondary)" }}>
         Mobile-first design thinking, breakpoints, and fluid layouts that adapt
         gracefully across screen sizes. Start from the smallest viewport and
-        layer complexity upward — constraints at the bottom produce clarity at
+        layer complexity upward - constraints at the bottom produce clarity at
         the top.
       </p>
 
       <DocSection eyebrow="PHILOSOPHY" heading="Mobile-first principle">
         <p className="text-[14px] leading-relaxed" style={{ color: "var(--bl-fg-secondary)" }}>
           Design for the smallest screen first, then enhance. This forces
-          prioritization — if it doesn't fit on mobile, question whether it
+          prioritization - if it doesn't fit on mobile, question whether it
           belongs at all. Mobile constraints produce better desktop designs
           because they demand hierarchy, focus, and ruthless editing. A layout
           that works beautifully on 375px will almost always scale up gracefully.
@@ -31,23 +31,23 @@ export default function ResponsivePatterns() {
         <DocKeyValue
           rows={[
             {
-              k: "sm — 640px",
+              k: "sm - 640px",
               v: "Large phones in landscape orientation. Single-column layouts may begin to relax here, but most content stays stacked.",
             },
             {
-              k: "md — 768px",
+              k: "md - 768px",
               v: "Tablets in portrait. Two-column layouts become viable. Side navigation can begin to appear alongside content.",
             },
             {
-              k: "lg — 1024px",
+              k: "lg - 1024px",
               v: "Small laptops and tablets in landscape. Full multi-column layouts, persistent sidebars, and expanded toolbars.",
             },
             {
-              k: "xl — 1280px",
+              k: "xl - 1280px",
               v: "Standard desktops. Maximum content density is comfortable here. Most dashboard layouts target this as their primary breakpoint.",
             },
             {
-              k: "2xl — 1536px",
+              k: "2xl - 1536px",
               v: "Large displays and ultrawide monitors. Content should max-width constrain to avoid excessively long line lengths.",
             },
           ]}
@@ -59,7 +59,7 @@ export default function ResponsivePatterns() {
           rows={[
             {
               k: "Stack to grid",
-              v: "Single column on mobile, multi-column grid on desktop. The most common pattern — cards, features, and content blocks stack vertically then reflow into 2- or 3-column grids.",
+              v: "Single column on mobile, multi-column grid on desktop. The most common pattern - cards, features, and content blocks stack vertically then reflow into 2- or 3-column grids.",
             },
             {
               k: "Show / hide",

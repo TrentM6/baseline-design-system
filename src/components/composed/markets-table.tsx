@@ -47,7 +47,7 @@ function CoinBadge({ symbol, tint }: { symbol: string; tint: string }) {
 }
 
 /**
- * MarketsTable — dense asset table: coin, price, volume, market cap, holders,
+ * MarketsTable - dense asset table: coin, price, volume, market cap, holders,
  * 24h change, and a per-row action menu. Composes Card, Table, DropdownMenu,
  * Button, Phosphor icons. Numbers are tabular for clean alignment.
  */

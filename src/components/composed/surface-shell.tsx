@@ -31,12 +31,12 @@ function BaselineMark({ className }: { className?: string }) {
 }
 
 /**
- * SurfaceShell — the canonical app chrome for product surfaces.
+ * SurfaceShell -the canonical app chrome for product surfaces.
  *
  * Composes the SAME shadcn Sidebar primitive the design system's own app shell
  * is built on, in full app mode: a fixed sidebar on desktop, an offcanvas Sheet
  * on mobile (opened by the trigger), and a sticky chrome header. Rendered inside
- * a live-preview iframe, the breakpoint follows the iframe's own width — so the
+ * a live-preview iframe, the breakpoint follows the iframe's own width -so the
  * web/mobile toggle produces real responsive behavior, not a fake resize.
  */
 export function SurfaceShell({

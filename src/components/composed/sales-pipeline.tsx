@@ -68,7 +68,7 @@ function formatCurrency(n: number): string {
 }
 
 /**
- * SalesPipeline — CRM sales pipeline / deal stages visualization.
+ * SalesPipeline -CRM sales pipeline / deal stages visualization.
  * Composes: Card, Badge, Avatar, Phosphor Briefcase icon.
  * Tokens: --bl-chart-1..3, --bl-fill-success, --bl-fg-*, --bl-bg-elevated, --bl-border-divider.
  */

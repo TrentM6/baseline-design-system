@@ -36,7 +36,7 @@ export default function GridSpacing() {
           rows={[
             {
               k: "--bl-space-1 (4px)",
-              v: "Tight internal padding. Use inside compact elements — the gap between an icon and its label, padding inside a badge or tag.",
+              v: "Tight internal padding. Use inside compact elements - the gap between an icon and its label, padding inside a badge or tag.",
             },
             {
               k: "--bl-space-2 (8px)",
@@ -66,14 +66,14 @@ export default function GridSpacing() {
         <p>
           Left-align text as the default. Centered headings are acceptable in
           hero contexts and empty states, but body copy, labels, and data should
-          always left-align — the ragged left edge of centered text slows
+          always left-align - the ragged left edge of centered text slows
           reading.
         </p>
         <p className="mt-3">
           Align form labels and inputs to the same vertical axis. Use consistent
-          gutters in grid layouts — mixing 16px and 24px gutters in the same
+          gutters in grid layouts - mixing 16px and 24px gutters in the same
           grid breaks the rhythm. Optical adjustments are acceptable when
-          mathematical alignment looks wrong — a circle icon may need 1px of
+          mathematical alignment looks wrong - a circle icon may need 1px of
           visual compensation to appear aligned with text.
         </p>
       </DocSection>
@@ -91,7 +91,7 @@ export default function GridSpacing() {
             },
             {
               k: "Never use margin on a reusable component",
-              v: "Margin creates invisible spacing that changes meaning in different contexts. Use gap on the parent instead — it's explicit, predictable, and doesn't collapse.",
+              v: "Margin creates invisible spacing that changes meaning in different contexts. Use gap on the parent instead - it's explicit, predictable, and doesn't collapse.",
             },
             {
               k: "Page-level padding is --bl-space-6 minimum",
@@ -116,12 +116,12 @@ export default function GridSpacing() {
           <RuleCard
             type="do"
             title="Let parent containers control spacing between children with gap"
-            description="Gap is explicit, doesn't collapse, and keeps spacing logic in the layout where it belongs — not scattered across child components."
+            description="Gap is explicit, doesn't collapse, and keeps spacing logic in the layout where it belongs - not scattered across child components."
           />
           <RuleCard
             type="dont"
             title="Add margin-bottom to reusable components"
-            description="A component with baked-in margin assumes its context. When reused in a tighter layout, the margin is wrong — and overriding it with a negative margin is a hack."
+            description="A component with baked-in margin assumes its context. When reused in a tighter layout, the margin is wrong - and overriding it with a negative margin is a hack."
           />
         </div>
       </DocSection>

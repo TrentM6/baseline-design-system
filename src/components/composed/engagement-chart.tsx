@@ -41,7 +41,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 /**
- * EngagementChart — user engagement metrics card with mini area chart.
+ * EngagementChart - user engagement metrics card with mini area chart.
  * Shows DAU, WAU, MAU as big numbers with a 30-day DAU trend below.
  * Composes: Card, ChartContainer (AreaChart), Phosphor ChartLine icon.
  * Tokens: --bl-chart-1, --bl-chart-grid, --bl-fg-*, --bl-fill-primary.

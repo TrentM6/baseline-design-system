@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
    A thin, tokenized wrapper around Recharts. Series colors are
    declared in a ChartConfig and injected as --color-<key> CSS
    variables, sourced from --bl-* tokens. Components NEVER pass raw
-   hex to recharts — they reference var(--color-<key>).
+   hex to recharts -they reference var(--color-<key>).
    ------------------------------------------------------------------ */
 
 export type ChartConfig = {
@@ -52,7 +52,7 @@ const ChartContainer = React.forwardRef<
         data-chart={chartId}
         ref={ref}
         className={cn(
-          // Fill the parent box — callers set an explicit height (h-[Npx] or a
+          // Fill the parent box -callers set an explicit height (h-[Npx] or a
           // sized flex parent). Never width-driven aspect, which blows up wide.
           "flex h-full w-full justify-center text-[12px] not-italic [&_text]:[font-style:normal]",
           "[&_.recharts-cartesian-axis-tick_text]:fill-[var(--bl-fg-muted)]",

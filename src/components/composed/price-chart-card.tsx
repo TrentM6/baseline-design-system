@@ -67,7 +67,7 @@ const SERIES: Record<Range, { label: string; value: number }[]> = {
 const usd = (v: number) => `$${(v / 1000).toFixed(1)}k`;
 
 /**
- * PriceChartCard — the hero market chart. Big price + signed delta, a range
+ * PriceChartCard - the hero market chart. Big price + signed delta, a range
  * switcher and a line/bar type switcher, with a tokenized, monochromatic-orange
  * chart underneath (axes + hover guide baked in). Composes Card, ToggleGroup,
  * and the chart primitives.

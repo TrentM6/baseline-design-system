@@ -31,7 +31,7 @@ function formatCurrency(n: number): string {
 }
 
 /**
- * RevenueBreakdown — revenue breakdown by segment with percentage bars.
+ * RevenueBreakdown - revenue breakdown by segment with percentage bars.
  * Composes: Card, Badge, Phosphor CurrencyDollar icon.
  * Tokens: --bl-chart-1..5, --bl-fg-primary, --bl-fg-secondary, --bl-fg-muted,
  *         --bl-bg-active, --bl-bg-elevated, --bl-border-divider, --bl-fill-success,

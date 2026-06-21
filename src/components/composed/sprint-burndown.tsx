@@ -51,7 +51,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 /**
- * SprintBurndown — agile sprint burndown chart showing ideal vs actual progress.
+ * SprintBurndown -agile sprint burndown chart showing ideal vs actual progress.
  * Composes: Card, CardHeader, CardTitle, CardDescription, CardContent, Badge,
  * ChartContainer, LineChart, Line, XAxis, YAxis, CartesianGrid,
  * ChartTooltip, ChartLegend, Phosphor Timer icon.

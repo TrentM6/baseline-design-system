@@ -10,7 +10,7 @@ export default function ColorContrast() {
         Color & Contrast
       </h2>
       <p className="text-[14px] leading-relaxed mb-8" style={{ color: "var(--bl-fg-secondary)" }}>
-        WCAG contrast ratios are not suggestions — they are the minimum bar for
+        WCAG contrast ratios are not suggestions - they are the minimum bar for
         text and UI elements to be perceivable by users with low vision.
         Baseline's dark palette makes contrast a constant design consideration.
       </p>
@@ -18,7 +18,7 @@ export default function ColorContrast() {
       <DocSection eyebrow="REQUIREMENTS" heading="Contrast ratio thresholds">
         <p>
           Every foreground/background pair in the system must meet these
-          minimums. These are WCAG 2.2 Level AA requirements — the conformance
+          minimums. These are WCAG 2.2 Level AA requirements - the conformance
           level Baseline targets.
         </p>
         <DocKeyValue
@@ -48,7 +48,7 @@ export default function ColorContrast() {
           rows={[
             {
               k: "Browser DevTools",
-              v: "Inspect any element, hover the color swatch in Computed styles — Chrome and Firefox show the contrast ratio and WCAG pass/fail inline. Test both modes.",
+              v: "Inspect any element, hover the color swatch in Computed styles - Chrome and Firefox show the contrast ratio and WCAG pass/fail inline. Test both modes.",
             },
             {
               k: "axe DevTools extension",
@@ -83,7 +83,7 @@ export default function ColorContrast() {
             <strong>Watch for halation.</strong> Bright white text on pure dark
             backgrounds causes a glow effect (halation) for users with
             astigmatism. Baseline's warm off-white foreground tokens mitigate
-            this — never use{" "}
+            this - never use{" "}
             <code className="text-[12px] px-1 py-0.5 rounded" style={{ backgroundColor: "var(--bl-bg-elevated)" }}>
               #ffffff
             </code>{" "}
@@ -113,12 +113,12 @@ export default function ColorContrast() {
           <RuleCard
             type="dont"
             title="Assume dark background = light text is always sufficient"
-            description="Light text on a warm dark surface can fail contrast if the text is too dim or the surface too light. Always measure — don't eyeball."
+            description="Light text on a warm dark surface can fail contrast if the text is too dim or the surface too light. Always measure - don't eyeball."
           />
           <RuleCard
             type="do"
             title="Use --bl-fg-primary for body text (verified 4.5:1+)"
-            description="The primary foreground token is pre-verified against all standard surface levels. Reach for it first — it's the safe default for readable text."
+            description="The primary foreground token is pre-verified against all standard surface levels. Reach for it first - it's the safe default for readable text."
           />
           <RuleCard
             type="dont"

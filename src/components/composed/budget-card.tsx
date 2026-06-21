@@ -13,7 +13,7 @@ export interface BudgetCategory {
   name: string;
   budgeted: number;
   spent: number;
-  /** Optional override color — must be a --bl-* token value. */
+  /** Optional override color - must be a --bl-* token value. */
   color?: string;
 }
 
@@ -50,7 +50,7 @@ function formatCurrency(amount: number): string {
 }
 
 /**
- * BudgetCard — budget tracking card with per-category progress bars.
+ * BudgetCard - budget tracking card with per-category progress bars.
  * Composes: Card, Progress, Phosphor Wallet icon.
  * Tokens: --bl-fg-primary, --bl-fg-secondary, --bl-fg-muted, --bl-chart-1..5,
  *         --bl-fill-success, --bl-fill-warning, --bl-fill-danger.

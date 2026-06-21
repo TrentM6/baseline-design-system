@@ -8,7 +8,7 @@ export interface Feature {
 }
 
 /**
- * FeatureGrid — grid of icon + title + description cards.
+ * FeatureGrid - grid of icon + title + description cards.
  * Composes: Card, Phosphor icons.
  */
 export function FeatureGrid({

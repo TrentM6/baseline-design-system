@@ -29,7 +29,7 @@ const DEFAULT_ROWS: ToggleRow[] = [
 ];
 
 /**
- * SettingsPanel — preference card with live toggles + a select.
+ * SettingsPanel -preference card with live toggles + a select.
  * Composes: Card, Switch, Separator, Label, Select. Stateful toggles.
  */
 export function SettingsPanel({ rows = DEFAULT_ROWS }: { rows?: ToggleRow[] }) {

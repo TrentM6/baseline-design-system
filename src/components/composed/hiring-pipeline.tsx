@@ -146,7 +146,7 @@ export interface HiringPipelineProps {
 }
 
 /**
- * HiringPipeline — Greenhouse/Lever-style recruiting pipeline showing open
+ * HiringPipeline - Greenhouse/Lever-style recruiting pipeline showing open
  * positions with candidate counts at each hiring stage (Applied, Phone Screen,
  * Technical, Onsite, Offer).
  *

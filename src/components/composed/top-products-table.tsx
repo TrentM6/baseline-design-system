@@ -39,7 +39,7 @@ function formatCurrency(n: number): string {
 }
 
 /**
- * TopProductsTable — e-commerce top products table with growth badges and share bars.
+ * TopProductsTable -e-commerce top products table with growth badges and share bars.
  * Composes: Card, Table, Badge, Progress, Phosphor Package/Trend icons.
  * Tokens: --bl-fill-success, --bl-fill-danger, --bl-fg-*, --bl-border-divider.
  */

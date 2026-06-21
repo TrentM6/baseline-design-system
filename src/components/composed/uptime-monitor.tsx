@@ -155,7 +155,7 @@ const overallUptime = (
 /* ------------------------------------------------------------------ */
 
 /**
- * UptimeMonitor — multi-service status page card.
+ * UptimeMonitor -multi-service status page card.
  *
  * Shows 4–5 services with per-service status dot, uptime percentage,
  * and a mini 30-day bar chart. Overall system status displayed in header.
@@ -296,7 +296,7 @@ export function UptimeMonitor({ className }: { className?: string }) {
                               outlineColor: "var(--bl-border-primary)",
                               minWidth: "3px",
                             }}
-                            aria-label={`${day.date}: ${day.uptime}% — ${STATUS_LABEL[day.status]}`}
+                            aria-label={`${day.date}: ${day.uptime}% -${STATUS_LABEL[day.status]}`}
                             tabIndex={0}
                           />
                         </TooltipTrigger>

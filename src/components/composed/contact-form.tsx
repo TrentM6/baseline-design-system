@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/select";
 
 /**
- * ContactForm — multi-field form with a sent confirmation state.
+ * ContactForm - multi-field form with a sent confirmation state.
  * Composes: Card, Input, Label, Textarea, Select, Button, Phosphor.
  */
 export function ContactForm() {

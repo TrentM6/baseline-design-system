@@ -11,20 +11,20 @@ export default function WcagConformance() {
       </h2>
       <p className="text-[14px] leading-relaxed mb-8" style={{ color: "var(--bl-fg-secondary)" }}>
         The accessibility floor every approved component must clear. We target
-        WCAG 2.2 Level AA — the conformance bar US federal procurement
+        WCAG 2.2 Level AA - the conformance bar US federal procurement
         (Section 508) and most enterprise buyers require.
       </p>
 
       <DocSection heading="The four POUR principles">
         <p>
           WCAG groups its rules under four principles. Every component review
-          walks this list — if a violation falls under any one of them, the
+          walks this list - if a violation falls under any one of them, the
           component cannot promote past <strong>In review</strong>.
         </p>
         <ul className="list-disc pl-5 space-y-2">
           <li>
             <strong>Perceivable.</strong> Information and UI must be presentable
-            in ways users can perceive — text alternatives for non-text,
+            in ways users can perceive - text alternatives for non-text,
             sufficient contrast, content not conveyed by colour alone.
           </li>
           <li>
@@ -59,7 +59,7 @@ export default function WcagConformance() {
             },
             {
               k: "Name",
-              v: "Every control has an accessible name — text content, aria-label, or aria-labelledby. Icon-only buttons must declare one. WCAG SC 4.1.2.",
+              v: "Every control has an accessible name - text content, aria-label, or aria-labelledby. Icon-only buttons must declare one. WCAG SC 4.1.2.",
             },
             {
               k: "Not by colour",
@@ -67,7 +67,7 @@ export default function WcagConformance() {
             },
             {
               k: "Live regions",
-              v: "Async updates — toast, async error, autosave — fire through aria-live so screen readers hear them. WCAG SC 4.1.3.",
+              v: "Async updates - toast, async error, autosave - fire through aria-live so screen readers hear them. WCAG SC 4.1.3.",
             },
           ]}
         />

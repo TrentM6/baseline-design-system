@@ -21,7 +21,7 @@ const SHIPPING = "$0.00";
 const TOTAL = "$537.37";
 
 /**
- * OrderSummary — checkout/order summary card with line items, totals, and a
+ * OrderSummary - checkout/order summary card with line items, totals, and a
  * place-order CTA. Composes: Card, Separator, Button, Phosphor Package icon.
  */
 export function OrderSummary({ className }: { className?: string }) {

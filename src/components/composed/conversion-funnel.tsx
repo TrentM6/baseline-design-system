@@ -26,7 +26,7 @@ function formatNumber(n: number): string {
 }
 
 /**
- * ConversionFunnel — sales/marketing conversion funnel visualization.
+ * ConversionFunnel - sales/marketing conversion funnel visualization.
  * Composes: Card, Badge, Phosphor Funnel icon.
  * Tokens: --bl-fill-primary, --bl-bg-elevated, --bl-fg-*, --bl-bg-active.
  */

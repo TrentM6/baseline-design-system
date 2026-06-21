@@ -35,7 +35,7 @@ const NOTIFICATIONS: Notification[] = [
   { id: "2", title: "API rate limit warning", body: "Workspace is at 82% of the hourly rate limit.", time: "15m ago", severity: "warning", read: false },
   { id: "3", title: "New team member joined", body: "alex@company.com accepted the workspace invite.", time: "1h ago", severity: "info", read: false },
   { id: "4", title: "Build failed", body: "Pipeline 4821 failed at the type-check step.", time: "2h ago", severity: "error", read: true },
-  { id: "5", title: "SSL certificate renewed", body: "api.baseline.dev cert renewed — expires Dec 2025.", time: "5h ago", severity: "success", read: true },
+  { id: "5", title: "SSL certificate renewed", body: "api.baseline.dev cert renewed - expires Dec 2025.", time: "5h ago", severity: "success", read: true },
 ];
 
 export function NotificationPanel() {

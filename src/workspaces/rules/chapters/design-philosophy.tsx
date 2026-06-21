@@ -11,7 +11,7 @@ export default function DesignPhilosophy() {
       </h2>
       <p className="text-[14px] leading-relaxed mb-8" style={{ color: "var(--bl-fg-secondary)" }}>
         The principles that guide every design decision in the Baseline system.
-        These are not aspirational — they are constraints. Every component,
+        These are not aspirational - they are constraints. Every component,
         pattern, and surface must satisfy them.
       </p>
 
@@ -28,7 +28,7 @@ export default function DesignPhilosophy() {
             },
             {
               k: "Add at the right level",
-              v: "When the system is missing something, mint at the atomic level (token, base component) — never inline at the component level.",
+              v: "When the system is missing something, mint at the atomic level (token, base component) - never inline at the component level.",
             },
             {
               k: "Accessibility is non-negotiable",
@@ -40,7 +40,7 @@ export default function DesignPhilosophy() {
             },
             {
               k: "Docs and code move together",
-              v: "New token, new pattern, status change — the documentation and the code update in the same change set.",
+              v: "New token, new pattern, status change - the documentation and the code update in the same change set.",
             },
             {
               k: "Serve the user's task",
@@ -52,7 +52,7 @@ export default function DesignPhilosophy() {
 
       <DocSection heading="Design is decision-making">
         <p>
-          Good design is not decoration — it is the sum of thousands of small
+          Good design is not decoration - it is the sum of thousands of small
           decisions that make a product intuitive, efficient, and trustworthy.
           Every pixel, every interaction, every piece of copy is a decision.
           This system exists to make those decisions consistent, composable,
@@ -60,7 +60,7 @@ export default function DesignPhilosophy() {
         </p>
         <p>
           When a decision has been made and documented, follow it. When a
-          decision needs to change, change it explicitly — update the rule,
+          decision needs to change, change it explicitly - update the rule,
           not just the code. Silent divergence is how systems fragment.
         </p>
       </DocSection>
@@ -70,7 +70,7 @@ export default function DesignPhilosophy() {
           <RuleCard
             type="do"
             title="Use established patterns"
-            description="Users have learned conventions from thousands of apps. Leverage that muscle memory — don't force them to learn yours."
+            description="Users have learned conventions from thousands of apps. Leverage that muscle memory - don't force them to learn yours."
           />
           <RuleCard
             type="dont"
@@ -80,7 +80,7 @@ export default function DesignPhilosophy() {
           <RuleCard
             type="do"
             title="Reduce to essentials"
-            description="Every element should serve a purpose. White space is not wasted space — it's breathing room that aids comprehension."
+            description="Every element should serve a purpose. White space is not wasted space - it's breathing room that aids comprehension."
           />
           <RuleCard
             type="dont"
@@ -93,8 +93,8 @@ export default function DesignPhilosophy() {
       <DocSection heading="Trust through consistency">
         <p>
           Users build mental models as they interact with a product. Every
-          inconsistency — a button that looks different, a spacing that shifts,
-          a color that means something else on a different page — erodes trust
+          inconsistency - a button that looks different, a spacing that shifts,
+          a color that means something else on a different page - erodes trust
           and increases cognitive load. The design system exists to make
           consistency the path of least resistance.
         </p>

@@ -19,7 +19,7 @@ export default function HicksLaw() {
         <p>
           T = b &times; log<sub>2</sub>(n + 1) where n is the number of equally
           probable choices. The practical takeaway: every additional option costs
-          decision time. Going from 2 to 4 options isn't free — it measurably
+          decision time. Going from 2 to 4 options isn't free - it measurably
           slows the user.
         </p>
       </DocSection>
@@ -37,7 +37,7 @@ export default function HicksLaw() {
             },
             {
               k: "Menus",
-              v: "Group items into categories, most-used first. Alphabetical order is a last resort — frequency and logical grouping beat it every time.",
+              v: "Group items into categories, most-used first. Alphabetical order is a last resort - frequency and logical grouping beat it every time.",
             },
             {
               k: "Filters",
@@ -45,7 +45,7 @@ export default function HicksLaw() {
             },
             {
               k: "Settings",
-              v: "Show recommended defaults, hide advanced options. The majority of users never touch advanced settings — don't make them wade through them.",
+              v: "Show recommended defaults, hide advanced options. The majority of users never touch advanced settings - don't make them wade through them.",
             },
           ]}
         />
@@ -68,11 +68,11 @@ export default function HicksLaw() {
             },
             {
               k: "Categorization",
-              v: "Group 20 items into 4 groups of 5. The user first picks a category (4 choices), then an item within it (5 choices) — far faster than scanning 20.",
+              v: "Group 20 items into 4 groups of 5. The user first picks a category (4 choices), then an item within it (5 choices) - far faster than scanning 20.",
             },
             {
               k: "Search",
-              v: "When the list exceeds scannable size, add search. Once the options exceed roughly 15, users switch from scanning to searching — support that.",
+              v: "When the list exceeds scannable size, add search. Once the options exceed roughly 15, users switch from scanning to searching - support that.",
             },
           ]}
         />
@@ -83,12 +83,12 @@ export default function HicksLaw() {
           <RuleCard
             type="do"
             title="Break a 20-field form into 4 logical steps"
-            description="Each step presents a focused set of decisions. The user completes one group, sees progress, and moves on — instead of facing a wall of fields."
+            description="Each step presents a focused set of decisions. The user completes one group, sees progress, and moves on - instead of facing a wall of fields."
           />
           <RuleCard
             type="dont"
             title="Present all options simultaneously in a flat, ungrouped list"
-            description="A flat list of 20 items forces the user to evaluate every option before making a choice. Decision time scales logarithmically — fewer visible options means faster decisions."
+            description="A flat list of 20 items forces the user to evaluate every option before making a choice. Decision time scales logarithmically - fewer visible options means faster decisions."
           />
           <RuleCard
             type="do"

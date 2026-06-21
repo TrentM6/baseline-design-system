@@ -67,7 +67,7 @@ const DEFAULT_FILTERS: FilterDef[] = [
 ];
 
 /**
- * FilterBar — horizontal filter strip for dashboard views.
+ * FilterBar - horizontal filter strip for dashboard views.
  * Composes: Input, Select, Button, Badge, Phosphor icons.
  * Tokens: --bl-fg-muted, --bl-fg-primary, --bl-bg-elevated.
  */

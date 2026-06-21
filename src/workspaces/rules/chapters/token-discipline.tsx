@@ -24,7 +24,7 @@ export default function TokenDiscipline() {
             },
             {
               k: "Semantic naming",
-              v: "--bl-bg-surface not --bl-dark-brown — name by role. The token name must make sense in both dark and light mode. If it mentions a color, it's wrong.",
+              v: "--bl-bg-surface not --bl-dark-brown - name by role. The token name must make sense in both dark and light mode. If it mentions a color, it's wrong.",
             },
             {
               k: "Both modes required",
@@ -48,27 +48,27 @@ export default function TokenDiscipline() {
           rows={[
             {
               k: "--bl-bg-*",
-              v: "Background surfaces — body, surface, elevated, overlay. These define the layered surface system that creates depth and hierarchy.",
+              v: "Background surfaces - body, surface, elevated, overlay. These define the layered surface system that creates depth and hierarchy.",
             },
             {
               k: "--bl-fg-*",
-              v: "Foreground text — primary, secondary, muted, inverse. Ordered by visual weight. Primary for body text, secondary for supporting text, muted for hints.",
+              v: "Foreground text - primary, secondary, muted, inverse. Ordered by visual weight. Primary for body text, secondary for supporting text, muted for hints.",
             },
             {
               k: "--bl-border-*",
-              v: "Borders and dividers — default, divider, focus-ring. Structural lines that separate or contain UI elements.",
+              v: "Borders and dividers - default, divider, focus-ring. Structural lines that separate or contain UI elements.",
             },
             {
               k: "--bl-fill-*",
-              v: "Solid fills — primary brand, success, warning, danger, info. Used for buttons, badges, indicators, and any filled surface that carries semantic meaning.",
+              v: "Solid fills - primary brand, success, warning, danger, info. Used for buttons, badges, indicators, and any filled surface that carries semantic meaning.",
             },
             {
               k: "--bl-shadow-*",
-              v: "Elevation shadows — sm, md, lg, overlay. Create the illusion of layered surfaces. Higher shadows mean the element is closer to the user.",
+              v: "Elevation shadows - sm, md, lg, overlay. Create the illusion of layered surfaces. Higher shadows mean the element is closer to the user.",
             },
             {
               k: "--bl-space-*",
-              v: "Spacing — 1 through 12 in 4px increments. The spatial rhythm of the entire system. Consistent spacing is what makes a UI feel designed rather than assembled.",
+              v: "Spacing - 1 through 12 in 4px increments. The spatial rhythm of the entire system. Consistent spacing is what makes a UI feel designed rather than assembled.",
             },
           ]}
         />
@@ -77,7 +77,7 @@ export default function TokenDiscipline() {
       <DocSection heading="Naming conventions">
         <p>
           Tokens describe what they do, not what they look like.
-          --bl-fg-muted works because "muted foreground" is a role — it means
+          --bl-fg-muted works because "muted foreground" is a role - it means
           the same thing regardless of whether the current mode renders it as
           light grey or dark grey. --bl-light-grey fails because "light grey" is
           an appearance that flips meaning in light mode.
@@ -102,7 +102,7 @@ export default function TokenDiscipline() {
           </li>
           <li>
             <strong>No hedging.</strong> --bl-bg-surface-maybe or
-            --bl-fg-sort-of-muted aren't tokens — they're indecision. A token
+            --bl-fg-sort-of-muted aren't tokens - they're indecision. A token
             is a design decision. If you can't name it confidently, the decision
             isn't made yet.
           </li>
@@ -124,7 +124,7 @@ export default function TokenDiscipline() {
           <RuleCard
             type="do"
             title="Name tokens by their semantic role (--bl-fg-muted)"
-            description="Semantic names survive mode changes because they describe function. 'Muted foreground' means the same thing in dark and light mode — the value changes, the role doesn't."
+            description="Semantic names survive mode changes because they describe function. 'Muted foreground' means the same thing in dark and light mode - the value changes, the role doesn't."
           />
           <RuleCard
             type="dont"
@@ -134,7 +134,7 @@ export default function TokenDiscipline() {
           <RuleCard
             type="do"
             title="Define both dark and light values for every new token"
-            description="Both values ship in the same commit. A token with only one mode value is a half-built bridge — it will break for someone, and debugging it later is harder than defining it now."
+            description="Both values ship in the same commit. A token with only one mode value is a half-built bridge - it will break for someone, and debugging it later is harder than defining it now."
           />
           <RuleCard
             type="dont"

@@ -17,7 +17,7 @@ export interface FaqItem {
 }
 
 /**
- * FaqAccordion — titled card wrapping an accordion.
+ * FaqAccordion - titled card wrapping an accordion.
  * Composes: Card, Accordion (keyboard + animation baked in).
  */
 export function FaqAccordion({

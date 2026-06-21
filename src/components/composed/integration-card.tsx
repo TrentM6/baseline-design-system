@@ -21,7 +21,7 @@ const INTEGRATIONS: Integration[] = [
 ];
 
 /**
- * IntegrationCard — grid of integration items with connection toggles and
+ * IntegrationCard - grid of integration items with connection toggles and
  * configure actions. Composes: Card, Badge, Button, Switch, Phosphor
  * Plugs icon.
  */

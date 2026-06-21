@@ -53,7 +53,7 @@ function formatCurrency(n: number): string {
 }
 
 /**
- * CampaignPerformance — marketing campaign performance table.
+ * CampaignPerformance - marketing campaign performance table.
  * Composes: Card, Table, Badge, Progress, Phosphor Megaphone/Trend icons.
  * Tokens: --bl-fill-success/warning/danger, --bl-fg-*, --bl-border-divider.
  */

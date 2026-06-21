@@ -31,23 +31,23 @@ export default function DohertyThreshold() {
           rows={[
             {
               k: "0-100ms",
-              v: "Instantaneous — hover states, button presses, toggles. The user perceives this as immediate. No feedback beyond the visual change itself is needed.",
+              v: "Instantaneous - hover states, button presses, toggles. The user perceives this as immediate. No feedback beyond the visual change itself is needed.",
             },
             {
               k: "100-400ms",
-              v: "Fast — page transitions, simple queries, tab switches. The user notices a brief pause but stays in flow. This is the target for most interactions.",
+              v: "Fast - page transitions, simple queries, tab switches. The user notices a brief pause but stays in flow. This is the target for most interactions.",
             },
             {
               k: "400ms-1s",
-              v: "Noticeable — show a skeleton or spinner, keep the user informed. The user's attention begins to drift; a loading indicator keeps them anchored.",
+              v: "Noticeable - show a skeleton or spinner, keep the user informed. The user's attention begins to drift; a loading indicator keeps them anchored.",
             },
             {
               k: "1s-10s",
-              v: "Slow — show a progress indicator with estimated time. The user is waiting and knows it. Tell them how long and show measurable progress.",
+              v: "Slow - show a progress indicator with estimated time. The user is waiting and knows it. Tell them how long and show measurable progress.",
             },
             {
               k: "10s+",
-              v: "Very slow — background the task, notify on completion. The user has mentally moved on. Don't hold them hostage; let them do other things and come back.",
+              v: "Very slow - background the task, notify on completion. The user has mentally moved on. Don't hold them hostage; let them do other things and come back.",
             },
           ]}
         />
@@ -58,11 +58,11 @@ export default function DohertyThreshold() {
           rows={[
             {
               k: "Skeleton screens",
-              v: "Show the layout shape before content loads. The page feels faster because the user sees structure immediately — their brain starts processing the layout while data arrives.",
+              v: "Show the layout shape before content loads. The page feels faster because the user sees structure immediately - their brain starts processing the layout while data arrives.",
             },
             {
               k: "Optimistic updates",
-              v: "Update UI immediately, reconcile with server async. When the user clicks 'like,' the heart fills instantly. If the server rejects it, roll back — but 99% of the time, the instant feedback was correct.",
+              v: "Update UI immediately, reconcile with server async. When the user clicks 'like,' the heart fills instantly. If the server rejects it, roll back - but 99% of the time, the instant feedback was correct.",
             },
             {
               k: "Progressive loading",
@@ -85,12 +85,12 @@ export default function DohertyThreshold() {
           <RuleCard
             type="do"
             title="Show a skeleton screen within 100ms of navigation"
-            description="The skeleton appears instantly, giving the user a sense of the page structure. Content fills in progressively — the experience feels fast even if the data takes a full second."
+            description="The skeleton appears instantly, giving the user a sense of the page structure. Content fills in progressively - the experience feels fast even if the data takes a full second."
           />
           <RuleCard
             type="dont"
             title="Show a blank white screen while loading"
-            description="A blank screen gives no information — the user doesn't know if the page is loading, broken, or empty. Skeleton screens eliminate this ambiguity."
+            description="A blank screen gives no information - the user doesn't know if the page is loading, broken, or empty. Skeleton screens eliminate this ambiguity."
           />
           <RuleCard
             type="do"
@@ -109,7 +109,7 @@ export default function DohertyThreshold() {
           />
           <RuleCard
             type="dont"
-            title="Use a spinner for operations that take more than 4 seconds — show progress instead"
+            title="Use a spinner for operations that take more than 4 seconds - show progress instead"
             description="A spinner conveys 'working' but not 'how long.' After 4 seconds, the user wants to know if this is 5 seconds or 5 minutes. Show measurable progress."
           />
         </div>

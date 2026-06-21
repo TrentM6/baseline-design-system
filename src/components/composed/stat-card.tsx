@@ -12,7 +12,7 @@ export interface StatCardProps {
 }
 
 /**
- * StatCard — single metric with a directional delta.
+ * StatCard -single metric with a directional delta.
  * Composes: Card, Phosphor icon. Tokens for trend color.
  */
 export function StatCard({ label, value, change, positive, icon: IconCmp }: StatCardProps) {

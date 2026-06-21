@@ -97,7 +97,7 @@ function formatRate(conversions: number, sessions: number): string {
 }
 
 /**
- * ChannelAttribution — marketing channel attribution breakdown.
+ * ChannelAttribution - marketing channel attribution breakdown.
  * Shows acquisition channels with sessions, conversions, conversion rate,
  * revenue, and a proportional share bar for each channel.
  *

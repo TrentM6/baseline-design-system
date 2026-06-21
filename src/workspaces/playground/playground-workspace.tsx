@@ -57,6 +57,25 @@ interface Placed {
   size: SlotSize;
 }
 
+function MobileGate() {
+  return (
+    <div className="flex flex-col items-center justify-center h-full px-6 text-center">
+      <div
+        className="flex h-12 w-12 items-center justify-center rounded-lg mb-4"
+        style={{ backgroundColor: "var(--bl-accent-subtle)" }}
+      >
+        <Monitor size={22} weight="fill" style={{ color: "var(--bl-fill-primary)" }} />
+      </div>
+      <p className="text-sm font-heading font-medium" style={{ color: "var(--bl-fg-primary)" }}>
+        Desktop only
+      </p>
+      <p className="text-[13px] mt-1.5 max-w-xs" style={{ color: "var(--bl-fg-muted)" }}>
+        The Playground canvas requires a larger screen. Open this page on a desktop browser to compose layouts.
+      </p>
+    </div>
+  );
+}
+
 function PlaygroundWorkspace() {
   const [placed, setPlaced] = useState<Placed[]>([]);
   const [selected, setSelected] = useState<number | null>(null);
@@ -110,7 +129,11 @@ function PlaygroundWorkspace() {
   const isWeb = device === "web";
 
   return (
-    <div className="flex h-full min-h-0">
+    <>
+    <div className="flex h-full min-h-0 sm:hidden">
+      <MobileGate />
+    </div>
+    <div className="hidden sm:flex h-full min-h-0">
       {/* ── App shell sidebar ── */}
       <div
         className={cn(
@@ -380,6 +403,7 @@ function PlaygroundWorkspace() {
         </DialogContent>
       </Dialog>
     </div>
+    </>
   );
 }
 

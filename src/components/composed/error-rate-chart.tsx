@@ -87,7 +87,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 /**
- * ErrorRateChart — application error rate monitoring over 24 hours.
+ * ErrorRateChart - application error rate monitoring over 24 hours.
  * Composes: Card, Badge, ChartContainer (Recharts AreaChart), Phosphor Warning icon.
  * Tokens: --bl-fill-danger, --bl-fill-success, --bl-fill-warning,
  *         --bl-fg-primary, --bl-fg-secondary, --bl-fg-muted,

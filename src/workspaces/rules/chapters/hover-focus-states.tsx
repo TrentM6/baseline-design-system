@@ -20,23 +20,23 @@ export default function HoverFocusStates() {
           rows={[
             {
               k: "Default",
-              v: "Resting state — no interaction. The element's baseline appearance as defined by its tokens. This is what the user sees before any engagement.",
+              v: "Resting state - no interaction. The element's baseline appearance as defined by its tokens. This is what the user sees before any engagement.",
             },
             {
               k: "Hover",
-              v: "Mouse over — subtle background shift or underline. Signals that the element is interactive and will respond to a click.",
+              v: "Mouse over - subtle background shift or underline. Signals that the element is interactive and will respond to a click.",
             },
             {
               k: "Focus-visible",
-              v: "Keyboard navigation — 2px ring using the --bl-focus-ring token. Appears only on keyboard focus, not mouse click. Essential for accessibility.",
+              v: "Keyboard navigation - 2px ring using the --bl-focus-ring token. Appears only on keyboard focus, not mouse click. Essential for accessibility.",
             },
             {
               k: "Active / Pressed",
-              v: "Mouse down or Enter key — slight scale reduction or background darken. Confirms the interaction is registering before the action completes.",
+              v: "Mouse down or Enter key - slight scale reduction or background darken. Confirms the interaction is registering before the action completes.",
             },
             {
               k: "Disabled",
-              v: "Non-interactive — reduced opacity, cursor: not-allowed, no pointer events. The element is visible but cannot be activated.",
+              v: "Non-interactive - reduced opacity, cursor: not-allowed, no pointer events. The element is visible but cannot be activated.",
             },
           ]}
         />
@@ -51,11 +51,11 @@ export default function HoverFocusStates() {
             },
             {
               k: "Links",
-              v: "Underline on hover, not by default. Inline links in body text are the exception — they keep a permanent underline for discoverability.",
+              v: "Underline on hover, not by default. Inline links in body text are the exception - they keep a permanent underline for discoverability.",
             },
             {
               k: "Cards",
-              v: "Subtle elevation change or border highlight. The entire card surface is the hover target — don't limit the hover zone to just the title or action area.",
+              v: "Subtle elevation change or border highlight. The entire card surface is the hover target - don't limit the hover zone to just the title or action area.",
             },
             {
               k: "Table rows",
@@ -97,8 +97,8 @@ export default function HoverFocusStates() {
           <li>
             <strong>Never suppress without replacement.</strong> If the default
             ring conflicts with a specific layout, replace it with an equally
-            visible alternative — a background shift, inner glow, or thicker
-            border — never just <code className="text-[12px] px-1 py-0.5 rounded" style={{ backgroundColor: "var(--bl-bg-elevated)" }}>outline: none</code>.
+            visible alternative - a background shift, inner glow, or thicker
+            border - never just <code className="text-[12px] px-1 py-0.5 rounded" style={{ backgroundColor: "var(--bl-bg-elevated)" }}>outline: none</code>.
           </li>
         </ul>
       </DocSection>
@@ -112,7 +112,7 @@ export default function HoverFocusStates() {
             },
             {
               k: "Cursor",
-              v: "not-allowed to signal non-interactivity. The cursor change is a secondary affordance — don't rely on it as the only disabled indicator.",
+              v: "not-allowed to signal non-interactivity. The cursor change is a secondary affordance - don't rely on it as the only disabled indicator.",
             },
             {
               k: "Pointer events",
@@ -124,7 +124,7 @@ export default function HoverFocusStates() {
             },
             {
               k: "Color",
-              v: "Do not rely on color change alone to indicate disabled. The opacity reduction plus cursor change work together — color alone fails WCAG SC 1.4.1.",
+              v: "Do not rely on color change alone to indicate disabled. The opacity reduction plus cursor change work together - color alone fails WCAG SC 1.4.1.",
             },
           ]}
         />
@@ -135,7 +135,7 @@ export default function HoverFocusStates() {
           <RuleCard
             type="do"
             title="Use :focus-visible to show focus rings only for keyboard navigation"
-            description="Keyboard users need the ring to track their position. Mouse users don't — showing it on click is visual noise that makes the UI feel less polished."
+            description="Keyboard users need the ring to track their position. Mouse users don't - showing it on click is visual noise that makes the UI feel less polished."
           />
           <RuleCard
             type="dont"
@@ -159,7 +159,7 @@ export default function HoverFocusStates() {
           />
           <RuleCard
             type="dont"
-            title="Use hover-only reveals for essential content — mobile has no hover"
+            title="Use hover-only reveals for essential content - mobile has no hover"
             description="Content that appears only on hover is invisible to touch users. Use hover to enhance, never to gate access to information or actions."
           />
         </div>

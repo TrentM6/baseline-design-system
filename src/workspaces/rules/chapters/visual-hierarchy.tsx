@@ -12,7 +12,7 @@ export default function VisualHierarchy() {
       <p className="text-[14px] leading-relaxed mb-8" style={{ color: "var(--bl-fg-secondary)" }}>
         Use size, weight, color, and position to signal what matters most on a
         screen. Hierarchy is how users navigate an interface without reading
-        every word — it tells the eye where to go first, second, and third.
+        every word - it tells the eye where to go first, second, and third.
       </p>
 
       <DocSection heading="The four tools of hierarchy">
@@ -20,11 +20,11 @@ export default function VisualHierarchy() {
           rows={[
             {
               k: "Size",
-              v: "Larger elements draw attention first. A 24px heading dominates a 14px body paragraph. Use size differences to establish clear levels — if two elements are similar in size, they compete.",
+              v: "Larger elements draw attention first. A 24px heading dominates a 14px body paragraph. Use size differences to establish clear levels - if two elements are similar in size, they compete.",
             },
             {
               k: "Weight",
-              v: "Bold text stands out from regular weight. Font weight creates emphasis within the same size level. Use medium (500) for headings, regular (400) for body, and avoid bold body text — it flattens the hierarchy.",
+              v: "Bold text stands out from regular weight. Font weight creates emphasis within the same size level. Use medium (500) for headings, regular (400) for body, and avoid bold body text - it flattens the hierarchy.",
             },
             {
               k: "Color",
@@ -82,7 +82,7 @@ export default function VisualHierarchy() {
             },
             {
               k: "Caption / label",
-              v: "text-[11px], uppercase, tracking-widest. Eyebrow labels, category tags, overline text. The smallest tier — used sparingly for classification, not reading.",
+              v: "text-[11px], uppercase, tracking-widest. Eyebrow labels, category tags, overline text. The smallest tier - used sparingly for classification, not reading.",
             },
           ]}
         />
@@ -93,7 +93,7 @@ export default function VisualHierarchy() {
           <RuleCard
             type="do"
             title="Design one clear focal point per screen"
-            description="The user's eye should land on the most important element without searching. A single dominant heading, a hero action, or a key metric — one thing leads."
+            description="The user's eye should land on the most important element without searching. A single dominant heading, a hero action, or a key metric - one thing leads."
           />
           <RuleCard
             type="dont"
@@ -107,18 +107,18 @@ export default function VisualHierarchy() {
           />
           <RuleCard
             type="dont"
-            title="Use --bl-fg-primary for everything — it flattens the hierarchy"
+            title="Use --bl-fg-primary for everything - it flattens the hierarchy"
             description="When everything is high-contrast, nothing stands out. Reserve --bl-fg-primary for headings and key content; let secondary and muted colors do the rest."
           />
           <RuleCard
             type="do"
             title="Size primary actions larger than secondary ones"
-            description="The main CTA should be visually dominant — larger padding, bolder color, more prominent position. Secondary actions use ghost or outline variants at the same or smaller size."
+            description="The main CTA should be visually dominant - larger padding, bolder color, more prominent position. Secondary actions use ghost or outline variants at the same or smaller size."
           />
           <RuleCard
             type="dont"
             title="Make destructive actions more prominent than the primary task action"
-            description="A red 'Delete' button that's larger than the 'Save' button inverts the hierarchy. Destructive actions should be visually subordinate — smaller, ghost style, or tucked into a menu."
+            description="A red 'Delete' button that's larger than the 'Save' button inverts the hierarchy. Destructive actions should be visually subordinate - smaller, ghost style, or tucked into a menu."
           />
         </div>
       </DocSection>

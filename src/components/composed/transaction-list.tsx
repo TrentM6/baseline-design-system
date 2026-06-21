@@ -35,7 +35,7 @@ function Glyph({ name }: { name: string }) {
 }
 
 /**
- * TransactionList — recent transactions with glyph, label, amount and time.
+ * TransactionList -recent transactions with glyph, label, amount and time.
  * Composes Card, Button, tokens. Amounts use the success token (semantic, not
  * decorative) so the surface stays monochromatic orange otherwise.
  */

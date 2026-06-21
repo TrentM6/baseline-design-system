@@ -122,7 +122,7 @@ const INCIDENTS: Incident[] = [
 ];
 
 /**
- * IncidentTimeline — PagerDuty-style incident log for ops dashboards.
+ * IncidentTimeline - PagerDuty-style incident log for ops dashboards.
  *
  * Displays recent incidents as a vertical timeline with severity, status,
  * assignee, and timestamps. Each node uses a severity-coded icon and a

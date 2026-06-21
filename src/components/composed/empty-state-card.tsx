@@ -19,7 +19,7 @@ export interface EmptyStateCardProps {
 }
 
 /**
- * EmptyStateCard — illustrated empty state for dashboard sections.
+ * EmptyStateCard - illustrated empty state for dashboard sections.
  * Composes: Card, Button, Phosphor icon.
  * Tokens: --bl-fg-muted, --bl-fg-secondary, --bl-fg-primary.
  */

@@ -37,7 +37,7 @@ function ComponentCard({
       }}
     >
       <div
-        className="relative aspect-[16/9] sm:aspect-[4/3] overflow-hidden transition-[border-color] duration-quick group-hover:border-[var(--bl-border-muted)]"
+        className="relative aspect-[4/3] overflow-hidden transition-[border-color] duration-quick group-hover:border-[var(--bl-border-muted)]"
         style={{ backgroundColor: "var(--bl-bg-body)" }}
       >
         <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center p-4">
@@ -203,7 +203,7 @@ function ComponentsWorkspace() {
             </ToggleGroup>
           </header>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             {filtered.map((comp) => (
               <ComponentCard
                 key={comp.key}

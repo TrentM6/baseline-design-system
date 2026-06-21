@@ -14,7 +14,7 @@ export default function AgentContract() {
         style={{ color: "var(--bl-fg-secondary)" }}
       >
         This is the enforceable contract that every AI agent reads at session
-        start. It governs how agents interact with the design system — what
+        start. It governs how agents interact with the design system - what
         they must do, what they must not do, and how they validate their own
         output before reporting it as done.
       </p>
@@ -63,8 +63,8 @@ export default function AgentContract() {
           rows={[
             { k: "Tokens", v: "All values (color, spacing, radius, motion) from --bl-* tokens" },
             { k: "Base components", v: "All interactive elements from shadcn/ui in src/components/ui/" },
-            { k: "Icons", v: "All icons from @phosphor-icons/react — no inline SVG for standard UI icons" },
-            { k: "Accessibility", v: "WCAG 2.2 AA on every component — contrast, keyboard, names, focus" },
+            { k: "Icons", v: "All icons from @phosphor-icons/react - no inline SVG for standard UI icons" },
+            { k: "Accessibility", v: "WCAG 2.2 AA on every component - contrast, keyboard, names, focus" },
             { k: "Both modes", v: "Every change verified in dark AND light mode" },
           ]}
         />
@@ -73,7 +73,7 @@ export default function AgentContract() {
       <DocSection eyebrow="Validation" heading="UX validation loop">
         <p>
           After completing any visual change, agents must run a 5-step
-          validation before reporting work as done. This is mandatory — not
+          validation before reporting work as done. This is mandatory - not
           optional, not aspirational.
         </p>
         <DocKeyValue
@@ -88,7 +88,7 @@ export default function AgentContract() {
             },
             {
               k: "3. Mode verification",
-              v: "Toggle light mode — verify. Toggle dark mode — verify. Any new token has both values.",
+              v: "Toggle light mode - verify. Toggle dark mode - verify. Any new token has both values.",
             },
             {
               k: "4. UX reviewer persona",

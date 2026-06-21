@@ -12,7 +12,7 @@ export default function BrandIdentity() {
       <p className="text-[14px] leading-relaxed mb-8" style={{ color: "var(--bl-fg-secondary)" }}>
         Baseline's visual identity is built on a monochromatic orange palette,
         dark-first design, and warm surfaces. Every visual decision reinforces
-        the same DNA — confident, warm, and unmistakably ours.
+        the same DNA - confident, warm, and unmistakably ours.
       </p>
 
       <DocSection eyebrow="FOUNDATIONS" heading="Core brand elements">
@@ -20,23 +20,23 @@ export default function BrandIdentity() {
           rows={[
             {
               k: "Brand orange",
-              v: "#fe4506 — the anchor of every palette decision. All accent, interactive, and emphasis colors are tints, shades, or opacity variants of this single hue.",
+              v: "#fe4506 - the anchor of every palette decision. All accent, interactive, and emphasis colors are tints, shades, or opacity variants of this single hue.",
             },
             {
               k: "Monochromatic palette",
-              v: "Every color in the system derives from the orange family. No secondary hue families — blues, greens, or purples appear only in semantic contexts (success, error) and are kept muted to avoid competing.",
+              v: "Every color in the system derives from the orange family. No secondary hue families - blues, greens, or purples appear only in semantic contexts (success, error) and are kept muted to avoid competing.",
             },
             {
               k: "Heading typeface",
-              v: "Geist — geometric, clean, and modern. Used for headings, display text, and any typographic element that needs to command attention.",
+              v: "Geist - geometric, clean, and modern. Used for headings, display text, and any typographic element that needs to command attention.",
             },
             {
               k: "Body typeface",
-              v: "Satoshi — humanist warmth with excellent readability at small sizes. Used for body copy, labels, descriptions, and all running text.",
+              v: "Satoshi - humanist warmth with excellent readability at small sizes. Used for body copy, labels, descriptions, and all running text.",
             },
             {
               k: "Design philosophy",
-              v: "Dark-first. The brand palette, token system, and visual identity were conceived in dark mode. Light mode is a derived expression — not the other way around.",
+              v: "Dark-first. The brand palette, token system, and visual identity were conceived in dark mode. Light mode is a derived expression - not the other way around.",
             },
           ]}
         />
@@ -52,20 +52,20 @@ export default function BrandIdentity() {
         <DocKeyValue
           rows={[
             {
-              k: "Level 0 — Base",
-              v: "zinc-950 (#09090b) — the deepest background. Used for the application shell, page canvas, and areas that recede visually.",
+              k: "Level 0 - Base",
+              v: "zinc-950 (#09090b) - the deepest background. Used for the application shell, page canvas, and areas that recede visually.",
             },
             {
-              k: "Level 1 — Surface",
-              v: "zinc-900 (#18181b) — primary content surfaces. Cards, panels, and content containers sit at this level.",
+              k: "Level 1 - Surface",
+              v: "zinc-900 (#18181b) - primary content surfaces. Cards, panels, and content containers sit at this level.",
             },
             {
-              k: "Level 2 — Elevated",
-              v: "zinc-800 (#27272a) — raised elements. Dropdowns, popovers, tooltips, sidebar, and anything that floats above the surface.",
+              k: "Level 2 - Elevated",
+              v: "zinc-800 (#27272a) - raised elements. Dropdowns, popovers, tooltips, sidebar, and anything that floats above the surface.",
             },
             {
-              k: "Level 3 — Active",
-              v: "zinc-700 (#3f3f46) — the highest elevation. Active rows, focused input fields, and interactive states that need maximum separation.",
+              k: "Level 3 - Active",
+              v: "zinc-700 (#3f3f46) - the highest elevation. Active rows, focused input fields, and interactive states that need maximum separation.",
             },
           ]}
         />
@@ -76,11 +76,11 @@ export default function BrandIdentity() {
           rows={[
             {
               k: "Tight corners",
-              v: "Small, consistent border radius across every component. Buttons, cards, inputs, badges — all use the compact radius scale (2–8px). No pills, no large rounding.",
+              v: "Small, consistent border radius across every component. Buttons, cards, inputs, badges - all use the compact radius scale (2–8px). No pills, no large rounding.",
             },
             {
               k: "Cool neutrals",
-              v: "Every neutral is drawn from the zinc ramp (cool gray). Off-palette neutrals (#808080, #ccc, warm browns) are treated as bugs — they read as disconnected from the system.",
+              v: "Every neutral is drawn from the zinc ramp (cool gray). Off-palette neutrals (#808080, #ccc, warm browns) are treated as bugs - they read as disconnected from the system.",
             },
             {
               k: "Monochromatic discipline",
@@ -113,7 +113,7 @@ export default function BrandIdentity() {
           />
           <RuleCard
             type="dont"
-            title="Use pure greys — all neutrals carry a warm orange undertone"
+            title="Use pure greys - all neutrals carry a warm orange undertone"
             description="Pure grey (#808080, #f5f5f5) looks alien in Baseline's palette. Every neutral must be tinted warm to maintain the cohesive visual identity."
           />
         </div>

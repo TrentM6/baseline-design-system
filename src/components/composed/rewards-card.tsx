@@ -20,7 +20,7 @@ const REWARDS: Reward[] = [
 ];
 
 /**
- * RewardsCard — onboarding checklist + CTA. Composes Card, Button, Phosphor.
+ * RewardsCard -onboarding checklist + CTA. Composes Card, Button, Phosphor.
  * Completed items use the brand fill; pending use a muted ring.
  */
 export function RewardsCard() {

@@ -11,7 +11,7 @@ export default function KeyboardFocus() {
       </h2>
       <p className="text-[14px] leading-relaxed mb-8" style={{ color: "var(--bl-fg-secondary)" }}>
         Every interaction in Baseline must be reachable and operable via
-        keyboard alone. Focus management is how keyboard users navigate — if
+        keyboard alone. Focus management is how keyboard users navigate - if
         they can't see where they are or reach what they need, the interface
         is broken for them.
       </p>
@@ -47,7 +47,7 @@ export default function KeyboardFocus() {
       <DocSection heading="Focus visibility">
         <p>
           A keyboard user must always be able to see which element is focused.
-          The focus indicator is their cursor — hiding it is the equivalent of
+          The focus indicator is their cursor - hiding it is the equivalent of
           making the mouse pointer invisible.
         </p>
         <DocKeyValue
@@ -62,7 +62,7 @@ export default function KeyboardFocus() {
             },
             {
               k: "Never suppress focus styles",
-              v: "outline: none without a visible replacement is one of the most common accessibility failures. If you remove the browser default, you must provide something better — not nothing.",
+              v: "outline: none without a visible replacement is one of the most common accessibility failures. If you remove the browser default, you must provide something better - not nothing.",
             },
             {
               k: "Contrast requirement",
@@ -90,7 +90,7 @@ export default function KeyboardFocus() {
             },
             {
               k: "Escape dismisses",
-              v: "Pressing Escape must close the topmost overlay — modal, dropdown, tooltip, or popover. This is a universal keyboard convention and must be consistent across all components.",
+              v: "Pressing Escape must close the topmost overlay - modal, dropdown, tooltip, or popover. This is a universal keyboard convention and must be consistent across all components.",
             },
             {
               k: "Auto-focus the first element",

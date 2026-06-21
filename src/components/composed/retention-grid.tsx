@@ -41,7 +41,7 @@ function retentionOpacity(pct: number): number {
 }
 
 /**
- * RetentionGrid — cohort retention matrix / heatmap.
+ * RetentionGrid - cohort retention matrix / heatmap.
  * Composes: Card, Table, Badge, Phosphor UsersThree icon.
  * Tokens: --bl-fill-primary (with opacity), --bl-fg-*, --bl-bg-elevated, --bl-border-divider.
  */
@@ -114,7 +114,7 @@ export function RetentionGrid({ className }: { className?: string }) {
                           className="text-[12px]"
                           style={{ color: "var(--bl-fg-muted)" }}
                         >
-                          —
+                          -
                         </span>
                       )}
                     </TableCell>

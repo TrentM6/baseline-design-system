@@ -19,9 +19,9 @@ interface LineItem {
 }
 
 const ITEMS: LineItem[] = [
-  { description: "Design System License — Pro", qty: 1, rate: "$299.00", amount: "$299.00" },
+  { description: "Design System License - Pro", qty: 1, rate: "$299.00", amount: "$299.00" },
   { description: "Additional team seats (×8)", qty: 8, rate: "$29.00", amount: "$232.00" },
-  { description: "Priority support — annual", qty: 1, rate: "$149.00", amount: "$149.00" },
+  { description: "Priority support - annual", qty: 1, rate: "$149.00", amount: "$149.00" },
   { description: "Custom token workshop (2h)", qty: 2, rate: "$175.00", amount: "$350.00" },
 ];
 

@@ -17,7 +17,7 @@ export default function FittsLaw() {
 
       <DocSection heading="The formula">
         <p>
-          <strong>T = a + b × log₂(1 + D/W)</strong> — where D is distance to
+          <strong>T = a + b × log₂(1 + D/W)</strong> - where D is distance to
           the target and W is the target's width. The practical takeaway:
           make important targets big and put them where the cursor already is.
         </p>
@@ -32,7 +32,7 @@ export default function FittsLaw() {
             },
             {
               k: "Edge targets",
-              v: "Elements at screen edges are effectively infinite width — the cursor can't overshoot. Nav bars and toolbars benefit from edge placement.",
+              v: "Elements at screen edges are effectively infinite width - the cursor can't overshoot. Nav bars and toolbars benefit from edge placement.",
             },
             {
               k: "Contextual actions",
@@ -40,7 +40,7 @@ export default function FittsLaw() {
             },
             {
               k: "Dropdown placement",
-              v: "Open menus near the trigger. The first item should be directly under the cursor — zero travel distance.",
+              v: "Open menus near the trigger. The first item should be directly under the cursor - zero travel distance.",
             },
           ]}
         />
@@ -61,12 +61,12 @@ export default function FittsLaw() {
           <RuleCard
             type="do"
             title="Group related actions"
-            description="Place confirm/cancel buttons adjacent — the user doesn't have to travel across the screen to change their mind."
+            description="Place confirm/cancel buttons adjacent - the user doesn't have to travel across the screen to change their mind."
           />
           <RuleCard
             type="dont"
             title="Scatter actions across the viewport"
-            description="Save at the top, delete at the bottom, cancel in the sidebar — every placement decision is a distance penalty for the user."
+            description="Save at the top, delete at the bottom, cancel in the sidebar - every placement decision is a distance penalty for the user."
           />
         </div>
       </DocSection>

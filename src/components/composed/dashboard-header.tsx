@@ -17,7 +17,7 @@ export interface DashboardHeaderProps {
   title: string;
   /** Optional subtitle / description. */
   subtitle?: string;
-  /** Breadcrumb trail — array of labels. Last item is the current page. */
+  /** Breadcrumb trail - array of labels. Last item is the current page. */
   breadcrumbs?: string[];
   /** Actions rendered on the right side (e.g. Button elements). */
   actions?: React.ReactNode;
@@ -29,7 +29,7 @@ export interface DashboardHeaderProps {
 const DEFAULT_BREADCRUMBS = ["Home", "Dashboard", "Analytics"];
 
 /**
- * DashboardHeader — page header with breadcrumbs, title, and actions.
+ * DashboardHeader - page header with breadcrumbs, title, and actions.
  * Composes: Button, Badge, Breadcrumb, Phosphor Bell icon.
  * Tokens: --bl-fg-primary, --bl-fg-secondary, --bl-fg-muted.
  */

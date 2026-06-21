@@ -20,7 +20,7 @@ export default function JakobsLaw() {
           Jakob Nielsen's Law states that users transfer expectations from one
           product to another. They expect your search bar at the top, your
           navigation on the left or top, your submit button at the bottom right
-          of a form. Breaking these conventions creates friction — the user has
+          of a form. Breaking these conventions creates friction - the user has
           to learn your way instead of applying what they already know.
         </p>
       </DocSection>
@@ -30,7 +30,7 @@ export default function JakobsLaw() {
           rows={[
             {
               k: "Logo top-left",
-              v: "Links to home. This convention is so deeply ingrained that users don't even think about it — they reach for the top-left corner reflexively when they want to start over.",
+              v: "Links to home. This convention is so deeply ingrained that users don't even think about it - they reach for the top-left corner reflexively when they want to start over.",
             },
             {
               k: "Search top-right",
@@ -42,7 +42,7 @@ export default function JakobsLaw() {
             },
             {
               k: "Form submit button",
-              v: "Bottom-right. The eye reads top-to-bottom, left-to-right. The submit button sits at the terminal point of that scan — the natural endpoint of the form.",
+              v: "Bottom-right. The eye reads top-to-bottom, left-to-right. The submit button sits at the terminal point of that scan - the natural endpoint of the form.",
             },
             {
               k: "Close / cancel",
@@ -50,7 +50,7 @@ export default function JakobsLaw() {
             },
             {
               k: "Destructive actions in red",
-              v: "Red signals danger across cultures and platforms. A red delete button needs no label to communicate risk — but always include one anyway.",
+              v: "Red signals danger across cultures and platforms. A red delete button needs no label to communicate risk - but always include one anyway.",
             },
             {
               k: "Shopping cart icon",
@@ -65,7 +65,7 @@ export default function JakobsLaw() {
           Innovation means solving a problem better, not differently for the sake
           of it. Break convention only when you have evidence that the new
           pattern is significantly better AND you can teach it quickly. The bar
-          is high — "it looks cooler" is not sufficient.
+          is high - "it looks cooler" is not sufficient.
         </p>
         <p className="mt-3">
           Before breaking a convention, ask: will users figure this out in under
@@ -79,7 +79,7 @@ export default function JakobsLaw() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <RuleCard
             type="do"
-            title="Place primary actions where users expect them — bottom of forms, end of flows"
+            title="Place primary actions where users expect them - bottom of forms, end of flows"
             description="Users have a mental model of where to find the 'next step.' Bottom-right for forms, bottom-center for wizards. Match those expectations."
           />
           <RuleCard

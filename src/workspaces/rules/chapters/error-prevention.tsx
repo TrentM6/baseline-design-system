@@ -21,7 +21,7 @@ export default function ErrorPrevention() {
           rows={[
             {
               k: "Inline validation",
-              v: "Validate as the user types or on blur — not on submit. Immediate feedback lets users correct mistakes in context, before they've moved on mentally.",
+              v: "Validate as the user types or on blur - not on submit. Immediate feedback lets users correct mistakes in context, before they've moved on mentally.",
             },
             {
               k: "Constraint-based design",
@@ -29,7 +29,7 @@ export default function ErrorPrevention() {
             },
             {
               k: "Smart defaults",
-              v: "Pre-fill known values — country from locale, currency from region, name from account. Every pre-filled field is one less opportunity for a typo or omission.",
+              v: "Pre-fill known values - country from locale, currency from region, name from account. Every pre-filled field is one less opportunity for a typo or omission.",
             },
             {
               k: "Type-ahead / autocomplete",
@@ -42,14 +42,14 @@ export default function ErrorPrevention() {
       <DocSection heading="Undo over confirmation">
         <p>
           Prefer undo (a toast with an undo button) over "Are you sure?"
-          confirmation dialogs. Confirmation fatigue is real — users click
+          confirmation dialogs. Confirmation fatigue is real - users click
           "Yes" reflexively after the third dialog, which means the dialog
           protects nothing. Undo is superior because it lets the user act
           confidently and reverse mistakes without friction.
         </p>
         <p className="mt-3">
           Reserve confirmation dialogs only for truly irreversible destructive
-          actions — permanently deleting data with no recovery path, revoking
+          actions - permanently deleting data with no recovery path, revoking
           access that can't be reinstated, or publishing to a live audience.
           Everything else should be undoable.
         </p>
@@ -60,7 +60,7 @@ export default function ErrorPrevention() {
           rows={[
             {
               k: "Validate on blur, not on change",
-              v: "Validating on every keystroke creates a jarring experience — the field screams 'invalid' before the user has finished typing. Wait until they leave the field.",
+              v: "Validating on every keystroke creates a jarring experience - the field screams 'invalid' before the user has finished typing. Wait until they leave the field.",
             },
             {
               k: "Show validation state next to the field",
@@ -88,7 +88,7 @@ export default function ErrorPrevention() {
           <RuleCard
             type="dont"
             title="Wait until form submission to show validation errors"
-            description="Batch validation after submit forces the user to scroll back, re-read, and fix — often losing context. Inline, on-blur validation catches problems in real time."
+            description="Batch validation after submit forces the user to scroll back, re-read, and fix - often losing context. Inline, on-blur validation catches problems in real time."
           />
           <RuleCard
             type="do"

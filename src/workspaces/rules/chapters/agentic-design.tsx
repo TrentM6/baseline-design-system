@@ -11,14 +11,14 @@ export default function AgenticDesign() {
       </h2>
       <p className="text-[14px] leading-relaxed mb-8" style={{ color: "var(--bl-fg-secondary)" }}>
         Rules for AI agents working in the Baseline design system. Agents are
-        first-class contributors — they must follow the same standards as human
+        first-class contributors - they must follow the same standards as human
         designers and developers.
       </p>
 
       <DocSection eyebrow="PROTOCOL" heading="Agent workflow">
         <p>
           Every agent session that touches the design system must follow this
-          workflow. These steps are not suggestions — they are the minimum bar
+          workflow. These steps are not suggestions - they are the minimum bar
           for an agent to produce work that meets system standards.
         </p>
         <DocKeyValue
@@ -29,11 +29,11 @@ export default function AgenticDesign() {
             },
             {
               k: "Match existing patterns",
-              v: "Find the closest existing component and follow its conventions. Token usage, prop naming, file structure, accessibility patterns — match what's already there.",
+              v: "Find the closest existing component and follow its conventions. Token usage, prop naming, file structure, accessibility patterns - match what's already there.",
             },
             {
               k: "Use tokens always",
-              v: "Agents are the most likely to emit raw hex values — never do this. Every color, spacing value, radius, and duration must resolve to a --bl-* or --dur-* token.",
+              v: "Agents are the most likely to emit raw hex values - never do this. Every color, spacing value, radius, and duration must resolve to a --bl-* or --dur-* token.",
             },
             {
               k: "Compose from base components",
@@ -55,7 +55,7 @@ export default function AgenticDesign() {
         <p>
           When an agent needs something the system doesn't have, the agent must
           add it at the correct level. This is the most common mistake agents
-          make — solving a local problem with a local fix that should be a
+          make - solving a local problem with a local fix that should be a
           system-level addition.
         </p>
         <ul className="list-disc pl-5 space-y-2">
@@ -72,7 +72,7 @@ export default function AgenticDesign() {
           <li>
             <strong>Pattern for a reusable arrangement.</strong> If you're
             wiring together the same three base components in multiple places, that's
-            a pattern — extract it. Don't duplicate the wiring.
+            a pattern - extract it. Don't duplicate the wiring.
           </li>
           <li>
             <strong>Why agents get this wrong.</strong> Agents optimize for
@@ -96,7 +96,7 @@ export default function AgenticDesign() {
             },
             {
               k: "Skipping accessibility",
-              v: "Omitting aria-label on icon buttons, missing focus states, no keyboard support. Agents treat accessibility as an afterthought — in this system it's a requirement.",
+              v: "Omitting aria-label on icon buttons, missing focus states, no keyboard support. Agents treat accessibility as an afterthought - in this system it's a requirement.",
             },
             {
               k: "Single-mode tokens",
@@ -139,7 +139,7 @@ export default function AgenticDesign() {
           />
           <RuleCard
             type="dont"
-            title="Assume dark mode works just because it looks right — verify contrast ratios"
+            title="Assume dark mode works just because it looks right - verify contrast ratios"
             description="Visual appearance is not the same as measured contrast. A color pair can look readable at a glance and still fail WCAG 4.5:1 requirements. Measure, don't estimate."
           />
         </div>

@@ -54,7 +54,7 @@ function formatScore(n: number): string {
 }
 
 /**
- * Leaderboard — ranked user/team leaderboard with scores, trends, and progress bars.
+ * Leaderboard - ranked user/team leaderboard with scores, trends, and progress bars.
  * Composes: Card, Avatar, Badge, Phosphor Trophy/TrendUp/TrendDown/Minus icons.
  * Tokens: --bl-fill-warning, --bl-chart-1..3, --bl-fill-success, --bl-fill-danger,
  *         --bl-fg-*, --bl-bg-elevated, --bl-bg-active.

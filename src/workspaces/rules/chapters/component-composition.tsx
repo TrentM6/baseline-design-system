@@ -18,30 +18,30 @@ export default function ComponentComposition() {
       <DocSection eyebrow="ARCHITECTURE" heading="The layer architecture">
         <p>
           The system is organized into five layers. Each layer builds on the
-          ones below it. Components at higher layers compose from lower layers —
+          ones below it. Components at higher layers compose from lower layers -
           they never skip levels or reimplement what a lower layer provides.
         </p>
         <DocKeyValue
           rows={[
             {
               k: "L1 Tokens",
-              v: "Design decisions as variables — color, spacing, motion, radii. The atomic units that every other layer consumes. Defined in bl-tokens.css.",
+              v: "Design decisions as variables - color, spacing, motion, radii. The atomic units that every other layer consumes. Defined in bl-tokens.css.",
             },
             {
               k: "L2 Base Components",
-              v: "Atomic UI elements — Button, Input, Badge, Avatar. Each base component is a single-purpose component that handles one interaction pattern well.",
+              v: "Atomic UI elements - Button, Input, Badge, Avatar. Each base component is a single-purpose component that handles one interaction pattern well.",
             },
             {
               k: "L3 Patterns",
-              v: "Composed arrangements — FormField wraps Label + Input + HelperText. Patterns solve a recurring layout problem by wiring base components together.",
+              v: "Composed arrangements - FormField wraps Label + Input + HelperText. Patterns solve a recurring layout problem by wiring base components together.",
             },
             {
               k: "L4 Features",
-              v: "Product-specific compositions — LoginForm, SettingsPanel. Features combine patterns and base components into functional units tied to a user workflow.",
+              v: "Product-specific compositions - LoginForm, SettingsPanel. Features combine patterns and base components into functional units tied to a user workflow.",
             },
             {
               k: "L5 Pages",
-              v: "Full views assembled from features and patterns. Pages handle routing, layout, and data flow — they compose from everything below.",
+              v: "Full views assembled from features and patterns. Pages handle routing, layout, and data flow - they compose from everything below.",
             },
           ]}
         />
@@ -56,7 +56,7 @@ export default function ComponentComposition() {
             },
             {
               k: "No re-implementation",
-              v: "If Button exists, you use Button — don't build a custom clickable div. If the existing Button doesn't support what you need, extend the Button.",
+              v: "If Button exists, you use Button - don't build a custom clickable div. If the existing Button doesn't support what you need, extend the Button.",
             },
             {
               k: "Props over forks",
@@ -73,7 +73,7 @@ export default function ComponentComposition() {
       <DocSection heading="Adding to the system">
         <p>
           When something is missing, add it at the right level. This is the most
-          important rule in the composition model — it prevents the slow
+          important rule in the composition model - it prevents the slow
           degradation that happens when system-level concerns get solved with
           component-level hacks.
         </p>
@@ -107,12 +107,12 @@ export default function ComponentComposition() {
           <RuleCard
             type="do"
             title="Compose higher-level components from existing base components"
-            description="A settings form should use FormField, Input, Select, and Button — not custom divs styled to look like those base components. Composition is the entire point of the system."
+            description="A settings form should use FormField, Input, Select, and Button - not custom divs styled to look like those base components. Composition is the entire point of the system."
           />
           <RuleCard
             type="dont"
-            title="Re-implement a button as a styled div because the existing Button doesn't look right — fix the Button"
-            description="If the Button base component doesn't support your use case, that's a signal the Button needs a new variant or prop — not that you need a parallel implementation."
+            title="Re-implement a button as a styled div because the existing Button doesn't look right - fix the Button"
+            description="If the Button base component doesn't support your use case, that's a signal the Button needs a new variant or prop - not that you need a parallel implementation."
           />
           <RuleCard
             type="do"

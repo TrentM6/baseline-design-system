@@ -20,7 +20,7 @@ export default function MillersLaw() {
           George Miller's 1956 paper established that short-term memory can hold
           roughly 7 (plus or minus 2) chunks of information. A "chunk" can be a
           single digit, a word, or a meaningful group. The key is not the number
-          7 itself, but the concept of chunking — organizing information into
+          7 itself, but the concept of chunking - organizing information into
           meaningful units.
         </p>
       </DocSection>
@@ -34,11 +34,11 @@ export default function MillersLaw() {
             },
             {
               k: "Credit cards",
-              v: "4242 4242 4242 4242 not 4242424242424242. Spaces break 16 digits into 4 groups of 4 — matching how banks print them on the physical card.",
+              v: "4242 4242 4242 4242 not 4242424242424242. Spaces break 16 digits into 4 groups of 4 - matching how banks print them on the physical card.",
             },
             {
               k: "Navigation",
-              v: "Group into 3-4 categories, 3-5 items each. The user first scans categories (3-4 chunks), then items within one category (3-5 chunks) — never 15 items at once.",
+              v: "Group into 3-4 categories, 3-5 items each. The user first scans categories (3-4 chunks), then items within one category (3-5 chunks) - never 15 items at once.",
             },
             {
               k: "Form sections",
@@ -65,7 +65,7 @@ export default function MillersLaw() {
             },
             {
               k: "Breadcrumbs",
-              v: "3-5 levels before truncation. Deep breadcrumbs become noise — the user only needs enough context to orient and navigate back.",
+              v: "3-5 levels before truncation. Deep breadcrumbs become noise - the user only needs enough context to orient and navigate back.",
             },
             {
               k: "Steps / wizards",
@@ -94,7 +94,7 @@ export default function MillersLaw() {
           <RuleCard
             type="do"
             title="Break content into scannable sections with clear headings"
-            description="Headings create chunks. The user scans headings first (3-5 chunks), then reads the relevant section — instead of processing the entire page linearly."
+            description="Headings create chunks. The user scans headings first (3-5 chunks), then reads the relevant section - instead of processing the entire page linearly."
           />
           <RuleCard
             type="dont"

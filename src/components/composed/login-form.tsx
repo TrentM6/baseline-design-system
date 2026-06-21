@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 
 /**
- * LoginForm — sign-in card with password visibility toggle,
+ * LoginForm - sign-in card with password visibility toggle,
  * inline email validation, and a submitted confirmation state.
  * Composes: Card, Input, Label, Button, Checkbox, Phosphor icons.
  */

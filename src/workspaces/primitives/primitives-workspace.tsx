@@ -270,7 +270,7 @@ function PrimitivesWorkspace() {
             <section>
               <SectionHeading>Actions</SectionHeading>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <ShowcaseCard title="Button — variants">
+                <ShowcaseCard title="Button -variants">
                   <div className="flex flex-wrap gap-2">
                     <Button>Primary</Button>
                     <Button variant="secondary">Secondary</Button>
@@ -280,7 +280,7 @@ function PrimitivesWorkspace() {
                     <Button variant="link">Link</Button>
                   </div>
                 </ShowcaseCard>
-                <ShowcaseCard title="Button — sizes">
+                <ShowcaseCard title="Button -sizes">
                   <div className="flex items-center gap-2">
                     <Button size="sm">Small</Button>
                     <Button size="default">Default</Button>
@@ -409,14 +409,14 @@ function PrimitivesWorkspace() {
             <section>
               <SectionHeading>Data Viz</SectionHeading>
               <p className="text-[13px] -mt-2 mb-4" style={{ color: "var(--bl-fg-muted)" }}>
-                Recharts wrapped in a tokenized ChartContainer. Hover any chart —
+                Recharts wrapped in a tokenized ChartContainer. Hover any chart -
                 tooltips and active states are baked in.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <ShowcaseCard title="Area — trend">
+                <ShowcaseCard title="Area -trend">
                   <AreaTrendChart data={TREND} seriesLabel="Revenue ($k)" className="h-[200px] w-full" />
                 </ShowcaseCard>
-                <ShowcaseCard title="Bar — comparison">
+                <ShowcaseCard title="Bar -comparison">
                   <ComparisonBarChart
                     data={BARS}
                     series={[
@@ -427,7 +427,7 @@ function PrimitivesWorkspace() {
                     className="h-[200px] w-full"
                   />
                 </ShowcaseCard>
-                <ShowcaseCard title="Line — multi-series">
+                <ShowcaseCard title="Line -multi-series">
                   <MultiLineChart
                     data={LINES}
                     series={[
@@ -437,10 +437,10 @@ function PrimitivesWorkspace() {
                     className="h-[200px] w-full"
                   />
                 </ShowcaseCard>
-                <ShowcaseCard title="Donut — distribution">
+                <ShowcaseCard title="Donut -distribution">
                   <DistributionDonutChart data={DONUT} centerLabel="Revenue" className="h-[200px] w-full" />
                 </ShowcaseCard>
-                <ShowcaseCard title="Stacked area — composition">
+                <ShowcaseCard title="Stacked area -composition">
                   <StackedAreaChart
                     data={[
                       { label: "Jan", organic: 120, paid: 80, referral: 40 },
@@ -458,7 +458,7 @@ function PrimitivesWorkspace() {
                     className="h-[200px] w-full"
                   />
                 </ShowcaseCard>
-                <ShowcaseCard title="Radial — progress">
+                <ShowcaseCard title="Radial -progress">
                   <RadialChart
                     data={[
                       { key: "revenue", label: "Revenue", value: 78, max: 100 },
@@ -516,12 +516,12 @@ function PrimitivesWorkspace() {
                 <ShowcaseCard title="Separator & Progress">
                   <div className="space-y-4">
                     <div>
-                      <p className="text-sm mb-2">Progress — 65%</p>
+                      <p className="text-sm mb-2">Progress -65%</p>
                       <Progress value={65} />
                     </div>
                     <Separator />
                     <div>
-                      <p className="text-sm mb-2">Progress — 30%</p>
+                      <p className="text-sm mb-2">Progress -30%</p>
                       <Progress value={30} />
                     </div>
                   </div>
@@ -540,7 +540,7 @@ function PrimitivesWorkspace() {
                     <div className="space-y-2">
                       {Array.from({ length: 12 }).map((_, i) => (
                         <p key={i} className="text-sm" style={{ color: "var(--bl-fg-secondary)" }}>
-                          Item {i + 1} — scrollable region
+                          Item {i + 1} -scrollable region
                         </p>
                       ))}
                     </div>
@@ -625,7 +625,7 @@ function PrimitivesWorkspace() {
                       <SheetHeader>
                         <SheetTitle>Panel</SheetTitle>
                         <SheetDescription>
-                          A side sheet slides in from the edge — good for filters or detail.
+                          A side sheet slides in from the edge -good for filters or detail.
                         </SheetDescription>
                       </SheetHeader>
                     </SheetContent>
@@ -640,7 +640,7 @@ function PrimitivesWorkspace() {
                       <DrawerHeader>
                         <DrawerTitle>Drawer</DrawerTitle>
                         <DrawerDescription>
-                          A bottom drawer — good for mobile-first actions.
+                          A bottom drawer -good for mobile-first actions.
                         </DrawerDescription>
                       </DrawerHeader>
                       <DrawerFooter>
@@ -801,7 +801,7 @@ function PrimitivesWorkspace() {
                     </CollapsibleTrigger>
                     <CollapsibleContent className="pt-2 text-sm" style={{ color: "var(--bl-fg-secondary)" }}>
                       <div className="rounded-md border p-3">
-                        Hidden content revealed on demand — progressive disclosure.
+                        Hidden content revealed on demand -progressive disclosure.
                       </div>
                     </CollapsibleContent>
                   </Collapsible>
@@ -815,7 +815,7 @@ function PrimitivesWorkspace() {
             <section>
               <SectionHeading>Feedback</SectionHeading>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <ShowcaseCard title="Alert — Default">
+                <ShowcaseCard title="Alert -Default">
                   <Alert>
                     <AlertTitle>Heads up!</AlertTitle>
                     <AlertDescription>
@@ -823,7 +823,7 @@ function PrimitivesWorkspace() {
                     </AlertDescription>
                   </Alert>
                 </ShowcaseCard>
-                <ShowcaseCard title="Alert — Destructive">
+                <ShowcaseCard title="Alert -Destructive">
                   <Alert variant="destructive">
                     <AlertTitle>Error</AlertTitle>
                     <AlertDescription>

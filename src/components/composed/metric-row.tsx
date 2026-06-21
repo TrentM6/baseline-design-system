@@ -28,7 +28,7 @@ const DEFAULT_METRICS: MetricItem[] = [
 ];
 
 /**
- * MetricRow — responsive grid of key metrics for dashboard headers.
+ * MetricRow - responsive grid of key metrics for dashboard headers.
  * Composes: Card, Phosphor icons.
  * Tokens: --bl-fg-primary, --bl-fg-muted, --bl-fill-success, --bl-fill-danger, --bl-bg-active.
  */

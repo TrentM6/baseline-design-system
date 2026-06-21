@@ -12,7 +12,7 @@ export default function TypographyRules() {
       <p className="text-[14px] leading-relaxed mb-8" style={{ color: "var(--bl-fg-secondary)" }}>
         Type scale, heading hierarchy, line length, and readability rules that
         make text easy to read and scan. Typography is the primary vehicle for
-        content — get it right and everything else follows.
+        content - get it right and everything else follows.
       </p>
 
       <DocSection eyebrow="FAMILIES" heading="Font families">
@@ -20,15 +20,15 @@ export default function TypographyRules() {
           rows={[
             {
               k: "Geist",
-              v: "Headings — geometric, modern, confident. Used for page titles, section headers, display text, and any typographic element that needs to command attention and establish hierarchy.",
+              v: "Headings - geometric, modern, confident. Used for page titles, section headers, display text, and any typographic element that needs to command attention and establish hierarchy.",
             },
             {
               k: "Satoshi",
-              v: "Body text — humanist, readable, warm. Used for running copy, labels, descriptions, form inputs, and all text that users spend time reading. Excellent legibility at small sizes.",
+              v: "Body text - humanist, readable, warm. Used for running copy, labels, descriptions, form inputs, and all text that users spend time reading. Excellent legibility at small sizes.",
             },
             {
               k: "Geist Mono",
-              v: "Code and data — monospaced for technical content. Used for code snippets, terminal output, data values, API references, and anywhere character alignment matters.",
+              v: "Code and data - monospaced for technical content. Used for code snippets, terminal output, data values, API references, and anywhere character alignment matters.",
             },
           ]}
         />
@@ -38,28 +38,28 @@ export default function TypographyRules() {
         <DocKeyValue
           rows={[
             {
-              k: "text-2xl — 24px",
+              k: "text-2xl - 24px",
               v: "Page titles. The largest text in standard interfaces. One per page, establishes the primary context.",
             },
             {
-              k: "text-xl — 20px",
+              k: "text-xl - 20px",
               v: "Section headers. Major content divisions within a page. Used with font-heading and font-medium.",
             },
             {
-              k: "text-lg — 18px",
+              k: "text-lg - 18px",
               v: "Sub-section headers. Secondary divisions within a section. Bridges the gap between section headers and body text.",
             },
             {
-              k: "text-base — 16px",
+              k: "text-base - 16px",
               v: "Emphasized body. Used for lead paragraphs, callout text, and body copy that needs slightly more visual weight than standard.",
             },
             {
               k: "text-[14px]",
-              v: "Standard body — Baseline's default. The workhorse size for all running text, descriptions, table cells, and form labels. Optimized for Satoshi's readability.",
+              v: "Standard body - Baseline's default. The workhorse size for all running text, descriptions, table cells, and form labels. Optimized for Satoshi's readability.",
             },
             {
               k: "text-[13px]",
-              v: "Supporting text and captions. Secondary information that accompanies primary content — timestamps, helper text, metadata summaries.",
+              v: "Supporting text and captions. Secondary information that accompanies primary content - timestamps, helper text, metadata summaries.",
             },
             {
               k: "text-[12px]",
@@ -90,7 +90,7 @@ export default function TypographyRules() {
             },
             {
               k: "Font weight",
-              v: "400 for body, 500 for headings and emphasis, 600 sparingly for strong emphasis. Avoid 700+ in interfaces — bold is for documents, medium is for UI.",
+              v: "400 for body, 500 for headings and emphasis, 600 sparingly for strong emphasis. Avoid 700+ in interfaces - bold is for documents, medium is for UI.",
             },
           ]}
         />
@@ -98,9 +98,9 @@ export default function TypographyRules() {
 
       <DocSection eyebrow="STRUCTURE" heading="Heading hierarchy">
         <p className="text-[14px] leading-relaxed" style={{ color: "var(--bl-fg-secondary)" }}>
-          Never skip heading levels — going from h2 to h4 breaks the document
+          Never skip heading levels - going from h2 to h4 breaks the document
           outline and confuses screen readers that use headings for navigation.
-          One h1 per page, always. Headings describe structure, not style — don't
+          One h1 per page, always. Headings describe structure, not style - don't
           reach for h3 because you want smaller text, use a className instead.
           The heading level communicates semantic depth in the content hierarchy;
           the className controls visual presentation. These are independent
@@ -117,7 +117,7 @@ export default function TypographyRules() {
           />
           <RuleCard
             type="dont"
-            title="Use text-xs (12px) for body copy — it's below the readability threshold"
+            title="Use text-xs (12px) for body copy - it's below the readability threshold"
             description="12px is reserved for labels, badges, and metadata. Using it for running text forces users to lean in and strains readability, especially on high-density displays."
           />
           <RuleCard
@@ -127,7 +127,7 @@ export default function TypographyRules() {
           />
           <RuleCard
             type="dont"
-            title="Skip heading levels for visual sizing — use className instead"
+            title="Skip heading levels for visual sizing - use className instead"
             description="An h4 after an h2 breaks the document outline. If you want h4-sized text under an h2, use an h3 with a smaller className. Semantics and styling are independent."
           />
         </div>

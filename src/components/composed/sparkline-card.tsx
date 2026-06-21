@@ -20,7 +20,7 @@ export interface SparklineCardProps {
 const DEFAULT_DATA = [4, 7, 5, 9, 6, 8, 11, 9, 13, 10, 14, 12, 15, 13, 17, 15, 19, 18, 20, 22];
 
 /**
- * SparklineCard — compact metric card with an inline sparkline.
+ * SparklineCard -compact metric card with an inline sparkline.
  * Composes: Card, Recharts AreaChart, Phosphor TrendUp/TrendDown.
  * Tokens: --bl-fg-primary, --bl-fg-muted, --bl-fill-success, --bl-fill-danger, --bl-chart-1.
  */

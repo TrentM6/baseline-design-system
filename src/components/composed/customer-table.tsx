@@ -51,7 +51,7 @@ const CUSTOMERS: Customer[] = [
 ];
 
 /**
- * CustomerTable — CRM-style customer list with plan tiers, MRR, lifetime value,
+ * CustomerTable - CRM-style customer list with plan tiers, MRR, lifetime value,
  * and status. Composes: Card, Table, Avatar, Badge, Button, DropdownMenu,
  * Phosphor icons.
  */

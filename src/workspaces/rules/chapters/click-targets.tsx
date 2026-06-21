@@ -20,11 +20,11 @@ export default function ClickTargets() {
           rows={[
             {
               k: "Touch targets",
-              v: "44x44px minimum (WCAG 2.5.8). This is the baseline for any element a finger can tap — buttons, links, checkboxes, toggles, list items with actions.",
+              v: "44x44px minimum (WCAG 2.5.8). This is the baseline for any element a finger can tap - buttons, links, checkboxes, toggles, list items with actions.",
             },
             {
               k: "Mouse-only targets",
-              v: "24x24px minimum, but prefer 44px. Desktop interfaces can get away with smaller targets, but 44px is still better — it's faster to reach and more forgiving of imprecise clicks.",
+              v: "24x24px minimum, but prefer 44px. Desktop interfaces can get away with smaller targets, but 44px is still better - it's faster to reach and more forgiving of imprecise clicks.",
             },
             {
               k: "Spacing between targets",
@@ -47,7 +47,7 @@ export default function ClickTargets() {
         </p>
         <p className="mt-3">
           A close button might render as a 12px X icon, but the tappable area
-          should be 44x44px — achieved with 16px of padding on each side. The
+          should be 44x44px - achieved with 16px of padding on each side. The
           user sees a small, clean icon; their finger hits a generous target.
         </p>
       </DocSection>
@@ -56,13 +56,13 @@ export default function ClickTargets() {
         <p>
           Larger targets are faster to reach. Important actions should be larger
           than secondary ones. Edge-of-screen targets are effectively infinite
-          in one dimension — the screen edge stops the cursor, so the user
+          in one dimension - the screen edge stops the cursor, so the user
           can't overshoot.
         </p>
         <p className="mt-3">
           Place primary actions where the thumb naturally rests on mobile
           (bottom center). The bottom of the screen is the easiest area to
-          reach one-handed. Top corners are the hardest — reserve them for
+          reach one-handed. Top corners are the hardest - reserve them for
           infrequent actions.
         </p>
       </DocSection>
@@ -86,7 +86,7 @@ export default function ClickTargets() {
           />
           <RuleCard
             type="dont"
-            title="Put critical actions at the top corners of a mobile screen — they're hard to reach"
+            title="Put critical actions at the top corners of a mobile screen - they're hard to reach"
             description="Top corners require the user to shift their grip or use their other hand. For actions used frequently, that friction adds up fast."
           />
           <RuleCard

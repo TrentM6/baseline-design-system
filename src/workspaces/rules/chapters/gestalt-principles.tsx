@@ -18,7 +18,7 @@ export default function GestaltPrinciples() {
       <DocSection heading="Proximity">
         <p>
           Elements placed close together are perceived as a group. This is the
-          most powerful grouping principle — it overrides color, shape, and size.
+          most powerful grouping principle - it overrides color, shape, and size.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
           <RuleCard
@@ -29,7 +29,7 @@ export default function GestaltPrinciples() {
           <RuleCard
             type="dont"
             title="Use equal spacing everywhere"
-            description="Uniform spacing makes every element equidistant — the eye can't distinguish groups, so the user has to read every label to find what they need."
+            description="Uniform spacing makes every element equidistant - the eye can't distinguish groups, so the user has to read every label to find what they need."
           />
         </div>
       </DocSection>
@@ -38,7 +38,7 @@ export default function GestaltPrinciples() {
         <p>
           Elements that look alike are perceived as belonging together. Color,
           shape, size, and orientation all contribute. This is why consistent
-          styling of interactive elements matters — users learn "orange pill
+          styling of interactive elements matters - users learn "orange pill
           shape = clickable action" and apply it everywhere.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
@@ -59,7 +59,7 @@ export default function GestaltPrinciples() {
         <p>
           The eye follows smooth lines and curves. Elements arranged on a line
           or curve are perceived as related, even if separated by space. This
-          is why alignment matters — breaking alignment breaks the perceived
+          is why alignment matters - breaking alignment breaks the perceived
           relationship.
         </p>
         <RuleCard
@@ -72,7 +72,7 @@ export default function GestaltPrinciples() {
       <DocSection heading="Closure">
         <p>
           The brain completes incomplete shapes. We see a circle even when part
-          of it is missing. This lets us use minimal visual boundaries — a
+          of it is missing. This lets us use minimal visual boundaries - a
           card doesn't need a heavy border on every side if the background
           difference and spacing already imply the container.
         </p>
@@ -86,8 +86,8 @@ export default function GestaltPrinciples() {
       <DocSection heading="Figure-ground">
         <p>
           We instinctively separate foreground from background. Elevated
-          surfaces (modals, tooltips, dropdown menus) need visual separation —
-          shadow, background contrast, or a scrim — so the user knows what's
+          surfaces (modals, tooltips, dropdown menus) need visual separation -
+          shadow, background contrast, or a scrim - so the user knows what's
           on top and what's behind.
         </p>
         <RuleCard
@@ -101,7 +101,7 @@ export default function GestaltPrinciples() {
         <p>
           Elements inside a shared boundary are perceived as a group. Cards,
           panels, and bordered sections use this principle. But overusing
-          containers creates visual noise — use the minimum enclosure needed.
+          containers creates visual noise - use the minimum enclosure needed.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
           <RuleCard
@@ -112,7 +112,7 @@ export default function GestaltPrinciples() {
           <RuleCard
             type="dont"
             title="Nest containers more than two levels deep"
-            description="Card inside card inside card creates visual nesting that's hard to parse. Flatten the hierarchy — use spacing and headings instead."
+            description="Card inside card inside card creates visual nesting that's hard to parse. Flatten the hierarchy - use spacing and headings instead."
           />
         </div>
       </DocSection>
