@@ -185,6 +185,10 @@
   --bl-shadow-lg:      0 10px 15px -3px oklch(0 0 0 / 50%), 0 4px 6px -4px oklch(0 0 0 / 30%);
   --bl-shadow-tooltip: 0 4px 12px oklch(0 0 0 / 60%);
   --bl-shadow-overlay: 0 25px 50px -12px oklch(0 0 0 / 70%);
+  --bl-shadow-card-hover: 0 8px 24px -4px oklch(0 0 0 / 55%), 0 4px 8px -2px oklch(0 0 0 / 35%);
+  --bl-shadow-button:  0 1px 3px oklch(0 0 0 / 50%), 0 1px 2px oklch(0 0 0 / 40%);
+  --bl-shadow-glow:    0 0 0 1px oklch(0.601 0.210 34.6 / 20%);
+  --bl-shadow-inset:   inset 0 1px 2px oklch(0 0 0 / 30%);
 }
 
 
@@ -256,6 +260,10 @@
   --bl-shadow-lg:      0 10px 15px -3px oklch(0.1 0.004 286 / 10%);
   --bl-shadow-tooltip: 0 4px 12px oklch(0.1 0.004 286 / 12%);
   --bl-shadow-overlay: 0 25px 50px -12px oklch(0.1 0.004 286 / 20%);
+  --bl-shadow-card-hover: 0 8px 24px -4px oklch(0.1 0.004 286 / 14%), 0 4px 8px -2px oklch(0.1 0.004 286 / 8%);
+  --bl-shadow-button:  0 1px 3px oklch(0.1 0.004 286 / 10%), 0 1px 2px oklch(0.1 0.004 286 / 6%);
+  --bl-shadow-glow:    0 0 0 1px oklch(0.659 0.228 35.1 / 15%);
+  --bl-shadow-inset:   inset 0 1px 2px oklch(0.1 0.004 286 / 8%);
 }
 
 

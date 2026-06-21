@@ -49,7 +49,7 @@ export function FunnelChartComponent({
               dataKey="name"
               fill="var(--bl-fg-secondary)"
               fontSize={11}
-              fontFamily="var(--font-sans)"
+              fontFamily="var(--bl-font-body)"
             />
           </Funnel>
         </RechartsFunnelChart>

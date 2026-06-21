@@ -54,8 +54,10 @@ const ChartContainer = React.forwardRef<
         className={cn(
           // Fill the parent box — callers set an explicit height (h-[Npx] or a
           // sized flex parent). Never width-driven aspect, which blows up wide.
-          "flex h-full w-full justify-center text-[12px]",
+          "flex h-full w-full justify-center text-[12px] not-italic [&_text]:[font-style:normal]",
           "[&_.recharts-cartesian-axis-tick_text]:fill-[var(--bl-fg-muted)]",
+          "[&_.recharts-cartesian-axis-tick_text]:[font-family:var(--bl-font-mono)]",
+          "[&_.recharts-legend-item-text]:[font-family:var(--bl-font-body)]",
           "[&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-[var(--bl-border-divider)]",
           "[&_.recharts-curve.recharts-tooltip-cursor]:stroke-[var(--bl-border-divider)]",
           "[&_.recharts-polar-grid_[stroke='#ccc']]:stroke-[var(--bl-border-divider)]",

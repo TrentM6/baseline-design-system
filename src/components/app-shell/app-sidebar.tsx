@@ -15,6 +15,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar";
 
 const NAV_ITEMS = [
@@ -49,6 +50,13 @@ export function AppSidebar({
   activeTab: string;
   onTabChange: (value: string) => void;
 } & React.ComponentProps<typeof Sidebar>) {
+  const { isMobile, setOpenMobile } = useSidebar();
+
+  const handleNavClick = (value: string) => {
+    onTabChange(value);
+    if (isMobile) setOpenMobile(false);
+  };
+
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
@@ -78,7 +86,7 @@ export function AppSidebar({
                 <SidebarMenuItem key={item.value}>
                   <SidebarMenuButton
                     isActive={isActive}
-                    onClick={() => onTabChange(item.value)}
+                    onClick={() => handleNavClick(item.value)}
                     tooltip={item.label}
                   >
                     <Icon size={18} weight={isActive ? "fill" : "regular"} />

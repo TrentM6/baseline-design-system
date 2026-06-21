@@ -145,8 +145,8 @@ function TokensWorkspace() {
             className="rounded-lg border p-6 space-y-4"
             style={{ borderColor: "var(--bl-border-card)", backgroundColor: "var(--bl-bg-surface)" }}
           >
-            <p className="text-hero font-heading font-medium leading-none">Hero 64</p>
-            <p className="text-section font-heading font-medium">Section 44</p>
+            <p className="text-[36px] sm:text-hero font-heading font-medium leading-none" style={{ letterSpacing: "-0.03em" }}>Hero 64</p>
+            <p className="text-[28px] sm:text-section font-heading font-medium" style={{ letterSpacing: "-0.025em" }}>Section 44</p>
             <p className="text-h3 font-heading font-medium">Heading 3 — 24px</p>
             <p className="text-h4 font-heading font-medium">Heading 4 — 20px</p>
             <p className="text-body font-body">Body — 16px. The quick brown fox jumps over the lazy dog.</p>
@@ -247,12 +247,12 @@ function TokensWorkspace() {
             ].map((m, i, arr) => (
               <div
                 key={m.token}
-                className="grid grid-cols-[140px_80px_1fr] gap-4 px-4 py-3 text-[13px]"
+                className="flex flex-col sm:grid sm:grid-cols-[140px_80px_1fr] gap-0.5 sm:gap-4 px-4 py-3 text-[13px]"
                 style={{
                   borderBottom: i < arr.length - 1 ? "1px solid var(--bl-border-divider)" : undefined,
                 }}
               >
-                <span className="font-mono" style={{ color: "var(--bl-fg-primary)" }}>{m.token}</span>
+                <span className="font-mono text-[12px] sm:text-[13px]" style={{ color: "var(--bl-fg-primary)" }}>{m.token}</span>
                 <span className="font-mono" style={{ color: "var(--bl-fill-primary)" }}>{m.val}</span>
                 <span style={{ color: "var(--bl-fg-secondary)" }}>{m.use}</span>
               </div>

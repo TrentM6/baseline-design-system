@@ -56,7 +56,7 @@ function SankeyNodeShape({
         dominantBaseline="central"
         fill="var(--bl-fg-secondary)"
         fontSize={11}
-        fontFamily="var(--font-sans)"
+        fontFamily="var(--bl-font-body)"
       >
         {payload.name}
       </text>

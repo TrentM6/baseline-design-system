@@ -383,7 +383,7 @@ export const COMPONENTS: ComponentDef[] = [
   { key: "calendar", label: "Calendar", category: "Cards", size: "third",
     node: <CalendarWidget />, imports: { "@/components/composed": ["CalendarWidget"] }, code: "<CalendarWidget />" },
   { key: "metric-row", label: "Metric Row", category: "Cards", size: "full",
-    node: <MetricRow />, imports: { "@/components/composed": ["MetricRow"] }, code: "<MetricRow />" },
+    node: <MetricRow className="!grid-cols-2" />, imports: { "@/components/composed": ["MetricRow"] }, code: "<MetricRow />" },
 
   // ── Tables ──
   { key: "table", label: "Data Table", category: "Tables", size: "full",

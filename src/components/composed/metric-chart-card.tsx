@@ -34,9 +34,9 @@ export function MetricChartCard({
     <Card className={className}>
       <CardHeader className="flex-row items-start justify-between space-y-0 pb-2">
         <div className="space-y-1">
-          <CardTitle className="text-sm font-medium">{title}</CardTitle>
+          <CardTitle className="text-[14px]">{title}</CardTitle>
           {description ? (
-            <CardDescription className="text-xs">{description}</CardDescription>
+            <CardDescription className="text-xs font-mono">{description}</CardDescription>
           ) : null}
         </div>
         {action}
@@ -45,12 +45,12 @@ export function MetricChartCard({
       {(footer || footerDetail) ? (
         <CardFooter className="flex-col items-start gap-1 text-xs">
           {footer ? (
-            <div className="flex items-center gap-1.5 font-medium" style={{ color: "var(--bl-fg-primary)" }}>
+            <div className="flex items-center gap-1.5 font-heading font-medium" style={{ color: "var(--bl-fg-primary)" }}>
               {footer}
             </div>
           ) : null}
           {footerDetail ? (
-            <div style={{ color: "var(--bl-fg-muted)" }}>
+            <div className="font-mono" style={{ color: "var(--bl-fg-muted)" }}>
               {footerDetail}
             </div>
           ) : null}

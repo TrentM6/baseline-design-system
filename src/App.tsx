@@ -79,7 +79,7 @@ function App() {
     >
       <AppSidebar activeTab={tab} onTabChange={onTabChange} variant="inset" />
       <SidebarInset className="h-svh min-h-0 overflow-hidden">
-        <header className="flex h-[var(--header-height)] shrink-0 items-center gap-2 border-b px-4 lg:px-6 transition-[width,height] ease-linear">
+        <header className="flex h-[var(--header-height)] shrink-0 items-center gap-2 border-b px-4 lg:px-6 transition-[width,height] ease-linear backdrop-blur-md bg-[var(--bl-bg-surface)]/80 shadow-sm z-10">
           <SidebarTrigger className="-ml-1" />
           <Separator orientation="vertical" className="mx-1 !h-4" />
           <h1

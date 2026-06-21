@@ -74,6 +74,10 @@ const config: Config = {
   			lg: 'var(--bl-shadow-lg)',
   			tooltip: 'var(--bl-shadow-tooltip)',
   			overlay: 'var(--bl-shadow-overlay)',
+  			'card-hover': 'var(--bl-shadow-card-hover)',
+  			button: 'var(--bl-shadow-button)',
+  			glow: 'var(--bl-shadow-glow)',
+  			inset: 'var(--bl-shadow-inset)',
   		},
   		borderRadius: {
   			sm: 'var(--r-sm)',

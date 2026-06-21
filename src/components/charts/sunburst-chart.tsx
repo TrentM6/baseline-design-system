@@ -1,4 +1,4 @@
-import { SunburstChart as RechartsSunburstChart, ResponsiveContainer, Tooltip } from "recharts";
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 
 export interface SunburstNode {
   name: string;
@@ -15,12 +15,37 @@ const DEFAULT_COLORS = [
   "var(--bl-chart-5)",
 ];
 
-function assignColors(nodes: SunburstNode[], depth = 0, parentIdx = 0): SunburstNode[] {
-  return nodes.map((node, i) => ({
-    ...node,
-    fill: node.fill ?? DEFAULT_COLORS[(depth === 0 ? i : parentIdx) % DEFAULT_COLORS.length],
-    children: node.children ? assignColors(node.children, depth + 1, depth === 0 ? i : parentIdx) : undefined,
-  }));
+interface FlatSegment {
+  name: string;
+  value: number;
+  fill: string;
+}
+
+function flatten(
+  nodes: SunburstNode[],
+): { inner: FlatSegment[]; outer: FlatSegment[] } {
+  const inner: FlatSegment[] = [];
+  const outer: FlatSegment[] = [];
+
+  nodes.forEach((node, i) => {
+    const color = node.fill ?? DEFAULT_COLORS[i % DEFAULT_COLORS.length];
+    const childTotal = node.children?.reduce((s, c) => s + (c.value ?? 0), 0) ?? 0;
+    const nodeValue = node.value ?? childTotal;
+
+    inner.push({ name: node.name, value: nodeValue, fill: color });
+
+    if (node.children) {
+      node.children.forEach((child) => {
+        outer.push({
+          name: child.name,
+          value: child.value ?? 0,
+          fill: color,
+        });
+      });
+    }
+  });
+
+  return { inner, outer };
 }
 
 export function SunburstChartComponent({
@@ -30,25 +55,52 @@ export function SunburstChartComponent({
   data: SunburstNode;
   className?: string;
 }) {
-  const colored = {
-    ...data,
-    children: data.children ? assignColors(data.children) : [],
-  };
+  const { inner, outer } = flatten(data.children ?? []);
 
   return (
     <div className={className}>
       <ResponsiveContainer width="100%" height="100%">
-        <RechartsSunburstChart data={colored} dataKey="value" nameKey="name">
+        <PieChart>
+          <Pie
+            data={inner}
+            dataKey="value"
+            nameKey="name"
+            cx="50%"
+            cy="50%"
+            outerRadius="55%"
+            innerRadius="30%"
+            stroke="none"
+            strokeWidth={1}
+          >
+            {inner.map((s, i) => (
+              <Cell key={i} fill={s.fill} />
+            ))}
+          </Pie>
+          <Pie
+            data={outer}
+            dataKey="value"
+            nameKey="name"
+            cx="50%"
+            cy="50%"
+            outerRadius="80%"
+            innerRadius="60%"
+            stroke="none"
+            strokeWidth={1}
+          >
+            {outer.map((s, i) => (
+              <Cell key={i} fill={s.fill} opacity={0.7} />
+            ))}
+          </Pie>
           <Tooltip
             contentStyle={{
               backgroundColor: "var(--bl-bg-elevated)",
               border: "1px solid var(--bl-border-divider)",
-              borderRadius: "var(--bl-radius-md)",
+              borderRadius: "var(--r-md)",
               fontSize: 12,
               color: "var(--bl-fg-primary)",
             }}
           />
-        </RechartsSunburstChart>
+        </PieChart>
       </ResponsiveContainer>
     </div>
   );

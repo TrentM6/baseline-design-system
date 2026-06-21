@@ -30,22 +30,25 @@ function ComponentCard({
       tabIndex={0}
       onClick={onClick}
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick(); } }}
-      className="group rounded-md overflow-hidden text-left cursor-pointer transition-all duration-quick ease-out hover:shadow-md hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      className="group rounded-md overflow-hidden text-left cursor-pointer transition-all duration-quick ease-out shadow-sm hover:shadow-card-hover hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       style={{
         backgroundColor: "var(--bl-bg-surface)",
         border: "1px solid var(--bl-border-card)",
       }}
     >
       <div
-        className="relative aspect-[4/3] overflow-hidden transition-[border-color] duration-quick group-hover:border-[var(--bl-border-muted)]"
+        className="relative aspect-[16/9] sm:aspect-[4/3] overflow-hidden transition-[border-color] duration-quick group-hover:border-[var(--bl-border-muted)]"
         style={{ backgroundColor: "var(--bl-bg-body)" }}
       >
-        <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center">
+        <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center p-4">
           <div
+            className="rounded-md shadow-md"
             style={{
-              transform: "scale(0.50)",
+              transform: "scale(0.30)",
               transformOrigin: "center center",
-              width: 580,
+              width: 800,
+              backgroundColor: "var(--bl-bg-surface)",
+              padding: "4px",
             }}
           >
             {node}
@@ -55,8 +58,8 @@ function ComponentCard({
           className="absolute inset-0 pointer-events-none"
           style={{
             background: `
-              linear-gradient(to bottom, var(--bl-bg-body) 0%, transparent 12%, transparent 88%, var(--bl-bg-body) 100%),
-              linear-gradient(to right, var(--bl-bg-body) 0%, transparent 8%, transparent 92%, var(--bl-bg-body) 100%)
+              linear-gradient(to bottom, var(--bl-bg-body) 0%, transparent 15%, transparent 85%, var(--bl-bg-body) 100%),
+              linear-gradient(to right, var(--bl-bg-body) 0%, transparent 10%, transparent 90%, var(--bl-bg-body) 100%)
             `,
           }}
         />
@@ -70,7 +73,7 @@ function ComponentCard({
         style={{ borderTop: "1px solid var(--bl-border-card)" }}
       >
         <span
-          className="text-[13px] font-medium truncate"
+          className="text-[13px] font-heading font-medium truncate"
           style={{ color: "var(--bl-fg-primary)" }}
         >
           {label}
@@ -148,9 +151,9 @@ function ComponentsWorkspace() {
   return (
     <>
       <ScrollArea className="h-full">
-        <div className="px-6 py-6 max-w-[1400px] mx-auto">
+        <div className="px-4 py-4 sm:px-6 sm:py-6 max-w-[1400px] mx-auto">
           <header className="mb-6">
-            <div className="flex items-end justify-between gap-4 mb-4">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-4 mb-4">
               <div>
                 <p
                   className="text-[11px] font-mono uppercase tracking-widest mb-1"
@@ -165,7 +168,7 @@ function ComponentsWorkspace() {
                   {filtered.length} Components
                 </h1>
               </div>
-              <div className="relative w-64">
+              <div className="relative w-full sm:w-64">
                 <MagnifyingGlass
                   size={14}
                   weight="bold"
@@ -193,8 +196,8 @@ function ComponentsWorkspace() {
                   value={cat}
                   className="text-[12px] h-7 px-3 rounded-sm data-[state=on]:bg-[var(--bl-fill-primary)] data-[state=on]:text-white"
                 >
-                  {cat}
-                  <span className="ml-1 opacity-60">{categoryCounts[cat]}</span>
+                  <span className="font-heading">{cat}</span>
+                  <span className="ml-1 opacity-60 font-mono">{categoryCounts[cat]}</span>
                 </ToggleGroupItem>
               ))}
             </ToggleGroup>

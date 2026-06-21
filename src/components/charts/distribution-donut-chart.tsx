@@ -67,8 +67,7 @@ export function DistributionDonutChart({
                     <tspan
                       x={viewBox.cx}
                       y={(viewBox.cy || 0) - 6}
-                      className="font-heading font-bold"
-                      style={{ fill: "var(--bl-fg-primary)", fontSize: 22 }}
+                      style={{ fill: "var(--bl-fg-primary)", fontSize: 22, fontFamily: "var(--bl-font-mono)", fontWeight: 700 }}
                     >
                       {total.toLocaleString()}
                     </tspan>

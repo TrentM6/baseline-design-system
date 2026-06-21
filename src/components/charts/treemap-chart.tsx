@@ -50,7 +50,7 @@ function TreemapCell(props: {
           y={y + 16}
           fill="var(--bl-fg-on-primary)"
           fontSize={11}
-          fontFamily="var(--font-sans)"
+          fontFamily="var(--bl-font-body)"
           fontWeight={500}
         >
           {name}

@@ -42,7 +42,7 @@ export function MetricRow({ metrics = DEFAULT_METRICS, className }: MetricRowPro
           <Card key={metric.label}>
             <CardContent className="p-4">
               <div className="flex items-center justify-between mb-2">
-                <p className="text-xs" style={{ color: "var(--bl-fg-muted)" }}>
+                <p className="text-xs font-mono" style={{ color: "var(--bl-fg-muted)" }}>
                   {metric.label}
                 </p>
                 {IconCmp && (
@@ -55,7 +55,7 @@ export function MetricRow({ metrics = DEFAULT_METRICS, className }: MetricRowPro
                 )}
               </div>
               <p
-                className="text-xl font-heading font-bold tabular-nums"
+                className="text-xl font-mono font-bold tabular-nums"
                 style={{ color: "var(--bl-fg-primary)" }}
               >
                 {metric.value}

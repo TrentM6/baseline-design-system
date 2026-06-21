@@ -114,7 +114,7 @@ function PlaygroundWorkspace() {
       {/* ── App shell sidebar ── */}
       <div
         className={cn(
-          "shrink-0 border-r flex flex-col transition-all duration-medium ease-out",
+          "shrink-0 border-r flex-col transition-all duration-medium ease-out hidden sm:flex",
           isWeb ? "w-52" : "w-0 overflow-hidden border-r-0",
         )}
         style={{ borderColor: "var(--bl-border-divider)", backgroundColor: "var(--bl-bg-chrome)" }}
@@ -153,17 +153,17 @@ function PlaygroundWorkspace() {
       <div className="flex-1 flex flex-col min-w-0">
         {/* Header / toolbar */}
         <div
-          className="h-12 shrink-0 flex items-center gap-3 border-b px-4"
+          className="shrink-0 flex flex-wrap items-center gap-2 sm:gap-3 border-b px-3 sm:px-4 py-2 sm:py-0 sm:h-12"
           style={{ borderColor: "var(--bl-border-divider)", backgroundColor: "var(--bl-bg-chrome)" }}
         >
           <span
-            className="text-sm font-heading font-medium"
+            className="text-sm font-heading font-medium hidden sm:block"
             style={{ color: "var(--bl-fg-primary)" }}
           >
             Dashboard
           </span>
 
-          <div className="ml-auto flex items-center gap-2">
+          <div className="flex items-center gap-2 sm:ml-auto flex-wrap">
             <Button
               size="sm"
               className="h-7 gap-1.5 text-xs"
@@ -173,11 +173,11 @@ function PlaygroundWorkspace() {
               Add
             </Button>
 
-            <Badge variant="outline" className="text-[10px] px-1.5 py-0 h-5">
+            <Badge variant="outline" className="text-[10px] px-1.5 py-0 h-5 hidden sm:flex">
               {placed.length} {placed.length === 1 ? "component" : "components"}
             </Badge>
 
-            <Separator orientation="vertical" className="!h-4" />
+            <Separator orientation="vertical" className="!h-4 hidden sm:block" />
 
             <ToggleGroup
               type="single"
@@ -193,7 +193,7 @@ function PlaygroundWorkspace() {
               </ToggleGroupItem>
             </ToggleGroup>
 
-            <Separator orientation="vertical" className="!h-4" />
+            <Separator orientation="vertical" className="!h-4 hidden sm:block" />
 
             <Button
               variant="ghost"
@@ -203,7 +203,7 @@ function PlaygroundWorkspace() {
               disabled={!placed.length}
             >
               <Broom size={14} />
-              Clear
+              <span className="hidden sm:inline">Clear</span>
             </Button>
 
             {/* Export */}
@@ -310,7 +310,7 @@ function PlaygroundWorkspace() {
       {/* ── Browse dialog ── */}
       <Dialog open={browsing} onOpenChange={setBrowsing}>
         <DialogContent
-          className="max-w-5xl flex flex-col gap-0 p-0 overflow-hidden"
+          className="max-w-5xl w-[95vw] flex flex-col gap-0 p-0 overflow-hidden"
           style={{ height: "min(80vh, 900px)" }}
         >
           <DialogHeader className="px-6 pt-6 pb-4 shrink-0">

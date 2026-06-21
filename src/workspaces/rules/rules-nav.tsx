@@ -7,7 +7,7 @@ interface RulesNavProps {
   onSelect: (id: string) => void;
 }
 
-export function RulesNav({ activeId, onSelect }: RulesNavProps) {
+function NavContent({ activeId, onSelect }: RulesNavProps) {
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(CHAPTER_GROUPS.map((g) => [g.id, true]))
   );
@@ -16,13 +16,7 @@ export function RulesNav({ activeId, onSelect }: RulesNavProps) {
     setOpenGroups((prev) => ({ ...prev, [gid]: !prev[gid] }));
 
   return (
-    <nav
-      className="w-[240px] shrink-0 border-r overflow-y-auto py-4 px-3"
-      style={{
-        borderColor: "var(--bl-border-divider)",
-        backgroundColor: "var(--bl-bg-chrome)",
-      }}
-    >
+    <>
       <p
         className="px-2 mb-4 text-[11px] font-mono uppercase tracking-widest"
         style={{ color: "var(--bl-fg-muted)" }}
@@ -70,6 +64,28 @@ export function RulesNav({ activeId, onSelect }: RulesNavProps) {
           )}
         </div>
       ))}
+    </>
+  );
+}
+
+export function RulesNav({ activeId, onSelect }: RulesNavProps) {
+  return (
+    <nav
+      className="hidden lg:block w-[240px] shrink-0 border-r overflow-y-auto py-4 px-3"
+      style={{
+        borderColor: "var(--bl-border-divider)",
+        backgroundColor: "var(--bl-bg-chrome)",
+      }}
+    >
+      <NavContent activeId={activeId} onSelect={onSelect} />
     </nav>
+  );
+}
+
+export function RulesNavMobile({ activeId, onSelect }: RulesNavProps) {
+  return (
+    <div className="py-4 px-3">
+      <NavContent activeId={activeId} onSelect={onSelect} />
+    </div>
   );
 }
