@@ -37,32 +37,26 @@ const LAYERS = [
   {
     dir: "tokens/",
     name: "Token (L1/L2)",
-    consumers: ["src/components/ui", "src/components/charts", "src/components/composed", "src/components/surfaces"],
+    consumers: ["src/components/ui", "src/components/charts", "src/components/composed"],
     note: "Every layer re-renders from the token graph — re-verify contrast and look in BOTH dark and light mode.",
   },
   {
     dir: "src/components/ui/",
-    name: "Primitive (L3)",
-    consumers: ["src/components/charts", "src/components/composed", "src/components/surfaces"],
+    name: "Component (L3)",
+    consumers: ["src/components/charts", "src/components/composed"],
     note: "An API change here ripples up — TypeScript will flag consumers; re-verify each still composes and adheres.",
   },
   {
     dir: "src/components/charts/",
     name: "Chart (L4)",
-    consumers: ["src/components/composed", "src/components/surfaces"],
+    consumers: ["src/components/composed"],
     note: "",
   },
   {
     dir: "src/components/composed/",
     name: "Component (L4)",
-    consumers: ["src/components/surfaces"],
-    note: "",
-  },
-  {
-    dir: "src/components/surfaces/",
-    name: "Surface (L5)",
     consumers: [],
-    note: "Reconcile DOWN: if you inlined a styled block or raw primitives that could be reused, extract them into src/components/composed/ — surfaces compose, they don't define.",
+    note: "",
   },
 ];
 

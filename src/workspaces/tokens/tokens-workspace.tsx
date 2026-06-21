@@ -33,71 +33,36 @@ function TokensWorkspace() {
             Base palette — authoring only. Components consume semantic tokens, not these directly.
           </p>
           <div className="space-y-4">
-            <div>
-              <p className="text-[12px] font-mono mb-2" style={{ color: "var(--bl-fg-muted)" }}>Orange ramp</p>
-              <div className="flex rounded-lg overflow-hidden h-12">
-                {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((step) => (
-                  <div
-                    key={step}
-                    className="flex-1 flex items-end justify-center pb-1"
-                    style={{ backgroundColor: `var(--bl-orange-${step})` }}
-                  >
-                    <span className="text-[9px] font-mono" style={{ color: step < 400 ? "var(--bl-stone-900)" : "var(--bl-stone-50)" }}>
-                      {step}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <p className="text-[12px] font-mono mb-2" style={{ color: "var(--bl-fg-muted)" }}>Stone neutral ramp — warm espresso</p>
-              <div className="flex rounded-lg overflow-hidden h-12">
-                {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((step) => (
-                  <div
-                    key={step}
-                    className="flex-1 flex items-end justify-center pb-1"
-                    style={{ backgroundColor: `var(--bl-stone-${step})` }}
-                  >
-                    <span className="text-[9px] font-mono" style={{ color: step < 500 ? "var(--bl-stone-900)" : "var(--bl-stone-50)" }}>
-                      {step}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Supporting hues — companions to the brand orange */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-              {[
-                { name: "Gold", ramp: "gold", note: "analogous" },
-                { name: "Clay", ramp: "clay", note: "terracotta bridge" },
-                { name: "Teal", ramp: "teal", note: "cool counterpoint" },
-              ].map((hue) => (
-                <div key={hue.ramp}>
-                  <p className="text-[12px] font-mono mb-2" style={{ color: "var(--bl-fg-muted)" }}>
-                    {hue.name} <span className="opacity-60">· {hue.note}</span>
-                  </p>
-                  <div className="flex rounded-lg overflow-hidden h-12">
-                    {[300, 400, 500, 600].map((step) => (
-                      <div
-                        key={step}
-                        className="flex-1 flex items-end justify-center pb-1"
-                        style={{ backgroundColor: `var(--bl-${hue.ramp}-${step})` }}
-                      >
-                        <span className="text-[9px] font-mono" style={{ color: step < 500 ? "var(--bl-stone-900)" : "var(--bl-stone-50)" }}>
-                          {step}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+            {([
+              { name: "orange", label: "Orange — brand accent", steps: [50,100,200,300,400,500,600,700,800,900], flip: 400 },
+              { name: "zinc", label: "Zinc — neutral", steps: [50,100,200,300,400,500,600,700,800,900,950], flip: 500 },
+              { name: "emerald", label: "Emerald — success", steps: [50,100,200,300,400,500,600,700,800,900], flip: 400 },
+              { name: "red", label: "Red — danger", steps: [50,100,200,300,400,500,600,700,800,900], flip: 400 },
+              { name: "blue", label: "Blue — info", steps: [50,100,200,300,400,500,600,700,800,900], flip: 400 },
+              { name: "yellow", label: "Yellow — warning", steps: [50,100,200,300,400,500,600,700,800,900], flip: 500 },
+            ] as const).map((ramp) => (
+              <div key={ramp.name}>
+                <p className="text-[12px] font-mono mb-2" style={{ color: "var(--bl-fg-muted)" }}>{ramp.label}</p>
+                <div className="flex rounded-lg overflow-hidden h-12">
+                  {ramp.steps.map((step) => (
+                    <div
+                      key={step}
+                      className="flex-1 flex items-end justify-center pb-1"
+                      style={{ backgroundColor: `var(--bl-${ramp.name}-${step})` }}
+                    >
+                      <span className="text-[9px] font-mono" style={{ color: step < ramp.flip ? "var(--bl-zinc-900)" : "var(--bl-zinc-50)" }}>
+                        {step}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
 
-            {/* Chart series — how the palette reads as a categorical set */}
+            {/* Chart series */}
             <div className="pt-2">
               <p className="text-[12px] font-mono mb-2" style={{ color: "var(--bl-fg-muted)" }}>
-                Chart series — orange → gold → clay → teal → stone
+                Chart series
               </p>
               <div className="flex gap-2">
                 {[1, 2, 3, 4, 5].map((n) => (
@@ -153,7 +118,7 @@ function TokensWorkspace() {
             Text Colors
           </h2>
           <div
-            className="rounded-xl border p-6 space-y-3"
+            className="rounded-lg border p-6 space-y-3"
             style={{ borderColor: "var(--bl-border-card)", backgroundColor: "var(--bl-bg-surface)" }}
           >
             <p className="text-lg font-medium" style={{ color: "var(--bl-fg-primary)" }}>
@@ -177,7 +142,7 @@ function TokensWorkspace() {
             Type Scale
           </h2>
           <div
-            className="rounded-xl border p-6 space-y-4"
+            className="rounded-lg border p-6 space-y-4"
             style={{ borderColor: "var(--bl-border-card)", backgroundColor: "var(--bl-bg-surface)" }}
           >
             <p className="text-hero font-heading font-medium leading-none">Hero 64</p>
@@ -271,7 +236,7 @@ function TokensWorkspace() {
             Motion Tokens
           </h2>
           <div
-            className="rounded-xl border overflow-hidden"
+            className="rounded-lg border overflow-hidden"
             style={{ borderColor: "var(--bl-border-divider)" }}
           >
             {[

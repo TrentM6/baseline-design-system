@@ -66,7 +66,7 @@ export function DistributionDonutChart({
                   >
                     <tspan
                       x={viewBox.cx}
-                      y={viewBox.cy}
+                      y={(viewBox.cy || 0) - 6}
                       className="font-heading font-bold"
                       style={{ fill: "var(--bl-fg-primary)", fontSize: 22 }}
                     >
@@ -74,7 +74,7 @@ export function DistributionDonutChart({
                     </tspan>
                     <tspan
                       x={viewBox.cx}
-                      y={(viewBox.cy || 0) + 18}
+                      y={(viewBox.cy || 0) + 14}
                       style={{ fill: "var(--bl-fg-muted)", fontSize: 11 }}
                     >
                       {centerLabel}

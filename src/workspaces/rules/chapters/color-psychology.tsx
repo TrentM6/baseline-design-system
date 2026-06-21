@@ -84,7 +84,7 @@ export default function ColorPsychology() {
               v: "Universal 'stop' signal. Used for failed actions, invalid inputs, destructive confirmations, and critical alerts. Maps to --bl-status-error tokens.",
             },
             {
-              k: "Warning — amber/yellow",
+              k: "Warning — yellow",
               v: "Universal 'caution' signal. Used for degraded status, approaching limits, and actions with side effects. Maps to --bl-status-warning tokens.",
             },
             {

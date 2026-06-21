@@ -67,6 +67,14 @@ const config: Config = {
   				ring: 'var(--bl-sidebar-ring)',
   			}
   		},
+  		boxShadow: {
+  			sm: 'var(--bl-shadow-sm)',
+  			DEFAULT: 'var(--bl-shadow-md)',
+  			md: 'var(--bl-shadow-md)',
+  			lg: 'var(--bl-shadow-lg)',
+  			tooltip: 'var(--bl-shadow-tooltip)',
+  			overlay: 'var(--bl-shadow-overlay)',
+  		},
   		borderRadius: {
   			sm: 'var(--r-sm)',
   			DEFAULT: 'var(--r-md)',

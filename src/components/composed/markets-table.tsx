@@ -29,10 +29,10 @@ export interface MarketRow {
 }
 
 const ROWS: MarketRow[] = [
-  { name: "Payoneer", symbol: "PYO", tint: "var(--bl-orange-500)", price: "$0.00000231", volume: "$9,152,921", marketCap: "$432,624,043", holders: "18,212", change: 4.2 },
-  { name: "Tap Tap", symbol: "TAP", tint: "var(--bl-gold-500)", price: "$0.00000531", volume: "$532,152", marketCap: "$15,428,853", holders: "15,271", change: -1.8 },
-  { name: "Wise", symbol: "WSE", tint: "var(--bl-clay-400)", price: "$0.00003231", volume: "$10,527,511", marketCap: "$573,116,043", holders: "12,221", change: 2.9 },
-  { name: "Cedar", symbol: "CDR", tint: "var(--bl-teal-500)", price: "$0.00012088", volume: "$3,981,004", marketCap: "$88,402,910", holders: "9,887", change: 7.1 },
+  { name: "Payoneer", symbol: "PYO", tint: "var(--bl-chart-1)", price: "$0.00000231", volume: "$9,152,921", marketCap: "$432,624,043", holders: "18,212", change: 4.2 },
+  { name: "Tap Tap", symbol: "TAP", tint: "var(--bl-chart-2)", price: "$0.00000531", volume: "$532,152", marketCap: "$15,428,853", holders: "15,271", change: -1.8 },
+  { name: "Wise", symbol: "WSE", tint: "var(--bl-chart-3)", price: "$0.00003231", volume: "$10,527,511", marketCap: "$573,116,043", holders: "12,221", change: 2.9 },
+  { name: "Cedar", symbol: "CDR", tint: "var(--bl-chart-4)", price: "$0.00012088", volume: "$3,981,004", marketCap: "$88,402,910", holders: "9,887", change: 7.1 },
 ];
 
 function CoinBadge({ symbol, tint }: { symbol: string; tint: string }) {

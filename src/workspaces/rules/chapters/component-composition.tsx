@@ -11,7 +11,7 @@ export default function ComponentComposition() {
       </h2>
       <p className="text-[14px] leading-relaxed mb-8" style={{ color: "var(--bl-fg-secondary)" }}>
         Every component in the system is built by composing smaller, documented
-        primitives. No bespoke reimplementations. No inline one-offs. The
+        base components. No bespoke reimplementations. No inline one-offs. The
         composition model is how the system scales.
       </p>
 
@@ -28,16 +28,16 @@ export default function ComponentComposition() {
               v: "Design decisions as variables — color, spacing, motion, radii. The atomic units that every other layer consumes. Defined in bl-tokens.css.",
             },
             {
-              k: "L2 Primitives",
-              v: "Atomic UI elements — Button, Input, Badge, Avatar. Each primitive is a single-purpose component that handles one interaction pattern well.",
+              k: "L2 Base Components",
+              v: "Atomic UI elements — Button, Input, Badge, Avatar. Each base component is a single-purpose component that handles one interaction pattern well.",
             },
             {
               k: "L3 Patterns",
-              v: "Composed arrangements — FormField wraps Label + Input + HelperText. Patterns solve a recurring layout problem by wiring primitives together.",
+              v: "Composed arrangements — FormField wraps Label + Input + HelperText. Patterns solve a recurring layout problem by wiring base components together.",
             },
             {
               k: "L4 Features",
-              v: "Product-specific compositions — LoginForm, SettingsPanel. Features combine patterns and primitives into functional units tied to a user workflow.",
+              v: "Product-specific compositions — LoginForm, SettingsPanel. Features combine patterns and base components into functional units tied to a user workflow.",
             },
             {
               k: "L5 Pages",
@@ -51,8 +51,8 @@ export default function ComponentComposition() {
         <DocKeyValue
           rows={[
             {
-              k: "Route through primitives",
-              v: "Every interactive element uses a system primitive. If a user can click it, type in it, or toggle it, it must be an instance of a primitive from src/components/ui/.",
+              k: "Route through base components",
+              v: "Every interactive element uses a system base component. If a user can click it, type in it, or toggle it, it must be an instance of a base component from src/components/ui/.",
             },
             {
               k: "No re-implementation",
@@ -60,7 +60,7 @@ export default function ComponentComposition() {
             },
             {
               k: "Props over forks",
-              v: "Extend a primitive's prop surface rather than forking it into a separate file. A variant prop is almost always better than a second component.",
+              v: "Extend a base component's prop surface rather than forking it into a separate file. A variant prop is almost always better than a second component.",
             },
             {
               k: "Consistent API",
@@ -84,13 +84,13 @@ export default function ComponentComposition() {
             inside a component file.
           </li>
           <li>
-            <strong>Need a new control?</strong> Build a primitive at L2 in
+            <strong>Need a new control?</strong> Build a base component at L2 in
             src/components/ui/. Give it the same API conventions as existing
-            primitives.
+            base components.
           </li>
           <li>
             <strong>Need a reusable arrangement?</strong> Create a pattern at
-            L3 that composes from existing primitives. The pattern owns layout
+            L3 that composes from existing base components. The pattern owns layout
             and wiring, not visual styling.
           </li>
           <li>
@@ -106,33 +106,33 @@ export default function ComponentComposition() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <RuleCard
             type="do"
-            title="Compose higher-level components from existing primitives"
-            description="A settings form should use FormField, Input, Select, and Button — not custom divs styled to look like those primitives. Composition is the entire point of the system."
+            title="Compose higher-level components from existing base components"
+            description="A settings form should use FormField, Input, Select, and Button — not custom divs styled to look like those base components. Composition is the entire point of the system."
           />
           <RuleCard
             type="dont"
             title="Re-implement a button as a styled div because the existing Button doesn't look right — fix the Button"
-            description="If the Button primitive doesn't support your use case, that's a signal the Button needs a new variant or prop — not that you need a parallel implementation."
+            description="If the Button base component doesn't support your use case, that's a signal the Button needs a new variant or prop — not that you need a parallel implementation."
           />
           <RuleCard
             type="do"
-            title="Add missing capabilities at the atomic level (tokens, primitives)"
-            description="When you need something the system doesn't have, add it where it belongs. A missing color is a token gap. A missing control is a primitive gap. Fix the gap, don't work around it."
+            title="Add missing capabilities at the atomic level (tokens, base components)"
+            description="When you need something the system doesn't have, add it where it belongs. A missing color is a token gap. A missing control is a base component gap. Fix the gap, don't work around it."
           />
           <RuleCard
             type="dont"
-            title="Inline a one-off styled component that duplicates an existing primitive"
+            title="Inline a one-off styled component that duplicates an existing base component"
             description="One-offs accumulate. Each one is justified in isolation; together they fragment the system. If you find yourself building something that already exists, use the existing one."
           />
           <RuleCard
             type="do"
-            title="Extend a primitive's props when you need a new variant"
+            title="Extend a base component's props when you need a new variant"
             description="Adding a 'compact' size to Button is one change in one file that benefits every consumer. Forking Button into CompactButton creates a maintenance burden that compounds over time."
           />
           <RuleCard
             type="dont"
-            title="Fork a primitive into a separate file for a single use case"
-            description="A forked primitive will drift from the original. It won't get token updates, accessibility fixes, or API improvements. Within weeks it becomes a liability."
+            title="Fork a base component into a separate file for a single use case"
+            description="A forked base component will drift from the original. It won't get token updates, accessibility fixes, or API improvements. Within weeks it becomes a liability."
           />
         </div>
       </DocSection>

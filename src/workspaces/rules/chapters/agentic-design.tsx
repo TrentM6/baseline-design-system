@@ -36,8 +36,8 @@ export default function AgenticDesign() {
               v: "Agents are the most likely to emit raw hex values — never do this. Every color, spacing value, radius, and duration must resolve to a --bl-* or --dur-* token.",
             },
             {
-              k: "Compose from primitives",
-              v: "Check what exists in src/components/ui/ before building something new. If a primitive covers your use case, use it. If it almost covers it, extend it.",
+              k: "Compose from base components",
+              v: "Check what exists in src/components/ui/ before building something new. If a base component covers your use case, use it. If it almost covers it, extend it.",
             },
             {
               k: "Verify both modes",
@@ -66,17 +66,17 @@ export default function AgenticDesign() {
           </li>
           <li>
             <strong>Primitive for a control.</strong> If you need a new
-            interactive element, build it as a proper primitive in
+            interactive element, build it as a proper base component in
             src/components/ui/. Don't inline a custom div with click handlers.
           </li>
           <li>
             <strong>Pattern for a reusable arrangement.</strong> If you're
-            wiring together the same three primitives in multiple places, that's
+            wiring together the same three base components in multiple places, that's
             a pattern — extract it. Don't duplicate the wiring.
           </li>
           <li>
             <strong>Why agents get this wrong.</strong> Agents optimize for
-            task completion speed. Adding a token or primitive feels like scope
+            task completion speed. Adding a token or base component feels like scope
             creep when the prompt just said "build this card." But the local fix
             creates tech debt that compounds with every subsequent agent session.
           </li>
@@ -91,7 +91,7 @@ export default function AgenticDesign() {
               v: "Agents trained on general code emit #ffffff, #000000, and other raw colors by default. Replace with --bl-fg-inverse, --bl-bg-body, or the appropriate semantic token.",
             },
             {
-              k: "Reimplementing primitives",
+              k: "Reimplementing base components",
               v: "Building a custom button because the prompt said 'button' without checking if a Button component exists. Always search src/components/ui/ first.",
             },
             {
@@ -115,7 +115,7 @@ export default function AgenticDesign() {
           <RuleCard
             type="do"
             title="Read the relevant doc chapter before touching a component"
-            description="Documentation exists to prevent rework. Five minutes reading saves an hour of corrections. The chapter will tell you which tokens, primitives, and patterns apply."
+            description="Documentation exists to prevent rework. Five minutes reading saves an hour of corrections. The chapter will tell you which tokens, base components, and patterns apply."
           />
           <RuleCard
             type="dont"
@@ -124,12 +124,12 @@ export default function AgenticDesign() {
           />
           <RuleCard
             type="do"
-            title="Check if a primitive already exists before building something new"
+            title="Check if a base component already exists before building something new"
             description="Run a search of src/components/ui/ before creating any interactive element. The system likely has what you need, or something close enough to extend."
           />
           <RuleCard
             type="dont"
-            title="Create a one-off styled component when a system primitive covers the use case"
+            title="Create a one-off styled component when a system base component covers the use case"
             description="One-off components bypass the system's accessibility work, token integration, and mode support. They look right today and break in ways that are hard to diagnose tomorrow."
           />
           <RuleCard

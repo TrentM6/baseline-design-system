@@ -48,10 +48,10 @@ export function ChatMessage() {
                 )}
                 <div className={`max-w-[75%] ${m.isOwn ? "text-right" : ""}`}>
                   <div
-                    className="rounded-xl px-3 py-2 text-[13px] leading-relaxed"
+                    className="rounded-lg px-3 py-2 text-[13px] leading-relaxed"
                     style={{
                       backgroundColor: m.isOwn ? "var(--bl-fill-primary)" : "var(--bl-bg-elevated)",
-                      color: m.isOwn ? "var(--bl-orange-50)" : "var(--bl-fg-primary)",
+                      color: m.isOwn ? "var(--bl-fg-on-primary)" : "var(--bl-fg-primary)",
                     }}
                   >
                     {m.text}

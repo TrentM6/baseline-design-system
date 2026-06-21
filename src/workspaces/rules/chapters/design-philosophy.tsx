@@ -23,16 +23,16 @@ export default function DesignPhilosophy() {
               v: "No raw hex, rgb, or hsl in JSX or CSS. Every color resolves to a semantic token with both dark and light values.",
             },
             {
-              k: "Compose from primitives",
-              v: "Higher-level components route every control, indicator, and surface through a documented primitive. No bespoke reimplementations.",
+              k: "Compose from base components",
+              v: "Higher-level components route every control, indicator, and surface through a documented base component. No bespoke reimplementations.",
             },
             {
               k: "Add at the right level",
-              v: "When the system is missing something, mint at the atomic level (token, primitive) — never inline at the component level.",
+              v: "When the system is missing something, mint at the atomic level (token, base component) — never inline at the component level.",
             },
             {
               k: "Accessibility is non-negotiable",
-              v: "WCAG 2.2 AA. Contrast, focus, keyboard, accessible names, no info by color alone. Every primitive ships with a verified checklist.",
+              v: "WCAG 2.2 AA. Contrast, focus, keyboard, accessible names, no info by color alone. Every base component ships with a verified checklist.",
             },
             {
               k: "Dark mode is ground truth",

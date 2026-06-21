@@ -22,7 +22,7 @@ export default function HeuristicPrinciples() {
         </p>
         <DocKeyValue
           rows={[
-            { k: "Loading states", v: "Use Skeleton primitives during async loads. Never show a blank screen." },
+            { k: "Loading states", v: "Use Skeleton components during async loads. Never show a blank screen." },
             { k: "Progress", v: "Use Progress bars for determinate operations, spinners for indeterminate." },
             { k: "Success/error", v: "Toast notifications (Sonner) for async outcomes. Inline validation for forms." },
             { k: "Active state", v: "Selected tabs, active nav items, and pressed buttons must visually confirm the interaction." },
@@ -39,7 +39,7 @@ export default function HeuristicPrinciples() {
         <DocKeyValue
           rows={[
             { k: "Labels", v: "Use task-oriented labels ('Save changes', not 'Submit'). Avoid technical jargon." },
-            { k: "Icons", v: "Use universally recognized icons (Lucide set). Pair with text labels for ambiguous actions." },
+            { k: "Icons", v: "Use universally recognized icons (Phosphor). Pair with text labels for ambiguous actions." },
             { k: "Order", v: "Most important actions first. Chronological for timelines. Alphabetical for long lists." },
           ]}
         />
@@ -68,7 +68,7 @@ export default function HeuristicPrinciples() {
         </p>
         <DocKeyValue
           rows={[
-            { k: "Components", v: "Use system primitives. Don't build a custom button when Button exists." },
+            { k: "Components", v: "Use system base components. Don't build a custom button when Button exists." },
             { k: "Tokens", v: "Use semantic tokens. --bl-fg-primary always means primary text, everywhere." },
             { k: "Patterns", v: "Same action, same pattern. Delete always uses destructive variant + confirmation." },
           ]}

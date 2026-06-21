@@ -44,28 +44,28 @@ export default function BrandIdentity() {
 
       <DocSection heading="Surface elevation hierarchy">
         <p>
-          Baseline uses warm dark surfaces built on a stone (brown-grey) neutral
+          Baseline uses cool dark surfaces built on a zinc (subtle cool-gray) neutral
           ramp. Each elevation level is a deliberate step lighter, creating depth
-          with subtle low-opacity borders rather than heavy shadows. The warmth
-          distinguishes Baseline from the cold zinc-grey palettes of most dark UIs.
+          with subtle low-opacity borders rather than heavy shadows. The cool
+          undertone creates temperature contrast that makes the warm orange brand pop.
         </p>
         <DocKeyValue
           rows={[
             {
               k: "Level 0 — Base",
-              v: "stone-950 (#100e0c) — the deepest background. Used for the application shell, page canvas, and areas that recede visually.",
+              v: "zinc-950 (#09090b) — the deepest background. Used for the application shell, page canvas, and areas that recede visually.",
             },
             {
               k: "Level 1 — Surface",
-              v: "stone-900 (#1c1816) — primary content surfaces. Cards, panels, and content containers sit at this level.",
+              v: "zinc-900 (#18181b) — primary content surfaces. Cards, panels, and content containers sit at this level.",
             },
             {
               k: "Level 2 — Elevated",
-              v: "stone-800 (#2c2825) — raised elements. Dropdowns, popovers, tooltips, sidebar, and anything that floats above the surface.",
+              v: "zinc-800 (#27272a) — raised elements. Dropdowns, popovers, tooltips, sidebar, and anything that floats above the surface.",
             },
             {
               k: "Level 3 — Active",
-              v: "stone-700 (#413c37) — the highest elevation. Active rows, focused input fields, and interactive states that need maximum separation.",
+              v: "zinc-700 (#3f3f46) — the highest elevation. Active rows, focused input fields, and interactive states that need maximum separation.",
             },
           ]}
         />
@@ -75,12 +75,12 @@ export default function BrandIdentity() {
         <DocKeyValue
           rows={[
             {
-              k: "Pill buttons",
-              v: "border-radius: 9999px — Baseline's buttons are fully rounded pills, not rectangles with corner radius. This is a deliberate brand choice that signals approachability.",
+              k: "Tight corners",
+              v: "Small, consistent border radius across every component. Buttons, cards, inputs, badges — all use the compact radius scale (2–8px). No pills, no large rounding.",
             },
             {
-              k: "Warm neutrals",
-              v: "Every neutral is drawn from the warm stone ramp (brown-grey). Pure cold greys (#808080, #ccc) are treated as bugs — they read as cold and disconnected from the palette.",
+              k: "Cool neutrals",
+              v: "Every neutral is drawn from the zinc ramp (cool gray). Off-palette neutrals (#808080, #ccc, warm browns) are treated as bugs — they read as disconnected from the system.",
             },
             {
               k: "Monochromatic discipline",

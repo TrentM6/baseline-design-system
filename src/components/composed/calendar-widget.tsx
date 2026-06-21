@@ -12,8 +12,8 @@ interface CalEvent {
 
 const EVENTS: CalEvent[] = [
   { title: "Design review", time: "10:00 AM", color: "var(--bl-fill-primary)" },
-  { title: "Sprint planning", time: "2:00 PM", color: "var(--bl-teal-500)" },
-  { title: "1:1 with Sarah", time: "4:30 PM", color: "var(--bl-gold-500)" },
+  { title: "Sprint planning", time: "2:00 PM", color: "var(--bl-chart-4)" },
+  { title: "1:1 with Sarah", time: "4:30 PM", color: "var(--bl-chart-2)" },
 ];
 
 export function CalendarWidget() {

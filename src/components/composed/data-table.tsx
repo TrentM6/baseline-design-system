@@ -22,6 +22,7 @@ import {
   CaretDoubleRight,
   Columns,
 } from "@phosphor-icons/react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -210,58 +211,58 @@ export function DataTable({ people = SAMPLE_PEOPLE }: { people?: TablePerson[] }
   const statusFilter = (table.getColumn("status")?.getFilterValue() as string) ?? "all";
 
   return (
-    <div className="space-y-3">
-      {/* Toolbar */}
-      <div className="flex flex-wrap items-center gap-2">
-        <div className="relative max-w-xs flex-1 min-w-[180px]">
-          <MagnifyingGlass size={14} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "var(--bl-fg-muted)" }} />
-          <Input
-            placeholder="Search name, email, role..."
-            value={globalFilter}
-            onChange={(e) => setGlobalFilter(e.target.value)}
-            className="pl-8"
-            aria-label="Search"
-          />
+    <Card>
+      <CardHeader className="flex-row items-center justify-between space-y-0 pb-3">
+        <CardTitle className="text-sm">Records</CardTitle>
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="relative min-w-[180px]">
+            <MagnifyingGlass size={14} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "var(--bl-fg-muted)" }} />
+            <Input
+              placeholder="Search..."
+              value={globalFilter}
+              onChange={(e) => setGlobalFilter(e.target.value)}
+              className="pl-8 h-8"
+              aria-label="Search"
+            />
+          </div>
+
+          <Select value={statusFilter} onValueChange={(v) => table.getColumn("status")?.setFilterValue(v)}>
+            <SelectTrigger className="h-8 w-[130px]">
+              <SelectValue placeholder="Status" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All statuses</SelectItem>
+              <SelectItem value="Active">Active</SelectItem>
+              <SelectItem value="Pending">Pending</SelectItem>
+              <SelectItem value="Inactive">Inactive</SelectItem>
+            </SelectContent>
+          </Select>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="sm" className="h-8 gap-1.5">
+                <Columns size={15} />
+                View
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {table.getAllColumns().filter((c) => c.getCanHide()).map((column) => (
+                <DropdownMenuCheckboxItem
+                  key={column.id}
+                  className="capitalize"
+                  checked={column.getIsVisible()}
+                  onCheckedChange={(v) => column.toggleVisibility(!!v)}
+                >
+                  {column.id}
+                </DropdownMenuCheckboxItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
-
-        <Select value={statusFilter} onValueChange={(v) => table.getColumn("status")?.setFilterValue(v)}>
-          <SelectTrigger className="h-9 w-[140px]">
-            <SelectValue placeholder="Status" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All statuses</SelectItem>
-            <SelectItem value="Active">Active</SelectItem>
-            <SelectItem value="Pending">Pending</SelectItem>
-            <SelectItem value="Inactive">Inactive</SelectItem>
-          </SelectContent>
-        </Select>
-
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="sm" className="ml-auto h-9 gap-1.5">
-              <Columns size={15} />
-              View
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            {table.getAllColumns().filter((c) => c.getCanHide()).map((column) => (
-              <DropdownMenuCheckboxItem
-                key={column.id}
-                className="capitalize"
-                checked={column.getIsVisible()}
-                onCheckedChange={(v) => column.toggleVisibility(!!v)}
-              >
-                {column.id}
-              </DropdownMenuCheckboxItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
-
-      {/* Table */}
-      <div className="rounded-lg border" style={{ borderColor: "var(--bl-border-card)" }}>
+      </CardHeader>
+      <CardContent className="px-2 pb-2">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((hg) => (
@@ -292,44 +293,47 @@ export function DataTable({ people = SAMPLE_PEOPLE }: { people?: TablePerson[] }
             )}
           </TableBody>
         </Table>
-      </div>
 
-      {/* Footer / pagination */}
-      <div className="flex flex-wrap items-center gap-3 text-[13px]" style={{ color: "var(--bl-fg-muted)" }}>
-        <span>
-          {table.getFilteredSelectedRowModel().rows.length} of {table.getFilteredRowModel().rows.length} row(s) selected
-        </span>
-        <div className="ml-auto flex items-center gap-2">
-          <span className="hidden sm:inline">Rows per page</span>
-          <Select value={`${table.getState().pagination.pageSize}`} onValueChange={(v) => table.setPageSize(Number(v))}>
-            <SelectTrigger className="h-8 w-[68px]">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {[8, 16, 24].map((n) => (
-                <SelectItem key={n} value={`${n}`}>{n}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+        {/* Pagination */}
+        <div
+          className="flex flex-wrap items-center gap-3 px-2 pt-3 pb-1 text-[13px]"
+          style={{ color: "var(--bl-fg-muted)", borderTop: "1px solid var(--bl-border-divider)" }}
+        >
+          <span>
+            {table.getFilteredSelectedRowModel().rows.length} of {table.getFilteredRowModel().rows.length} selected
+          </span>
+          <div className="ml-auto flex items-center gap-2">
+            <span className="hidden sm:inline">Rows</span>
+            <Select value={`${table.getState().pagination.pageSize}`} onValueChange={(v) => table.setPageSize(Number(v))}>
+              <SelectTrigger className="h-7 w-[60px]">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {[8, 16, 24].map((n) => (
+                  <SelectItem key={n} value={`${n}`}>{n}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <span className="tabular-nums">
+            {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}
+          </span>
+          <div className="flex items-center gap-1">
+            <Button variant="outline" size="icon" className="h-7 w-7" onClick={() => table.setPageIndex(0)} disabled={!table.getCanPreviousPage()} aria-label="First page">
+              <CaretDoubleLeft size={13} />
+            </Button>
+            <Button variant="outline" size="icon" className="h-7 w-7" onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()} aria-label="Previous page">
+              <CaretLeft size={13} />
+            </Button>
+            <Button variant="outline" size="icon" className="h-7 w-7" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()} aria-label="Next page">
+              <CaretRight size={13} />
+            </Button>
+            <Button variant="outline" size="icon" className="h-7 w-7" onClick={() => table.setPageIndex(table.getPageCount() - 1)} disabled={!table.getCanNextPage()} aria-label="Last page">
+              <CaretDoubleRight size={13} />
+            </Button>
+          </div>
         </div>
-        <span className="tabular-nums">
-          Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
-        </span>
-        <div className="flex items-center gap-1">
-          <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => table.setPageIndex(0)} disabled={!table.getCanPreviousPage()} aria-label="First page">
-            <CaretDoubleLeft size={14} />
-          </Button>
-          <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()} aria-label="Previous page">
-            <CaretLeft size={14} />
-          </Button>
-          <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()} aria-label="Next page">
-            <CaretRight size={14} />
-          </Button>
-          <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => table.setPageIndex(table.getPageCount() - 1)} disabled={!table.getCanNextPage()} aria-label="Last page">
-            <CaretDoubleRight size={14} />
-          </Button>
-        </div>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }

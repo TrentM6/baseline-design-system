@@ -30,7 +30,7 @@ The Claude Code session auto-loads these via `CLAUDE.md`. Other agent tools must
 1. **Read the relevant docs.** Identify which documentation chapter governs what you're about to do.
 2. **Match existing patterns.** Find the closest existing component in `src/components/ui/` and follow its conventions (token usage, props, shadcn patterns).
 3. **Use tokens, never literals.** No raw hex, no fixed white/black, no off-spec colors. If the docs don't define a token for what you need, mint one in `tokens/bl-tokens.css` with both light and dark values.
-4. **Compose from primitives.** Every interactive control, status indicator, and surface in a higher-level component must route through a shadcn/ui primitive or a documented system primitive.
+4. **Compose from base components.** Every interactive control, status indicator, and surface in a higher-level component must route through a shadcn/ui base component or a documented system component.
 5. **Verify accessibility** before marking anything done — WCAG 2.2 AA contrast, visible focus rings, keyboard reachability, accessible names on icon-only controls, no info conveyed by color alone.
 6. **Verify in both modes.** Toggle the theme switcher and confirm the change holds in light AND dark before considering it done.
 7. **Update the spec in the same change set.** New decision → decision log. New question raised → open questions.
@@ -47,20 +47,15 @@ deterministic each check is:
    from the Stop hook. **You cannot finish a change while this fails.**
 
 2. **Cascade nudge — `PostToolUse` hook** (`scripts/ds-cascade.mjs`). Every time
-   you edit a token, primitive, chart, component, or surface, it tells you which
+   you edit a token, base component, chart, or composed component, it tells you which
    higher layers now need re-verification and lists their importers. Treat its
-   output as a checklist, not noise. The two cascades:
-   - *Upward* (token/primitive → components → surfaces): TypeScript + the token
-     graph propagate the change; your job is to **re-verify** each consumer reads
-     correctly in both modes.
-   - *Downward* (surface → components): if you inlined something reusable in a
-     surface, **extract it into `src/components/composed/`.** Surfaces compose,
-     they don't define.
+   output as a checklist, not noise. TypeScript + the token graph propagate the
+   change; your job is to **re-verify** each consumer reads correctly in both modes.
 
 3. **Judgment review — `/design-review`** (runs the gate, then the
    `ux-reviewer` subagent). Catches what a script can't: accessibility, visual
    hierarchy, interaction completeness, extraction discipline. Run it after any
-   surface/component change before reporting done.
+   component change before reporting done.
 
 The **Stop gate** (`scripts/ds-gate.mjs`) ties 1 + the type-check together: it
 blocks the end of a turn until `ds:validate` and `tsc --noEmit` both pass, so a
@@ -70,12 +65,16 @@ when code actually changed this turn, so it adds no friction to discussion.
 The layer DAG it enforces (imports flow one direction only):
 
 ```
-tokens/bl-tokens.css → tailwind.config.ts → src/components/ui/ → { charts/, composed/ } → surfaces/ → workspaces/
+tokens/bl-tokens.css → tailwind.config.ts → src/components/ui/ → { charts/, composed/ } → workspaces/
 ```
+
+Page-level compositions (surfaces) are built in the **Playground** workspace by
+placing composed components onto the canvas, optionally wrapped in an app shell.
+The Playground exports self-contained code that can be dropped into any project.
 
 ## Building new components — composition is non-negotiable
 
-Every new component MUST compose from primitives and tokens. If the `src/components/ui/` catalog already has a primitive for a part of what you're building — you USE the primitive. You don't re-implement the visual, you don't restyle it inline, you don't add bespoke CSS that duplicates what the primitive already covers.
+Every new component MUST compose from base components and tokens. If the `src/components/ui/` catalog already has a base component for a part of what you're building — you USE the base component. You don't re-implement the visual, you don't restyle it inline, you don't add bespoke CSS that duplicates what the base component already covers.
 
 Same rule for tokens: every color, motion duration, easing curve, spacing step, radius, shadow, font size in your new component must resolve to a documented token defined in `tokens/bl-tokens.css`.
 
@@ -83,8 +82,8 @@ When the system is missing something you need, the rule is **add at the right le
 
 - **Need a new color?** Mint a semantic token in `bl-tokens.css` with both light and dark values. Never write `#hex` or `rgba(...)` inside a component.
 - **Need a new motion duration / easing?** Add it to the foundation scales block in `tokens/bl-tokens.css`. Never write `200ms` or `cubic-bezier(...)` directly inside a component.
-- **Need a new variant of an existing primitive?** Add it to the primitive itself — extend its prop surface, update its CSS. Don't fork the primitive inside your component.
-- **Need a primitive that doesn't exist yet?** Build it as a proper `src/components/ui/*` primitive, then compose from it.
+- **Need a new variant of an existing base component?** Add it to the base component itself — extend its prop surface, update its CSS. Don't fork the base component inside your component.
+- **Need a base component that doesn't exist yet?** Build it as a proper `src/components/ui/*` base component, then compose from it.
 
 ## Color and dark mode — the ground rules
 
@@ -95,7 +94,7 @@ Operating rules:
 - **Every color used anywhere must resolve to a semantic token** defined in `bl-tokens.css`. No raw hex, rgb, hsl, or named colors in JSX or component CSS.
 - **Every semantic token must declare both a dark and a light value.** A token without both values is incomplete.
 - **Tokens are semantic, not literal.** Name them by role (`--bl-bg-surface`, `--bl-fg-muted`, `--bl-border-divider`) — not by appearance (`--bl-light-orange`).
-- **The base palette (`--bl-orange-500`, `--bl-warm-900`, etc.) is for token authoring only.** Components consume semantic tokens that reference the palette, not the palette directly.
+- **The base palette (`--bl-orange-500`, `--bl-slate-950`, etc.) is for token authoring only.** Components consume semantic tokens that reference the palette, not the palette directly.
 - **When you find a color literal in existing code,** treat it as a bug. Replace with a token.
 
 ## Accessibility — WCAG 2.2 AA (non-negotiable)
@@ -156,7 +155,7 @@ Every chart and data visualization must be **complete and precise by default**. 
 | **Smooth interpolation** (`type="natural"`) | All line/area charts |
 | **Dense data points** (20+ for curves) | All line/area charts |
 
-Do not create `show*` props that toggle these off. The chart primitive must be production-ready out of the box — every consumer gets full interactivity automatically.
+Do not create `show*` props that toggle these off. The chart component must be production-ready out of the box — every consumer gets full interactivity automatically.
 
 ## Motion + interaction conformance
 

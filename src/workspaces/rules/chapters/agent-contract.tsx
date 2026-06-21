@@ -29,11 +29,11 @@ export default function AgentContract() {
             },
             {
               k: "Identify the layer",
-              v: "Know which workspace tab the change affects: Rules, Tokens, Primitives, Components, or Surfaces.",
+              v: "Know which workspace tab the change affects: Rules, Tokens, Components, or Playground.",
             },
             {
-              k: "Identify primitives",
-              v: "Search src/components/ui/ for existing primitives to compose from. Never re-implement what already exists.",
+              k: "Identify base components",
+              v: "Search src/components/ui/ for existing base components to compose from. Never re-implement what already exists.",
             },
             {
               k: "Identify tokens",
@@ -62,7 +62,7 @@ export default function AgentContract() {
         <DocKeyValue
           rows={[
             { k: "Tokens", v: "All values (color, spacing, radius, motion) from --bl-* tokens" },
-            { k: "Primitives", v: "All interactive elements from shadcn/ui in src/components/ui/" },
+            { k: "Base components", v: "All interactive elements from shadcn/ui in src/components/ui/" },
             { k: "Icons", v: "All icons from @phosphor-icons/react — no inline SVG for standard UI icons" },
             { k: "Accessibility", v: "WCAG 2.2 AA on every component — contrast, keyboard, names, focus" },
             { k: "Both modes", v: "Every change verified in dark AND light mode" },
@@ -80,7 +80,7 @@ export default function AgentContract() {
           rows={[
             {
               k: "1. Composition audit",
-              v: "Grep for raw hex. Verify all interactive elements use shadcn primitives. Verify all icons use Phosphor. Verify spacing uses token-mapped classes.",
+              v: "Grep for raw hex. Verify all interactive elements use shadcn base components. Verify all icons use Phosphor. Verify spacing uses token-mapped classes.",
             },
             {
               k: "2. Accessibility check",
@@ -96,7 +96,7 @@ export default function AgentContract() {
             },
             {
               k: "5. Report",
-              v: "What was built. Which primitives compose it. Any new tokens. Any issues found and fixed.",
+              v: "What was built. Which base components compose it. Any new tokens. Any issues found and fixed.",
             },
           ]}
         />
@@ -115,8 +115,8 @@ export default function AgentContract() {
           />
           <RuleCard
             type="dont"
-            title="Custom styled divs replacing shadcn primitives"
-            description="If shadcn has a component for it (Button, Input, Card, Dialog, etc.), use the primitive. Don't rebuild it."
+            title="Custom styled divs replacing shadcn base components"
+            description="If shadcn has a component for it (Button, Input, Card, Dialog, etc.), use the base component. Don't rebuild it."
           />
           <RuleCard
             type="dont"

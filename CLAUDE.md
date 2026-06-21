@@ -9,8 +9,8 @@ Read **[AGENTS.md](AGENTS.md)** for the full operating rules (shared with all ag
 Before writing any code in this project, verify:
 
 1. You have read AGENTS.md and understand the composition rules
-2. You know which workspace tab the change affects (Rules, Tokens, Primitives, Components, Surfaces)
-3. You have identified which existing primitives from `src/components/ui/` to compose from
+2. You know which workspace tab the change affects (Rules, Tokens, Components, Playground)
+3. You have identified which existing base components from `src/components/ui/` to compose from
 4. You have identified which tokens from `tokens/bl-tokens.css` apply
 
 ## Always-on skills (apply every session)
@@ -40,12 +40,12 @@ not generic).
 Every visual element MUST trace back through the system layers:
 
 ```
-tokens/bl-tokens.css → tailwind.config.ts → src/components/ui/* → workspace components → surfaces
+tokens/bl-tokens.css → tailwind.config.ts → src/components/ui/* → { charts/, composed/ } → workspaces/
 ```
 
 Violations — any of these is a rejection:
 - Raw hex/rgb/hsl values in any component (use `--bl-*` tokens)
-- Custom styled divs when a shadcn primitive exists for that purpose
+- Custom styled divs when a shadcn base component exists for that purpose
 - Interactive elements not built from `src/components/ui/button`, `input`, `select`, etc.
 - Layout/navigation not using shadcn `sidebar`, `tabs`, `accordion`, etc.
 - Icons not from `@phosphor-icons/react`
@@ -75,11 +75,11 @@ After completing any visual change, run this validation before reporting the wor
 For every new or modified component, verify:
 
 - [ ] All colors resolve to `--bl-*` semantic tokens (grep for raw hex)
-- [ ] All interactive elements use shadcn primitives from `src/components/ui/`
+- [ ] All interactive elements use shadcn base components from `src/components/ui/`
 - [ ] All icons use `@phosphor-icons/react`
 - [ ] All spacing uses token-mapped Tailwind classes (not arbitrary values)
 - [ ] All motion uses `--dur-*` / `--ease-*` tokens
-- [ ] Component explicitly lists which primitives it composes from
+- [ ] Component explicitly lists which base components it composes from
 
 ### Step 2: Accessibility check
 
@@ -114,6 +114,6 @@ If any check fails, fix the issue before reporting completion. Document what you
 
 After validation passes, report:
 - What was built/changed
-- Which primitives it composes from
+- Which base components it composes from
 - Any new tokens added
 - Any issues found and fixed during validation

@@ -1,13 +1,9 @@
-import { useState, useEffect } from "react";
+import * as React from "react";
 import {
   BookOpenText,
   Palette,
-  Cube,
   Stack,
-  Layout,
   PaintBrush,
-  Sun,
-  Moon,
 } from "@phosphor-icons/react";
 import {
   Sidebar,
@@ -19,26 +15,23 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarRail,
 } from "@/components/ui/sidebar";
-import { Button } from "@/components/ui/button";
 
 const NAV_ITEMS = [
   { value: "rules", label: "Design Rules", icon: BookOpenText },
   { value: "tokens", label: "Tokens", icon: Palette },
-  { value: "primitives", label: "Primitives", icon: Cube },
   { value: "components", label: "Components", icon: Stack },
-  { value: "surfaces", label: "Surfaces", icon: Layout },
   { value: "playground", label: "Playground", icon: PaintBrush },
 ] as const;
 
-function BaselineLogo({ className }: { className?: string }) {
+function BaselineLogo({ className, style }: { className?: string; style?: React.CSSProperties }) {
   return (
     <svg
       viewBox="0 0 200 200"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      style={style}
     >
       <path
         d="M176 176H24V161.52H175.994V143.96H24V24H176V176Z"
@@ -51,39 +44,27 @@ function BaselineLogo({ className }: { className?: string }) {
 export function AppSidebar({
   activeTab,
   onTabChange,
+  ...props
 }: {
   activeTab: string;
   onTabChange: (value: string) => void;
-}) {
-  const [mode, setMode] = useState<"dark" | "light">(() =>
-    (document.documentElement.getAttribute("data-mode") as "dark" | "light") ??
-    "dark"
-  );
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-mode", mode);
-  }, [mode]);
-
+} & React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar>
+    <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
-        <div className="flex items-center gap-2.5 px-2 py-1">
-          <BaselineLogo className="h-7 w-7 text-[var(--bl-fill-primary)]" />
-          <div className="flex flex-col">
-            <span
-              className="text-[13px] font-heading font-semibold tracking-tight leading-none"
-              style={{ color: "var(--bl-fg-primary)" }}
-            >
-              Baseline
-            </span>
-            <span
-              className="text-[10px] font-medium leading-tight"
-              style={{ color: "var(--bl-fg-muted)" }}
-            >
-              Design System
-            </span>
-          </div>
-        </div>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton size="lg" className="pointer-events-none">
+              <div className="flex items-center justify-center">
+                <BaselineLogo className="size-9" style={{ color: "var(--bl-fg-secondary)" }} />
+              </div>
+              <div className="flex flex-col gap-0.5 leading-none">
+                <span className="font-heading font-semibold tracking-tight">Baseline</span>
+                <span className="text-xs" style={{ color: "var(--bl-fg-muted)" }}>Design System</span>
+              </div>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarHeader>
 
       <SidebarContent>
@@ -111,30 +92,15 @@ export function AppSidebar({
       </SidebarContent>
 
       <SidebarFooter>
-        <div className="flex items-center justify-between px-2">
+        <div className="px-2 py-1">
           <span
             className="text-[10px] font-mono"
             style={{ color: "var(--bl-fg-muted)" }}
           >
             v0.1.0
           </span>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-7 w-7"
-            onClick={() => setMode(mode === "dark" ? "light" : "dark")}
-            aria-label={`Switch to ${mode === "dark" ? "light" : "dark"} mode`}
-          >
-            {mode === "dark" ? (
-              <Sun size={14} weight="bold" />
-            ) : (
-              <Moon size={14} weight="bold" />
-            )}
-          </Button>
         </div>
       </SidebarFooter>
-
-      <SidebarRail />
     </Sidebar>
   );
 }

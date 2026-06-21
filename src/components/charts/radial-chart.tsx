@@ -56,13 +56,6 @@ export function RadialChart({
           cornerRadius={6}
           background={{ fill: "var(--bl-bg-elevated)" }}
           isAnimationActive={false}
-          label={{
-            position: "insideStart",
-            fill: "var(--bl-fg-primary)",
-            fontSize: 11,
-            fontWeight: 600,
-            formatter: (v: unknown) => `${v}%`,
-          }}
         />
       </RadialBarChart>
     </ChartContainer>

@@ -24,7 +24,7 @@ function StepNode({ status, index }: { status: StepStatus; index: number }) {
         className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
         style={{ backgroundColor: "var(--bl-fill-primary)" }}
       >
-        <Check size={14} weight="bold" style={{ color: "var(--bl-orange-50)" }} />
+        <Check size={14} weight="bold" style={{ color: "var(--bl-fg-on-primary)" }} />
       </span>
     );
   }

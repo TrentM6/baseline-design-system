@@ -1,77 +1,31 @@
 import { useState, useEffect, useCallback, lazy, Suspense } from "react";
+import { Sun, Moon } from "@phosphor-icons/react";
 import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-shell/app-sidebar";
 import { Separator } from "@/components/ui/separator";
-import {
-  DashboardSurface,
-  SettingsSurface,
-  AuthSurface,
-  LandingSurface,
-} from "@/components/surfaces";
+import { Button } from "@/components/ui/button";
 
 const RulesWorkspace = lazy(() => import("@/workspaces/rules/rules-workspace"));
 const TokensWorkspace = lazy(() => import("@/workspaces/tokens/tokens-workspace"));
-const PrimitivesWorkspace = lazy(() => import("@/workspaces/primitives/primitives-workspace"));
 const ComponentsWorkspace = lazy(() => import("@/workspaces/components/components-workspace"));
-const SurfacesWorkspace = lazy(() => import("@/workspaces/surfaces/surfaces-workspace"));
 const PlaygroundWorkspace = lazy(() => import("@/workspaces/playground/playground-workspace"));
 
-const VALID_TABS = ["rules", "tokens", "primitives", "components", "surfaces", "playground"] as const;
+const VALID_TABS = ["rules", "tokens", "components", "playground"] as const;
 type TabValue = (typeof VALID_TABS)[number];
 
 const WORKSPACES: Record<TabValue, React.LazyExoticComponent<() => React.JSX.Element>> = {
   rules: RulesWorkspace,
   tokens: TokensWorkspace,
-  primitives: PrimitivesWorkspace,
   components: ComponentsWorkspace,
-  surfaces: SurfacesWorkspace,
   playground: PlaygroundWorkspace,
 };
 
 const LABELS: Record<TabValue, string> = {
   rules: "Design Rules",
   tokens: "Tokens",
-  primitives: "Primitives",
   components: "Components",
-  surfaces: "Surfaces",
   playground: "Playground",
 };
-
-/* ── Preview mode — a single surface rendered full-bleed for the
-   Surfaces live-preview iframes (?preview=<id>&mode=<dark|light>). ── */
-const PREVIEW_SURFACES: Record<string, () => React.JSX.Element> = {
-  dashboard: DashboardSurface,
-  settings: SettingsSurface,
-  auth: AuthSurface,
-  landing: LandingSurface,
-};
-
-function getPreview() {
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("preview");
-  if (!id || !PREVIEW_SURFACES[id]) return null;
-  const mode = params.get("mode") === "light" ? "light" : "dark";
-  return { id, mode };
-}
-
-function PreviewHost({ id, mode }: { id: string; mode: "dark" | "light" }) {
-  const [current, setCurrent] = useState<"dark" | "light">(mode);
-  useEffect(() => {
-    document.documentElement.setAttribute("data-mode", current);
-  }, [current]);
-  // Parent syncs theme without reloading the iframe.
-  useEffect(() => {
-    const onMsg = (e: MessageEvent) => {
-      if (e.data?.type === "bl-mode" && (e.data.mode === "dark" || e.data.mode === "light")) {
-        setCurrent(e.data.mode);
-      }
-    };
-    window.addEventListener("message", onMsg);
-    return () => window.removeEventListener("message", onMsg);
-  }, []);
-  const Surface = PREVIEW_SURFACES[id];
-  return <Surface />;
-}
 
 function getHashTab(): TabValue {
   const hash = window.location.hash.replace("#", "");
@@ -89,9 +43,19 @@ function Fallback() {
   );
 }
 
+function useTheme() {
+  const [mode, setMode] = useState<"dark" | "light">(
+    () => (document.documentElement.getAttribute("data-mode") as "dark" | "light") ?? "dark"
+  );
+  useEffect(() => {
+    document.documentElement.setAttribute("data-mode", mode);
+  }, [mode]);
+  return [mode, setMode] as const;
+}
+
 function App() {
-  const preview = getPreview();
   const [tab, setTab] = useState<TabValue>(getHashTab);
+  const [mode, setMode] = useTheme();
 
   const onHashChange = useCallback(() => setTab(getHashTab()), []);
 
@@ -106,32 +70,39 @@ function App() {
     window.location.hash = next;
   };
 
-  // Live-preview iframe: render only the surface, no app chrome.
-  if (preview) {
-    return <PreviewHost id={preview.id} mode={preview.mode as "dark" | "light"} />;
-  }
-
   const Workspace = WORKSPACES[tab];
 
   return (
-    <SidebarProvider className="h-svh overflow-hidden">
-      <AppSidebar activeTab={tab} onTabChange={onTabChange} />
+    <SidebarProvider
+      className="h-svh overflow-hidden"
+      style={{ "--sidebar-width": "16rem", "--header-height": "3rem" } as React.CSSProperties}
+    >
+      <AppSidebar activeTab={tab} onTabChange={onTabChange} variant="inset" />
       <SidebarInset className="h-svh min-h-0 overflow-hidden">
-        <header
-          className="sticky top-0 z-20 flex h-10 shrink-0 items-center gap-2 border-b px-4"
-          style={{
-            borderColor: "var(--bl-border-divider)",
-            backgroundColor: "var(--bl-bg-chrome)",
-          }}
-        >
-          <SidebarTrigger className="-ml-1 h-7 w-7" />
-          <Separator orientation="vertical" className="mr-2 !h-4" />
-          <span
-            className="text-[13px] font-heading font-medium"
+        <header className="flex h-[var(--header-height)] shrink-0 items-center gap-2 border-b px-4 lg:px-6 transition-[width,height] ease-linear">
+          <SidebarTrigger className="-ml-1" />
+          <Separator orientation="vertical" className="mx-1 !h-4" />
+          <h1
+            className="text-sm font-heading font-medium"
             style={{ color: "var(--bl-fg-primary)" }}
           >
             {LABELS[tab]}
-          </span>
+          </h1>
+          <div className="ml-auto flex items-center gap-1">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-7 w-7"
+              onClick={() => setMode(mode === "dark" ? "light" : "dark")}
+              aria-label={`Switch to ${mode === "dark" ? "light" : "dark"} mode`}
+            >
+              {mode === "dark" ? (
+                <Sun size={14} weight="bold" />
+              ) : (
+                <Moon size={14} weight="bold" />
+              )}
+            </Button>
+          </div>
         </header>
         <div
           key={tab}

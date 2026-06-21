@@ -23,7 +23,7 @@ interface Member {
 
 const ROLE_VARIANT: Record<Role, string> = {
   Admin: "var(--bl-fill-primary)",
-  Editor: "var(--bl-teal-500)",
+  Editor: "var(--bl-fill-info)",
   Viewer: "var(--bl-fg-muted)",
 };
 

@@ -5,13 +5,13 @@
 
    Token prefix: --bl-*
    Primary mode: dark (Baseline is a dark-first brand)
-   Brand color: #fe4506 (orange)
-   Neutral base: warm stone (brown-gray — no cool zinc tint)
+   Brand color: Baseline orange #fe4506 (oklch ~34° hue)
+   Neutral base: Zinc (subtle cool gray — modern, clean)
 
    Architecture:
-     L1  Base palette     — literal hex, authoring only
+     L1  Base palette     — oklch values, authoring only
      L2  Semantic tokens  — role-named, consumed by components
-     L3+ Primitives/Components consume L2, never L1
+     L3+ Components consume L2, never L1
    ============================================================ */
 
 
@@ -21,52 +21,85 @@
    ──────────────────────────────────────────────────────────── */
 
 :root {
-  /* Orange ramp — brand accent. One coherent red-orange hue (~13°) across
-     every stop, so tints (300/400) and shades (600/700) read as the same
-     family as the brand 500. This is the "gradations of the accent". */
-  --bl-orange-50:  #fff1ec;
-  --bl-orange-100: #ffe0d4;
-  --bl-orange-200: #ffc2ad;
-  --bl-orange-300: #ff9b78;
-  --bl-orange-400: #ff6f3d;
-  --bl-orange-500: #fe4506;  /* brand */
-  --bl-orange-600: #e23a05;
-  --bl-orange-700: #bb2f08;
-  --bl-orange-800: #93280c;
-  --bl-orange-900: #76240f;
+  /* Zinc — subtle cool neutral (Tailwind Zinc).
+     Cool undertone creates temperature contrast with the warm orange brand. */
+  --bl-zinc-50:  oklch(0.985 0.000 263.3);   /* #fafafa */
+  --bl-zinc-100: oklch(0.967 0.001 285.0);   /* #f4f4f5 */
+  --bl-zinc-200: oklch(0.920 0.004 285.9);   /* #e4e4e7 */
+  --bl-zinc-300: oklch(0.871 0.006 286.0);   /* #d4d4d8 */
+  --bl-zinc-400: oklch(0.712 0.013 286.0);   /* #a1a1aa */
+  --bl-zinc-500: oklch(0.552 0.014 285.9);   /* #71717a */
+  --bl-zinc-600: oklch(0.442 0.015 285.7);   /* #52525b */
+  --bl-zinc-700: oklch(0.370 0.012 285.7);   /* #3f3f46 */
+  --bl-zinc-800: oklch(0.274 0.005 285.9);   /* #27272a */
+  --bl-zinc-900: oklch(0.210 0.006 285.8);   /* #18181b */
+  --bl-zinc-950: oklch(0.141 0.004 285.8);   /* #09090b */
 
-  /* Stone ramp — warm espresso neutral. Carries a real brown hue (R > G > B)
-     so surfaces feel related to the orange instead of cold charcoal. */
-  --bl-stone-50:   #faf6f1;
-  --bl-stone-100:  #f3ece4;
-  --bl-stone-200:  #e7ddd1;
-  --bl-stone-300:  #cdbfb0;
-  --bl-stone-400:  #a89684;
-  --bl-stone-500:  #7d6c5d;
-  --bl-stone-600:  #5b4c40;
-  --bl-stone-700:  #41342a;
-  --bl-stone-800:  #2e251d;
-  --bl-stone-900:  #211a14;
-  --bl-stone-950:  #15110d;
+  /* Orange — Baseline brand accent (#fe4506 at the 400 stop).
+     The definitive Baseline brand hue. Everything else adapts to it. */
+  --bl-orange-50:  oklch(0.970 0.015 37.7);
+  --bl-orange-100: oklch(0.930 0.036 34.7);
+  --bl-orange-200: oklch(0.869 0.071 34.6);
+  --bl-orange-300: oklch(0.779 0.131 34.9);
+  --bl-orange-400: oklch(0.659 0.228 35.1);
+  --bl-orange-500: oklch(0.560 0.197 34.8);
+  --bl-orange-600: oklch(0.480 0.170 34.6);
+  --bl-orange-700: oklch(0.390 0.140 34.2);
+  --bl-orange-800: oklch(0.311 0.114 33.3);
+  --bl-orange-900: oklch(0.241 0.092 31.6);
+  --bl-orange-950: oklch(0.169 0.069 29.2);
 
-  /* Gold ramp — warm analogous companion (~42°). Secondary accent + charts. */
-  --bl-gold-300: #f5d488;
-  --bl-gold-400: #edc05a;
-  --bl-gold-500: #e0a82e;
-  --bl-gold-600: #c0881d;
+  /* Emerald — success / positive (hue ~155°).
+     Cool green, distinct from amber, calm and confident. */
+  --bl-emerald-50:  oklch(0.975 0.030 155);
+  --bl-emerald-100: oklch(0.940 0.060 155);
+  --bl-emerald-200: oklch(0.880 0.100 155);
+  --bl-emerald-300: oklch(0.800 0.145 155);
+  --bl-emerald-400: oklch(0.720 0.170 155);
+  --bl-emerald-500: oklch(0.620 0.170 155);
+  --bl-emerald-600: oklch(0.520 0.145 155);
+  --bl-emerald-700: oklch(0.430 0.115 155);
+  --bl-emerald-800: oklch(0.350 0.090 155);
+  --bl-emerald-900: oklch(0.280 0.065 155);
 
-  /* Clay ramp — terracotta bridge between orange and brown (~18°). */
-  --bl-clay-300: #e6a98c;
-  --bl-clay-400: #d98a6a;
-  --bl-clay-500: #c4694a;
-  --bl-clay-600: #a4513a;
+  /* Red — danger / destructive (hue ~25°).
+     Warm red, readable against both modes. */
+  --bl-red-50:  oklch(0.975 0.020 25);
+  --bl-red-100: oklch(0.940 0.050 25);
+  --bl-red-200: oklch(0.880 0.100 25);
+  --bl-red-300: oklch(0.800 0.150 25);
+  --bl-red-400: oklch(0.720 0.185 25);
+  --bl-red-500: oklch(0.630 0.200 25);
+  --bl-red-600: oklch(0.540 0.180 25);
+  --bl-red-700: oklch(0.450 0.145 25);
+  --bl-red-800: oklch(0.370 0.110 25);
+  --bl-red-900: oklch(0.290 0.080 25);
 
-  /* Teal ramp — the one muted cool counterpoint (~178°). Used sparingly to
-     keep the warm palette from going flat. */
-  --bl-teal-300: #7cc2ba;
-  --bl-teal-400: #54a89f;
-  --bl-teal-500: #3f8c84;
-  --bl-teal-600: #316f69;
+  /* Blue — info / neutral-action (hue ~255°).
+     Cool blue, complementary to amber. */
+  --bl-blue-50:  oklch(0.975 0.020 255);
+  --bl-blue-100: oklch(0.940 0.050 255);
+  --bl-blue-200: oklch(0.880 0.090 255);
+  --bl-blue-300: oklch(0.800 0.130 255);
+  --bl-blue-400: oklch(0.700 0.160 255);
+  --bl-blue-500: oklch(0.600 0.175 255);
+  --bl-blue-600: oklch(0.510 0.160 255);
+  --bl-blue-700: oklch(0.430 0.135 255);
+  --bl-blue-800: oklch(0.350 0.105 255);
+  --bl-blue-900: oklch(0.280 0.080 255);
+
+  /* Yellow — warning / caution (hue ~90°).
+     Warm yellow, adjacent to amber but distinctly brighter. */
+  --bl-yellow-50:  oklch(0.985 0.030 95);
+  --bl-yellow-100: oklch(0.960 0.070 93);
+  --bl-yellow-200: oklch(0.920 0.120 92);
+  --bl-yellow-300: oklch(0.870 0.160 90);
+  --bl-yellow-400: oklch(0.810 0.175 88);
+  --bl-yellow-500: oklch(0.750 0.170 86);
+  --bl-yellow-600: oklch(0.650 0.145 84);
+  --bl-yellow-700: oklch(0.540 0.115 82);
+  --bl-yellow-800: oklch(0.440 0.090 80);
+  --bl-yellow-900: oklch(0.350 0.065 78);
 
   /* Pure */
   --bl-white: #ffffff;
@@ -81,76 +114,77 @@
 :root,
 [data-mode="dark"] {
   /* ── Surfaces ── */
-  --bl-bg-body:       var(--bl-stone-950);
-  --bl-bg-surface:    var(--bl-stone-900);
-  --bl-bg-elevated:   var(--bl-stone-800);
-  --bl-bg-active:     var(--bl-stone-700);
-  --bl-bg-chrome:     var(--bl-stone-950);
-  --bl-bg-well:       #0a0908;
-  --bl-bg-track:      var(--bl-stone-800);
-  --bl-bg-tooltip:    var(--bl-stone-800);
-  --bl-bg-overlay:    rgba(10, 8, 6, 0.75);
+  --bl-bg-body:       var(--bl-zinc-950);
+  --bl-bg-surface:    var(--bl-zinc-900);
+  --bl-bg-elevated:   var(--bl-zinc-800);
+  --bl-bg-active:     var(--bl-zinc-700);
+  --bl-bg-chrome:     var(--bl-zinc-950);
+  --bl-bg-well:       oklch(0.1 0.004 286);
+  --bl-bg-track:      var(--bl-zinc-800);
+  --bl-bg-tooltip:    var(--bl-zinc-800);
+  --bl-bg-overlay:    oklch(0.1 0.004 286 / 75%);
 
-  --bl-bg-page-top:    var(--bl-stone-950);
-  --bl-bg-page-bottom: #0a0908;
+  --bl-bg-page-top:    var(--bl-zinc-950);
+  --bl-bg-page-bottom: oklch(0.1 0.004 286);
 
   /* Sidebar */
-  --bl-sidebar-bg:         var(--bl-stone-950);
-  --bl-sidebar-fg:         var(--bl-stone-400);
-  --bl-sidebar-primary:    var(--bl-orange-500);
-  --bl-sidebar-primary-fg: var(--bl-stone-50);
-  --bl-sidebar-accent:     var(--bl-stone-800);
-  --bl-sidebar-accent-fg:  var(--bl-stone-50);
-  --bl-sidebar-border:     var(--bl-stone-800);
-  --bl-sidebar-ring:       var(--bl-orange-500);
+  --bl-sidebar-bg:         var(--bl-zinc-900);
+  --bl-sidebar-fg:         var(--bl-zinc-400);
+  --bl-sidebar-primary:    var(--bl-orange-400);
+  --bl-sidebar-primary-fg: var(--bl-orange-50);
+  --bl-sidebar-accent:     var(--bl-zinc-800);
+  --bl-sidebar-accent-fg:  var(--bl-zinc-50);
+  --bl-sidebar-border:     oklch(1 0 0 / 6%);
+  --bl-sidebar-ring:       var(--bl-zinc-500);
 
   /* ── Foreground / text ── */
-  --bl-fg-primary:    var(--bl-stone-50);
-  --bl-fg-secondary:  var(--bl-stone-400);
-  --bl-fg-muted:      var(--bl-stone-500);
+  --bl-fg-primary:    var(--bl-zinc-50);
+  --bl-fg-secondary:  var(--bl-zinc-400);
+  --bl-fg-muted:      var(--bl-zinc-500);
   --bl-fg-link:       var(--bl-orange-400);
-  --bl-fg-on-primary: var(--bl-white);
-  --bl-fg-tooltip:    var(--bl-stone-50);
+  --bl-fg-on-primary: var(--bl-orange-50);
+  --bl-fg-tooltip:    var(--bl-zinc-50);
 
   /* ── Borders / strokes ── */
-  --bl-border-divider: rgba(255, 255, 255, 0.08);
-  --bl-border-card:    rgba(255, 255, 255, 0.06);
-  --bl-border-active:  var(--bl-orange-500);
-  --bl-border-primary: var(--bl-orange-500);
+  --bl-border-divider: oklch(1 0 0 / 6%);
+  --bl-border-card:    oklch(1 0 0 / 3%);
+  --bl-border-muted:   oklch(1 0 0 / 5%);
+  --bl-border-active:  var(--bl-orange-400);
+  --bl-border-primary: var(--bl-orange-400);
 
   /* ── Fill / accent ── */
   --bl-fill-primary:  var(--bl-orange-500);
-  --bl-fill-success:  #22c55e;
-  --bl-fill-warning:  #f59e0b;
-  --bl-fill-danger:   #ef4444;
-  --bl-fill-info:     #3b82f6;
+  --bl-fill-success:  var(--bl-emerald-500);
+  --bl-fill-warning:  var(--bl-yellow-500);
+  --bl-fill-danger:   var(--bl-red-500);
+  --bl-fill-info:     var(--bl-blue-500);
 
-  /* ── Chart categorical series — harmonious warm spread + one cool note ── */
-  --bl-chart-1: var(--bl-orange-500);
-  --bl-chart-2: var(--bl-gold-500);
-  --bl-chart-3: var(--bl-clay-400);
-  --bl-chart-4: var(--bl-teal-500);
-  --bl-chart-5: var(--bl-stone-400);
-  --bl-chart-grid:  rgba(255, 255, 255, 0.06);
+  /* ── Chart categorical series — orange-zinc spread ── */
+  --bl-chart-1: var(--bl-orange-400);
+  --bl-chart-2: var(--bl-orange-300);
+  --bl-chart-3: var(--bl-zinc-300);
+  --bl-chart-4: var(--bl-zinc-500);
+  --bl-chart-5: var(--bl-orange-700);
+  --bl-chart-grid:  oklch(1 0 0 / 6%);
   --bl-chart-axis:  var(--bl-fg-muted);
 
-  /* ── Monochromatic orange series — for cohesive single-hue surfaces ── */
-  --bl-chart-mono-1: var(--bl-orange-500);
-  --bl-chart-mono-2: var(--bl-orange-400);
-  --bl-chart-mono-3: var(--bl-orange-300);
-  --bl-chart-mono-4: var(--bl-orange-700);
+  /* ── Monochromatic orange series ── */
+  --bl-chart-mono-1: var(--bl-orange-400);
+  --bl-chart-mono-2: var(--bl-orange-300);
+  --bl-chart-mono-3: var(--bl-orange-500);
+  --bl-chart-mono-4: var(--bl-orange-600);
 
-  /* ── Accent gradations — the brand orange as a family, not one loud fill ── */
-  --bl-accent-strong: var(--bl-orange-500);
-  --bl-accent-muted:  var(--bl-orange-400);
-  --bl-accent-subtle: rgba(254, 69, 6, 0.14);
+  /* ── Accent gradations ── */
+  --bl-accent-strong: var(--bl-orange-400);
+  --bl-accent-muted:  var(--bl-orange-500);
+  --bl-accent-subtle: oklch(0.601 0.210 34.6 / 14%);
 
   /* ── Shadows ── */
-  --bl-shadow-sm:      0 1px 2px rgba(10, 8, 6, 0.5);
-  --bl-shadow-md:      0 4px 6px -1px rgba(10, 8, 6, 0.5);
-  --bl-shadow-lg:      0 10px 15px -3px rgba(10, 8, 6, 0.5);
-  --bl-shadow-tooltip: 0 4px 12px rgba(10, 8, 6, 0.6);
-  --bl-shadow-overlay: 0 25px 50px -12px rgba(10, 8, 6, 0.7);
+  --bl-shadow-sm:      0 1px 3px oklch(0 0 0 / 40%), 0 1px 2px oklch(0 0 0 / 30%);
+  --bl-shadow-md:      0 4px 6px -1px oklch(0 0 0 / 50%), 0 2px 4px -2px oklch(0 0 0 / 30%);
+  --bl-shadow-lg:      0 10px 15px -3px oklch(0 0 0 / 50%), 0 4px 6px -4px oklch(0 0 0 / 30%);
+  --bl-shadow-tooltip: 0 4px 12px oklch(0 0 0 / 60%);
+  --bl-shadow-overlay: 0 25px 50px -12px oklch(0 0 0 / 70%);
 }
 
 
@@ -159,71 +193,69 @@
    ──────────────────────────────────────────────────────────── */
 
 [data-mode="light"] {
-  --bl-bg-body:       var(--bl-stone-50);
+  --bl-bg-body:       var(--bl-zinc-50);
   --bl-bg-surface:    var(--bl-white);
-  --bl-bg-elevated:   var(--bl-stone-100);
-  --bl-bg-active:     var(--bl-stone-200);
+  --bl-bg-elevated:   var(--bl-zinc-100);
+  --bl-bg-active:     var(--bl-zinc-200);
   --bl-bg-chrome:     var(--bl-white);
-  --bl-bg-well:       var(--bl-stone-100);
-  --bl-bg-track:      var(--bl-stone-200);
-  --bl-bg-tooltip:    var(--bl-stone-900);
-  --bl-bg-overlay:    rgba(10, 8, 6, 0.5);
+  --bl-bg-well:       var(--bl-zinc-100);
+  --bl-bg-track:      var(--bl-zinc-200);
+  --bl-bg-tooltip:    var(--bl-zinc-900);
+  --bl-bg-overlay:    oklch(0.1 0.004 286 / 50%);
 
-  --bl-bg-page-top:    var(--bl-stone-50);
+  --bl-bg-page-top:    var(--bl-zinc-50);
   --bl-bg-page-bottom: var(--bl-white);
 
-  --bl-sidebar-bg:         var(--bl-stone-50);
-  --bl-sidebar-fg:         var(--bl-stone-600);
-  --bl-sidebar-primary:    var(--bl-orange-500);
-  --bl-sidebar-primary-fg: var(--bl-white);
-  --bl-sidebar-accent:     var(--bl-stone-200);
-  --bl-sidebar-accent-fg:  var(--bl-stone-900);
-  --bl-sidebar-border:     var(--bl-stone-200);
-  --bl-sidebar-ring:       var(--bl-orange-500);
+  --bl-sidebar-bg:         var(--bl-zinc-100);
+  --bl-sidebar-fg:         var(--bl-zinc-600);
+  --bl-sidebar-primary:    var(--bl-orange-400);
+  --bl-sidebar-primary-fg: var(--bl-orange-50);
+  --bl-sidebar-accent:     var(--bl-zinc-200);
+  --bl-sidebar-accent-fg:  var(--bl-zinc-900);
+  --bl-sidebar-border:     var(--bl-zinc-200);
+  --bl-sidebar-ring:       var(--bl-zinc-400);
 
-  --bl-fg-primary:    var(--bl-stone-950);
-  --bl-fg-secondary:  var(--bl-stone-600);
-  --bl-fg-muted:      var(--bl-stone-400);
-  --bl-fg-link:       var(--bl-orange-600);
+  --bl-fg-primary:    var(--bl-zinc-950);
+  --bl-fg-secondary:  var(--bl-zinc-600);
+  --bl-fg-muted:      var(--bl-zinc-400);
+  --bl-fg-link:       var(--bl-orange-500);
   --bl-fg-on-primary: var(--bl-white);
-  --bl-fg-tooltip:    var(--bl-stone-50);
+  --bl-fg-tooltip:    var(--bl-zinc-50);
 
-  --bl-border-divider: var(--bl-stone-200);
-  --bl-border-card:    var(--bl-stone-200);
+  --bl-border-divider: var(--bl-zinc-200);
+  --bl-border-card:    var(--bl-zinc-200);
+  --bl-border-muted:   var(--bl-zinc-200);
   --bl-border-active:  var(--bl-orange-500);
   --bl-border-primary: var(--bl-orange-500);
 
   --bl-fill-primary:  var(--bl-orange-500);
-  --bl-fill-success:  #16a34a;
-  --bl-fill-warning:  #d97706;
-  --bl-fill-danger:   #dc2626;
-  --bl-fill-info:     #2563eb;
+  --bl-fill-success:  var(--bl-emerald-600);
+  --bl-fill-warning:  var(--bl-yellow-600);
+  --bl-fill-danger:   var(--bl-red-600);
+  --bl-fill-info:     var(--bl-blue-600);
 
-  /* ── Chart categorical series — harmonious warm spread + one cool note ── */
   --bl-chart-1: var(--bl-orange-500);
-  --bl-chart-2: var(--bl-gold-600);
-  --bl-chart-3: var(--bl-clay-500);
-  --bl-chart-4: var(--bl-teal-600);
-  --bl-chart-5: var(--bl-stone-500);
-  --bl-chart-grid:  rgba(10, 8, 6, 0.08);
+  --bl-chart-2: var(--bl-orange-400);
+  --bl-chart-3: var(--bl-zinc-400);
+  --bl-chart-4: var(--bl-zinc-600);
+  --bl-chart-5: var(--bl-orange-700);
+  --bl-chart-grid:  oklch(0.1 0.004 286 / 8%);
   --bl-chart-axis:  var(--bl-fg-muted);
 
-  /* ── Monochromatic orange series — for cohesive single-hue surfaces ── */
   --bl-chart-mono-1: var(--bl-orange-500);
   --bl-chart-mono-2: var(--bl-orange-600);
   --bl-chart-mono-3: var(--bl-orange-400);
   --bl-chart-mono-4: var(--bl-orange-700);
 
-  /* ── Accent gradations ── */
   --bl-accent-strong: var(--bl-orange-500);
   --bl-accent-muted:  var(--bl-orange-600);
-  --bl-accent-subtle: rgba(254, 69, 6, 0.10);
+  --bl-accent-subtle: oklch(0.659 0.228 35.1 / 10%);
 
-  --bl-shadow-sm:      0 1px 2px rgba(10, 8, 6, 0.06);
-  --bl-shadow-md:      0 4px 6px -1px rgba(10, 8, 6, 0.08);
-  --bl-shadow-lg:      0 10px 15px -3px rgba(10, 8, 6, 0.1);
-  --bl-shadow-tooltip: 0 4px 12px rgba(10, 8, 6, 0.12);
-  --bl-shadow-overlay: 0 25px 50px -12px rgba(10, 8, 6, 0.2);
+  --bl-shadow-sm:      0 1px 2px oklch(0.1 0.004 286 / 6%);
+  --bl-shadow-md:      0 4px 6px -1px oklch(0.1 0.004 286 / 8%);
+  --bl-shadow-lg:      0 10px 15px -3px oklch(0.1 0.004 286 / 10%);
+  --bl-shadow-tooltip: 0 4px 12px oklch(0.1 0.004 286 / 12%);
+  --bl-shadow-overlay: 0 25px 50px -12px oklch(0.1 0.004 286 / 20%);
 }
 
 
@@ -253,12 +285,12 @@
   --sp-6: var(--bl-space-6);
   --sp-8: var(--bl-space-8);
 
-  /* ── Border radii ── */
+  /* ── Border radii — tight, small corners throughout ── */
   --bl-radius-none: 0;
-  --bl-radius-sm:   calc(var(--bl-radius-md) - 2px);
-  --bl-radius-md:   8px;
-  --bl-radius-lg:   12px;
-  --bl-radius-xl:   16px;
+  --bl-radius-sm:   3px;
+  --bl-radius-md:   5px;
+  --bl-radius-lg:   7px;
+  --bl-radius-xl:   9px;
   --bl-radius-pill:  9999px;
 
   --r-sm:   var(--bl-radius-sm);

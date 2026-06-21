@@ -19,12 +19,11 @@ interface Ring {
   label: string;
 }
 
-// outer (deepest) → inner (brightest), monochromatic orange
 const RINGS: Ring[] = [
   { size: 200, bg: "var(--bl-orange-900)", fg: "var(--bl-orange-200)", label: "$15K" },
   { size: 150, bg: "var(--bl-orange-700)", fg: "var(--bl-orange-100)", label: "$9.3K" },
   { size: 104, bg: "var(--bl-orange-500)", fg: "var(--bl-orange-50)", label: "$6.8K" },
-  { size: 62, bg: "var(--bl-orange-300)", fg: "var(--bl-stone-900)", label: "$4K" },
+  { size: 62, bg: "var(--bl-orange-300)", fg: "var(--bl-zinc-900)", label: "$4K" },
 ];
 
 /**

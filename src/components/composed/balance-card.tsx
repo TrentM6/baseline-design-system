@@ -30,7 +30,7 @@ function AssetRow({ label, asset }: { label: string; asset: Asset }) {
         <p className="text-sm font-medium tabular-nums" style={{ color: "var(--bl-fg-primary)" }}>0.00</p>
       </div>
       <div
-        className="flex items-center gap-1.5 rounded-full px-2.5 py-1"
+        className="flex items-center gap-1.5 rounded-sm px-2.5 py-1"
         style={{ backgroundColor: "var(--bl-bg-active)" }}
       >
         <Icon size={16} weight="fill" className="text-[var(--bl-fill-primary)]" />
