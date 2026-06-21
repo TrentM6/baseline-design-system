@@ -1,0 +1,16 @@
+.DS_Store
+*.log
+
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+
+# Design-system Stop-gate marker (local, transient)
+.ds-dirty
+
+# Personal Claude Code config stays local; shared enforcement is committed:
+#   .claude/settings.json, .claude/agents/, .claude/commands/  -> tracked (team-wide rules)
+#   .claude/settings.local.json, .claude/launch.json           -> ignored (personal)
+.claude/settings.local.json
+.claude/launch.json

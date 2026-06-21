@@ -1,0 +1,26 @@
+name: design-system
+
+# Enforces the same composability + adherence gate the local hooks run, so the
+# rules hold for every contributor and every PR — not just inside Claude Code.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Composability + adherence gate
+        run: node scripts/ds-validate.mjs
+      - name: Type-check (cascade across layers)
+        run: npx tsc --noEmit
+      - name: Production build
+        run: npm run build

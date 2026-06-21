@@ -1,0 +1,307 @@
+/* ============================================================
+   Baseline Design System — Token Graph
+   ============================================================
+   Single source of truth for every visual value.
+
+   Token prefix: --bl-*
+   Primary mode: dark (Baseline is a dark-first brand)
+   Brand color: #fe4506 (orange)
+   Neutral base: warm stone (brown-gray — no cool zinc tint)
+
+   Architecture:
+     L1  Base palette     — literal hex, authoring only
+     L2  Semantic tokens  — role-named, consumed by components
+     L3+ Primitives/Components consume L2, never L1
+   ============================================================ */
+
+
+/* ────────────────────────────────────────────────────────────
+   L1 — BASE PALETTE
+   Authoring only. Components NEVER reference these directly.
+   ──────────────────────────────────────────────────────────── */
+
+:root {
+  /* Orange ramp — brand accent. One coherent red-orange hue (~13°) across
+     every stop, so tints (300/400) and shades (600/700) read as the same
+     family as the brand 500. This is the "gradations of the accent". */
+  --bl-orange-50:  #fff1ec;
+  --bl-orange-100: #ffe0d4;
+  --bl-orange-200: #ffc2ad;
+  --bl-orange-300: #ff9b78;
+  --bl-orange-400: #ff6f3d;
+  --bl-orange-500: #fe4506;  /* brand */
+  --bl-orange-600: #e23a05;
+  --bl-orange-700: #bb2f08;
+  --bl-orange-800: #93280c;
+  --bl-orange-900: #76240f;
+
+  /* Stone ramp — warm espresso neutral. Carries a real brown hue (R > G > B)
+     so surfaces feel related to the orange instead of cold charcoal. */
+  --bl-stone-50:   #faf6f1;
+  --bl-stone-100:  #f3ece4;
+  --bl-stone-200:  #e7ddd1;
+  --bl-stone-300:  #cdbfb0;
+  --bl-stone-400:  #a89684;
+  --bl-stone-500:  #7d6c5d;
+  --bl-stone-600:  #5b4c40;
+  --bl-stone-700:  #41342a;
+  --bl-stone-800:  #2e251d;
+  --bl-stone-900:  #211a14;
+  --bl-stone-950:  #15110d;
+
+  /* Gold ramp — warm analogous companion (~42°). Secondary accent + charts. */
+  --bl-gold-300: #f5d488;
+  --bl-gold-400: #edc05a;
+  --bl-gold-500: #e0a82e;
+  --bl-gold-600: #c0881d;
+
+  /* Clay ramp — terracotta bridge between orange and brown (~18°). */
+  --bl-clay-300: #e6a98c;
+  --bl-clay-400: #d98a6a;
+  --bl-clay-500: #c4694a;
+  --bl-clay-600: #a4513a;
+
+  /* Teal ramp — the one muted cool counterpoint (~178°). Used sparingly to
+     keep the warm palette from going flat. */
+  --bl-teal-300: #7cc2ba;
+  --bl-teal-400: #54a89f;
+  --bl-teal-500: #3f8c84;
+  --bl-teal-600: #316f69;
+
+  /* Pure */
+  --bl-white: #ffffff;
+  --bl-black: #000000;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   L2 — SEMANTIC TOKENS (dark mode — default)
+   ──────────────────────────────────────────────────────────── */
+
+:root,
+[data-mode="dark"] {
+  /* ── Surfaces ── */
+  --bl-bg-body:       var(--bl-stone-950);
+  --bl-bg-surface:    var(--bl-stone-900);
+  --bl-bg-elevated:   var(--bl-stone-800);
+  --bl-bg-active:     var(--bl-stone-700);
+  --bl-bg-chrome:     var(--bl-stone-950);
+  --bl-bg-well:       #0a0908;
+  --bl-bg-track:      var(--bl-stone-800);
+  --bl-bg-tooltip:    var(--bl-stone-800);
+  --bl-bg-overlay:    rgba(10, 8, 6, 0.75);
+
+  --bl-bg-page-top:    var(--bl-stone-950);
+  --bl-bg-page-bottom: #0a0908;
+
+  /* Sidebar */
+  --bl-sidebar-bg:         var(--bl-stone-950);
+  --bl-sidebar-fg:         var(--bl-stone-400);
+  --bl-sidebar-primary:    var(--bl-orange-500);
+  --bl-sidebar-primary-fg: var(--bl-stone-50);
+  --bl-sidebar-accent:     var(--bl-stone-800);
+  --bl-sidebar-accent-fg:  var(--bl-stone-50);
+  --bl-sidebar-border:     var(--bl-stone-800);
+  --bl-sidebar-ring:       var(--bl-orange-500);
+
+  /* ── Foreground / text ── */
+  --bl-fg-primary:    var(--bl-stone-50);
+  --bl-fg-secondary:  var(--bl-stone-400);
+  --bl-fg-muted:      var(--bl-stone-500);
+  --bl-fg-link:       var(--bl-orange-400);
+  --bl-fg-on-primary: var(--bl-white);
+  --bl-fg-tooltip:    var(--bl-stone-50);
+
+  /* ── Borders / strokes ── */
+  --bl-border-divider: rgba(255, 255, 255, 0.08);
+  --bl-border-card:    rgba(255, 255, 255, 0.06);
+  --bl-border-active:  var(--bl-orange-500);
+  --bl-border-primary: var(--bl-orange-500);
+
+  /* ── Fill / accent ── */
+  --bl-fill-primary:  var(--bl-orange-500);
+  --bl-fill-success:  #22c55e;
+  --bl-fill-warning:  #f59e0b;
+  --bl-fill-danger:   #ef4444;
+  --bl-fill-info:     #3b82f6;
+
+  /* ── Chart categorical series — harmonious warm spread + one cool note ── */
+  --bl-chart-1: var(--bl-orange-500);
+  --bl-chart-2: var(--bl-gold-500);
+  --bl-chart-3: var(--bl-clay-400);
+  --bl-chart-4: var(--bl-teal-500);
+  --bl-chart-5: var(--bl-stone-400);
+  --bl-chart-grid:  rgba(255, 255, 255, 0.06);
+  --bl-chart-axis:  var(--bl-fg-muted);
+
+  /* ── Monochromatic orange series — for cohesive single-hue surfaces ── */
+  --bl-chart-mono-1: var(--bl-orange-500);
+  --bl-chart-mono-2: var(--bl-orange-400);
+  --bl-chart-mono-3: var(--bl-orange-300);
+  --bl-chart-mono-4: var(--bl-orange-700);
+
+  /* ── Accent gradations — the brand orange as a family, not one loud fill ── */
+  --bl-accent-strong: var(--bl-orange-500);
+  --bl-accent-muted:  var(--bl-orange-400);
+  --bl-accent-subtle: rgba(254, 69, 6, 0.14);
+
+  /* ── Shadows ── */
+  --bl-shadow-sm:      0 1px 2px rgba(10, 8, 6, 0.5);
+  --bl-shadow-md:      0 4px 6px -1px rgba(10, 8, 6, 0.5);
+  --bl-shadow-lg:      0 10px 15px -3px rgba(10, 8, 6, 0.5);
+  --bl-shadow-tooltip: 0 4px 12px rgba(10, 8, 6, 0.6);
+  --bl-shadow-overlay: 0 25px 50px -12px rgba(10, 8, 6, 0.7);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   L2 — SEMANTIC TOKENS (light mode override)
+   ──────────────────────────────────────────────────────────── */
+
+[data-mode="light"] {
+  --bl-bg-body:       var(--bl-stone-50);
+  --bl-bg-surface:    var(--bl-white);
+  --bl-bg-elevated:   var(--bl-stone-100);
+  --bl-bg-active:     var(--bl-stone-200);
+  --bl-bg-chrome:     var(--bl-white);
+  --bl-bg-well:       var(--bl-stone-100);
+  --bl-bg-track:      var(--bl-stone-200);
+  --bl-bg-tooltip:    var(--bl-stone-900);
+  --bl-bg-overlay:    rgba(10, 8, 6, 0.5);
+
+  --bl-bg-page-top:    var(--bl-stone-50);
+  --bl-bg-page-bottom: var(--bl-white);
+
+  --bl-sidebar-bg:         var(--bl-stone-50);
+  --bl-sidebar-fg:         var(--bl-stone-600);
+  --bl-sidebar-primary:    var(--bl-orange-500);
+  --bl-sidebar-primary-fg: var(--bl-white);
+  --bl-sidebar-accent:     var(--bl-stone-200);
+  --bl-sidebar-accent-fg:  var(--bl-stone-900);
+  --bl-sidebar-border:     var(--bl-stone-200);
+  --bl-sidebar-ring:       var(--bl-orange-500);
+
+  --bl-fg-primary:    var(--bl-stone-950);
+  --bl-fg-secondary:  var(--bl-stone-600);
+  --bl-fg-muted:      var(--bl-stone-400);
+  --bl-fg-link:       var(--bl-orange-600);
+  --bl-fg-on-primary: var(--bl-white);
+  --bl-fg-tooltip:    var(--bl-stone-50);
+
+  --bl-border-divider: var(--bl-stone-200);
+  --bl-border-card:    var(--bl-stone-200);
+  --bl-border-active:  var(--bl-orange-500);
+  --bl-border-primary: var(--bl-orange-500);
+
+  --bl-fill-primary:  var(--bl-orange-500);
+  --bl-fill-success:  #16a34a;
+  --bl-fill-warning:  #d97706;
+  --bl-fill-danger:   #dc2626;
+  --bl-fill-info:     #2563eb;
+
+  /* ── Chart categorical series — harmonious warm spread + one cool note ── */
+  --bl-chart-1: var(--bl-orange-500);
+  --bl-chart-2: var(--bl-gold-600);
+  --bl-chart-3: var(--bl-clay-500);
+  --bl-chart-4: var(--bl-teal-600);
+  --bl-chart-5: var(--bl-stone-500);
+  --bl-chart-grid:  rgba(10, 8, 6, 0.08);
+  --bl-chart-axis:  var(--bl-fg-muted);
+
+  /* ── Monochromatic orange series — for cohesive single-hue surfaces ── */
+  --bl-chart-mono-1: var(--bl-orange-500);
+  --bl-chart-mono-2: var(--bl-orange-600);
+  --bl-chart-mono-3: var(--bl-orange-400);
+  --bl-chart-mono-4: var(--bl-orange-700);
+
+  /* ── Accent gradations ── */
+  --bl-accent-strong: var(--bl-orange-500);
+  --bl-accent-muted:  var(--bl-orange-600);
+  --bl-accent-subtle: rgba(254, 69, 6, 0.10);
+
+  --bl-shadow-sm:      0 1px 2px rgba(10, 8, 6, 0.06);
+  --bl-shadow-md:      0 4px 6px -1px rgba(10, 8, 6, 0.08);
+  --bl-shadow-lg:      0 10px 15px -3px rgba(10, 8, 6, 0.1);
+  --bl-shadow-tooltip: 0 4px 12px rgba(10, 8, 6, 0.12);
+  --bl-shadow-overlay: 0 25px 50px -12px rgba(10, 8, 6, 0.2);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   FOUNDATION SCALES
+   ──────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Spacing (4px base) ── */
+  --bl-space-0:  0;
+  --bl-space-1:  4px;
+  --bl-space-2:  8px;
+  --bl-space-3:  12px;
+  --bl-space-4:  16px;
+  --bl-space-5:  20px;
+  --bl-space-6:  24px;
+  --bl-space-8:  32px;
+  --bl-space-10: 40px;
+  --bl-space-12: 48px;
+  --bl-space-16: 64px;
+
+  --sp-1: var(--bl-space-1);
+  --sp-2: var(--bl-space-2);
+  --sp-3: var(--bl-space-3);
+  --sp-4: var(--bl-space-4);
+  --sp-5: var(--bl-space-5);
+  --sp-6: var(--bl-space-6);
+  --sp-8: var(--bl-space-8);
+
+  /* ── Border radii ── */
+  --bl-radius-none: 0;
+  --bl-radius-sm:   calc(var(--bl-radius-md) - 2px);
+  --bl-radius-md:   8px;
+  --bl-radius-lg:   12px;
+  --bl-radius-xl:   16px;
+  --bl-radius-pill:  9999px;
+
+  --r-sm:   var(--bl-radius-sm);
+  --r-md:   var(--bl-radius-md);
+  --r-lg:   var(--bl-radius-lg);
+  --r-xl:   var(--bl-radius-xl);
+  --r-pill: var(--bl-radius-pill);
+  --radius: var(--bl-radius-md);
+
+  /* ── Typography ── */
+  --bl-font-heading: 'Geist', system-ui, sans-serif;
+  --bl-font-body:    'Satoshi', system-ui, sans-serif;
+  --bl-font-mono:    ui-monospace, 'SFMono-Regular', 'Menlo', monospace;
+
+  /* ── Motion durations ── */
+  --dur-instant: 100ms;
+  --dur-quick:   200ms;
+  --dur-medium:  300ms;
+  --dur-slow:    500ms;
+
+  /* ── Easing curves ── */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:     cubic-bezier(0.55, 0, 1, 0.45);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Z-index tiers ── */
+  --z-popover:  50;
+  --z-tooltip:  100;
+  --z-overlay:  100;
+  --z-toast:    9999;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   REDUCED MOTION
+   ──────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-instant: 0ms;
+    --dur-quick:   0ms;
+    --dur-medium:  0ms;
+    --dur-slow:    0ms;
+  }
+}

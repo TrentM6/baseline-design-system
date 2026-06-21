@@ -1,0 +1,45 @@
+/* index.css — Tailwind v3 entry.
+ *
+ * Token import MUST precede @tailwind directives (PostCSS spec).
+ * The token file at tokens/bl-tokens.css is the system's
+ * design-token source-of-truth. Tailwind exposes the tokens as
+ * named utility classes via tailwind.config.ts — it does NOT
+ * replace the token system.
+ */
+
+@import "../tokens/bl-tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--bl-border-divider);
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: var(--bl-bg-body);
+  background-image: linear-gradient(180deg, var(--bl-bg-page-top) 0%, var(--bl-bg-page-bottom) 100%);
+  background-attachment: fixed;
+  color: var(--bl-fg-primary);
+  font-family: var(--bl-font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--dur-quick) var(--ease-out), color var(--dur-quick) var(--ease-out);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--bl-font-heading);
+}
+
