@@ -62,7 +62,11 @@ export function AppSidebar({
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" className="pointer-events-none">
+            <SidebarMenuButton
+              size="lg"
+              onClick={() => handleNavClick("home")}
+              className="cursor-pointer"
+            >
               <div className="flex items-center justify-center">
                 <BaselineLogo className="size-9" style={{ color: "var(--bl-fg-secondary)" }} />
               </div>

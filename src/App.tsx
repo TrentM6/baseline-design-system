@@ -5,22 +5,17 @@ import { AppSidebar } from "@/components/app-shell/app-sidebar";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 
+const HomeWorkspace = lazy(() => import("@/workspaces/home/home-workspace"));
 const RulesWorkspace = lazy(() => import("@/workspaces/rules/rules-workspace"));
 const TokensWorkspace = lazy(() => import("@/workspaces/tokens/tokens-workspace"));
 const ComponentsWorkspace = lazy(() => import("@/workspaces/components/components-workspace"));
 const PlaygroundWorkspace = lazy(() => import("@/workspaces/playground/playground-workspace"));
 
-const VALID_TABS = ["rules", "tokens", "components", "playground"] as const;
+const VALID_TABS = ["home", "rules", "tokens", "components", "playground"] as const;
 type TabValue = (typeof VALID_TABS)[number];
 
-const WORKSPACES: Record<TabValue, React.LazyExoticComponent<() => React.JSX.Element>> = {
-  rules: RulesWorkspace,
-  tokens: TokensWorkspace,
-  components: ComponentsWorkspace,
-  playground: PlaygroundWorkspace,
-};
-
 const LABELS: Record<TabValue, string> = {
+  home: "Home",
   rules: "Design Rules",
   tokens: "Tokens",
   components: "Components",
@@ -29,7 +24,8 @@ const LABELS: Record<TabValue, string> = {
 
 function getHashTab(): TabValue {
   const hash = window.location.hash.replace("#", "");
-  return VALID_TABS.includes(hash as TabValue) ? (hash as TabValue) : "rules";
+  if (!hash) return "home";
+  return VALID_TABS.includes(hash as TabValue) ? (hash as TabValue) : "home";
 }
 
 function Fallback() {
@@ -70,7 +66,14 @@ function App() {
     window.location.hash = next;
   };
 
-  const Workspace = WORKSPACES[tab];
+  const isHome = tab === "home";
+
+  const WORKSPACES: Record<Exclude<TabValue, "home">, React.LazyExoticComponent<() => React.JSX.Element>> = {
+    rules: RulesWorkspace,
+    tokens: TokensWorkspace,
+    components: ComponentsWorkspace,
+    playground: PlaygroundWorkspace,
+  };
 
   return (
     <SidebarProvider
@@ -109,7 +112,11 @@ function App() {
           className="flex min-h-0 flex-1 flex-col overflow-y-auto animate-in fade-in-0 slide-in-from-bottom-1 duration-300 ease-out"
         >
           <Suspense fallback={<Fallback />}>
-            <Workspace />
+            {isHome ? (
+              <HomeWorkspace onNavigate={onTabChange} />
+            ) : (
+              (() => { const W = WORKSPACES[tab as Exclude<TabValue, "home">]; return <W />; })()
+            )}
           </Suspense>
         </div>
       </SidebarInset>
