@@ -79,7 +79,7 @@ function HomeWorkspace({
                     onNavigate(ws.value);
                   }
                 }}
-                className="group flex items-center gap-4 py-4 sm:py-5 cursor-pointer transition-colors duration-quick focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md -mx-2 px-2"
+                className="group flex items-center gap-4 py-4 sm:py-5 cursor-pointer transition-colors duration-quick focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
                 style={{
                   borderTop: i === 0 ? "1px solid var(--bl-border-divider)" : undefined,
                   borderBottom: "1px solid var(--bl-border-divider)",
