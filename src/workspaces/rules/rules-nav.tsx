@@ -84,7 +84,7 @@ export function RulesNav({ activeId, onSelect }: RulesNavProps) {
 
 export function RulesNavMobile({ activeId, onSelect }: RulesNavProps) {
   return (
-    <div className="py-4 px-3">
+    <div className="h-full overflow-y-auto py-4 px-3">
       <NavContent activeId={activeId} onSelect={onSelect} />
     </div>
   );
