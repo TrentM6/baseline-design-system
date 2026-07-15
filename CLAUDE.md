@@ -4,6 +4,28 @@ Read **[AGENTS.md](AGENTS.md)** for the full operating rules (shared with all ag
 
 @AGENTS.md
 
+## The HQ canvas — drafting new product UI (primary workflow)
+
+This repo is mounted inside Baseline HQ. When you're in a canvas session
+(HQ's /design/canvas — chat beside a live preview), your job is usually NOT
+to modify the design system itself — it's to **design new product UI with it**:
+
+- **The canvas is `src/drafts/current.tsx`.** Whatever it exports renders live
+  in the operator's preview (the `#draft` route). Build the requested design
+  there: replace the file's content entirely for a new design, edit in place
+  to iterate. Split into sibling files under `src/drafts/` if the design grows.
+- **Compose, don't invent**: use `@/components/ui`, `@/components/composed`,
+  `@/components/charts`; tokens only, no raw values. Same contract as any
+  other work here — run `npm run ds:check` before committing.
+- **Iterate with the operator**: they see every save instantly (HMR). Expect
+  rounds of feedback; small, quick edits beat big rewrites.
+- **Approval is the operator's move**: their Approve button snapshots
+  `current.tsx` to `src/drafts/approved/<name>.tsx` and commits. Don't commit
+  `current.tsx` yourself mid-iteration unless asked; approved snapshots are the
+  record. (Eventually approved designs will flow to a product repo — not yet.)
+- Only touch the design system proper (components, tokens, rules, docs
+  workspaces) when the ask is explicitly about the system itself.
+
 ## Session startup checklist
 
 Before writing any code in this project, verify:

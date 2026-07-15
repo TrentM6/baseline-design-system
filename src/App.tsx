@@ -6,6 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 
 const HomeWorkspace = lazy(() => import("@/workspaces/home/home-workspace"));
+const CurrentDraft = lazy(() => import("@/drafts/current"));
 const RulesWorkspace = lazy(() => import("@/workspaces/rules/rules-workspace"));
 const TokensWorkspace = lazy(() => import("@/workspaces/tokens/tokens-workspace"));
 const ComponentsWorkspace = lazy(() => import("@/workspaces/components/components-workspace"));
@@ -33,6 +34,12 @@ function getHashTab(): TabValue {
   return VALID_TABS.includes(hash as TabValue) ? (hash as TabValue) : "home";
 }
 
+/** #draft renders the live drafting canvas (src/drafts/current.tsx) full-bleed —
+ * the surface Baseline HQ's /design/canvas previews. Not a docs tab. */
+function isDraftHash(): boolean {
+  return window.location.hash.replace("#", "") === "draft";
+}
+
 function Fallback() {
   return (
     <div className="flex h-64 items-center justify-center">
@@ -58,9 +65,13 @@ function useTheme() {
 
 function App() {
   const [tab, setTab] = useState<TabValue>(getHashTab);
+  const [draft, setDraft] = useState<boolean>(isDraftHash);
   const [mode, setMode] = useTheme();
 
-  const onHashChange = useCallback(() => setTab(getHashTab()), []);
+  const onHashChange = useCallback(() => {
+    setDraft(isDraftHash());
+    setTab(getHashTab());
+  }, []);
 
   useEffect(() => {
     window.addEventListener("hashchange", onHashChange);
@@ -114,6 +125,17 @@ function App() {
       </Suspense>
     </div>
   );
+
+  // the drafting canvas: just the current draft, full-bleed, hot-reloading
+  if (draft) {
+    return (
+      <div className="h-svh overflow-y-auto" style={{ background: "var(--bl-bg-body)" }}>
+        <Suspense fallback={<Fallback />}>
+          <CurrentDraft />
+        </Suspense>
+      </div>
+    );
+  }
 
   // embedded: no sidebar, no header — the host shell provides both
   if (EMBED) {
