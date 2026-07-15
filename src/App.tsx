@@ -14,6 +14,11 @@ const PlaygroundWorkspace = lazy(() => import("@/workspaces/playground/playgroun
 const VALID_TABS = ["home", "rules", "tokens", "components", "playground"] as const;
 type TabValue = (typeof VALID_TABS)[number];
 
+/** Embedded mode (?embed=1): the design system is hosted inside another shell
+ * (Baseline HQ). The host provides navigation and theme, so we drop our own
+ * sidebar + header and follow postMessage: {type:"hq-tab",tab} / {type:"hq-mode",mode}. */
+const EMBED = new URLSearchParams(window.location.search).has("embed");
+
 const LABELS: Record<TabValue, string> = {
   home: "Home",
   rules: "Design Rules",
@@ -40,9 +45,11 @@ function Fallback() {
 }
 
 function useTheme() {
-  const [mode, setMode] = useState<"dark" | "light">(
-    () => (document.documentElement.getAttribute("data-mode") as "dark" | "light") ?? "dark"
-  );
+  const [mode, setMode] = useState<"dark" | "light">(() => {
+    const param = new URLSearchParams(window.location.search).get("mode");
+    if (param === "light" || param === "dark") return param;
+    return (document.documentElement.getAttribute("data-mode") as "dark" | "light") ?? "dark";
+  });
   useEffect(() => {
     document.documentElement.setAttribute("data-mode", mode);
   }, [mode]);
@@ -60,6 +67,24 @@ function App() {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, [onHashChange]);
 
+  // embedded: the host shell drives tab + theme without reloading the iframe
+  useEffect(() => {
+    if (!EMBED) return;
+    const onMessage = (e: MessageEvent) => {
+      const d = e.data;
+      if (!d || typeof d !== "object") return;
+      if (d.type === "hq-tab" && VALID_TABS.includes(d.tab)) {
+        setTab(d.tab as TabValue);
+        window.location.hash = d.tab;
+      }
+      if (d.type === "hq-mode" && (d.mode === "dark" || d.mode === "light")) {
+        setMode(d.mode);
+      }
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [setMode]);
+
   const onTabChange = (value: string) => {
     const next = value as TabValue;
     setTab(next);
@@ -74,6 +99,26 @@ function App() {
     components: ComponentsWorkspace,
     playground: PlaygroundWorkspace,
   };
+
+  const workspace = (
+    <div
+      key={tab}
+      className="flex min-h-0 flex-1 flex-col overflow-y-auto animate-in fade-in-0 slide-in-from-bottom-1 duration-300 ease-out"
+    >
+      <Suspense fallback={<Fallback />}>
+        {isHome ? (
+          <HomeWorkspace onNavigate={onTabChange} />
+        ) : (
+          (() => { const W = WORKSPACES[tab as Exclude<TabValue, "home">]; return <W />; })()
+        )}
+      </Suspense>
+    </div>
+  );
+
+  // embedded: no sidebar, no header — the host shell provides both
+  if (EMBED) {
+    return <div className="flex h-svh min-h-0 flex-col overflow-hidden">{workspace}</div>;
+  }
 
   return (
     <SidebarProvider
@@ -107,18 +152,7 @@ function App() {
             </Button>
           </div>
         </header>
-        <div
-          key={tab}
-          className="flex min-h-0 flex-1 flex-col overflow-y-auto animate-in fade-in-0 slide-in-from-bottom-1 duration-300 ease-out"
-        >
-          <Suspense fallback={<Fallback />}>
-            {isHome ? (
-              <HomeWorkspace onNavigate={onTabChange} />
-            ) : (
-              (() => { const W = WORKSPACES[tab as Exclude<TabValue, "home">]; return <W />; })()
-            )}
-          </Suspense>
-        </div>
+        {workspace}
       </SidebarInset>
     </SidebarProvider>
   );
