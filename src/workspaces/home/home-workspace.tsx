@@ -27,9 +27,9 @@ const WORKSPACES = [
     icon: Stack,
   },
   {
-    value: "playground",
-    label: "Playground",
-    detail: "Live canvas with code export",
+    value: "canvas",
+    label: "Canvas",
+    detail: "Draft new designs with your agent",
     icon: PaintBrush,
   },
 ] as const;

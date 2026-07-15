@@ -106,6 +106,12 @@ function App() {
   }, [setMode]);
 
   const onTabChange = (value: string) => {
+    if (value === "canvas") {
+      // hosted: ask Baseline HQ to open its canvas; standalone: show the draft
+      if (EMBED) window.parent.postMessage({ type: "hq-open-canvas" }, "*");
+      else window.location.hash = "draft";
+      return;
+    }
     const next = value as TabValue;
     setTab(next);
     window.location.hash = next;
