@@ -35,9 +35,18 @@ function getHashTab(): TabValue {
 }
 
 /** #draft renders the live drafting canvas (src/drafts/current.tsx) full-bleed —
- * the surface Baseline HQ's /design/canvas previews. Not a docs tab. */
-function isDraftHash(): boolean {
-  return window.location.hash.replace("#", "") === "draft";
+ * the surface Baseline HQ's /design/canvas previews. #draft/<slug> renders an
+ * approved snapshot from src/drafts/approved/ (HQ uses these as live thumbnails). */
+const APPROVED_MODULES = import.meta.glob("./drafts/approved/*.tsx") as Record<
+  string,
+  () => Promise<{ default: React.ComponentType }>
+>;
+
+function draftHash(): { draft: boolean; slug: string | null } {
+  const h = window.location.hash.replace("#", "");
+  if (h === "draft") return { draft: true, slug: null };
+  const m = h.match(/^draft\/([a-z0-9-]+)$/);
+  return m ? { draft: true, slug: m[1] } : { draft: false, slug: null };
 }
 
 function Fallback() {
@@ -65,11 +74,11 @@ function useTheme() {
 
 function App() {
   const [tab, setTab] = useState<TabValue>(getHashTab);
-  const [draft, setDraft] = useState<boolean>(isDraftHash);
+  const [draft, setDraft] = useState<{ draft: boolean; slug: string | null }>(draftHash);
   const [mode, setMode] = useTheme();
 
   const onHashChange = useCallback(() => {
-    setDraft(isDraftHash());
+    setDraft(draftHash());
     setTab(getHashTab());
   }, []);
 
@@ -126,12 +135,24 @@ function App() {
     </div>
   );
 
-  // the drafting canvas: just the current draft, full-bleed, hot-reloading
-  if (draft) {
+  // the drafting canvas: current draft (or an approved snapshot), full-bleed
+  if (draft.draft) {
+    const loader = draft.slug ? APPROVED_MODULES[`./drafts/approved/${draft.slug}.tsx`] : null;
+    const Snapshot = loader ? lazy(loader) : null;
     return (
       <div className="h-svh overflow-y-auto" style={{ background: "var(--bl-bg-body)" }}>
         <Suspense fallback={<Fallback />}>
-          <CurrentDraft />
+          {draft.slug ? (
+            Snapshot ? (
+              <Snapshot />
+            ) : (
+              <div className="flex h-svh items-center justify-center text-sm" style={{ color: "var(--bl-fg-muted)" }}>
+                No approved design named “{draft.slug}”.
+              </div>
+            )
+          ) : (
+            <CurrentDraft />
+          )}
         </Suspense>
       </div>
     );
