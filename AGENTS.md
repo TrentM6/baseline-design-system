@@ -176,3 +176,34 @@ Pair every duration with a documented easing token. Every animation must honor `
 - Don't ship an icon-as-affordance smaller than 14x14, with stroke < 2, or with opacity < 1 at rest.
 - Don't use Unicode characters as standalone decorative icons.
 - Don't write transition durations as raw ms values — use motion tokens.
+
+## Product usage conventions — ratified from Baseline HQ
+
+The system above tells you what exists and how to compose legally. These conventions tell you **which choice is correct for a given intent**. They were ratified in production on Baseline HQ (the reference implementation) and apply to every Baseline product built with this system. Violations are design defects even when `ds:validate` passes.
+
+### Action hierarchy
+- **Exactly one filled primary (`default` variant) per view** — the thing the screen exists for.
+- **Secondary actions use `outline`** — never `ghost`, never the `secondary` variant, for a real action.
+- **`ghost` is tertiary/inline only** — icon buttons in rows, dismiss affordances, chip-like toggles.
+- **`destructive` is red, confirmed for the irreversible, never the default focus, never adjacent to a frequent action.**
+- **One control = one action.** A button never reveals a panel on first click and submits on second. Toggles toggle; submits submit.
+
+### Overlays and layout stability
+- Controls that reveal options/config open an **anchored overlay** (positioned below/beside the trigger, elevated, shadowed) — never an in-flow expansion that shifts sibling layout. Nothing moves under the user when a panel opens.
+- Async content reserves its space (skeletons); results never jump the page.
+
+### States are part of the component
+- Every data surface ships **loading / empty / error / partial** states. Empty states carry one line with a job (what this is + the action that creates the first item) — no filler encouragement copy.
+- Stale-but-real beats "not connected": degraded data is marked stale, never replaced with an outage note.
+- Failure indicators retire automatically on success — a standing alarm for a fixed problem is a bug.
+
+### Numbers and microcopy
+- Numbers are product-formatted: 1M / 88k / 1.2k — never raw internals ("1000k" is the jank that makes a product feel like a demo). Tabular figures in tables.
+- Labels are verb-first and specific ("Start terminal", not "Submit"). Sentence case everywhere — headings, buttons, titles.
+- A line of UI text must say something the screen doesn't already show; otherwise delete it — don't rewrite it.
+
+### Input affordances
+- Picking a resource the OS/platform can browse (folder, file, repo) never happens through a typed text path — use the native picker or the platform's selection flow.
+
+### Surface ladder (candidate tokens)
+- Depth ladder proven in HQ: window well → **canvas** (chrome and page share ONE surface tier) → **panel** (one step lighter, subtle inset highlight) → **raised detail** (one more). Chrome never sits above content. Candidate for ratification here as `--bl-bg-canvas` / `--bl-bg-panel` / `--bl-bg-panel-2` (HQ currently carries them as `--hq-*`).
