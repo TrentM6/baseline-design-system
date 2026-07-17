@@ -102,19 +102,23 @@ export const CodeBlock = ({
     <CodeBlockContext.Provider value={{ code }}>
       <div
         className={cn(
-          "group relative w-full overflow-hidden rounded-md border bg-background text-foreground",
+          // Surface-agnostic: the code block inherits its container's surface
+          // (transparent) rather than forcing its own near-black background, so
+          // it stays on the consumer's surface ladder — a tool tile reads as one
+          // consistent panel, not a black box nested in a lighter card.
+          "group relative w-full overflow-hidden rounded-md border bg-transparent text-foreground",
           className
         )}
         {...props}
       >
         <div className="relative">
           <div
-            className="overflow-auto dark:hidden [&>pre]:m-0 [&>pre]:!bg-background [&>pre]:p-4 [&>pre]:!text-foreground [&>pre]:text-sm [&_code]:font-mono [&_code]:text-sm"
+            className="overflow-auto dark:hidden [&>pre]:m-0 [&>pre]:!bg-transparent [&>pre]:p-4 [&>pre]:!text-foreground [&>pre]:text-sm [&_code]:font-mono [&_code]:text-sm"
             // biome-ignore lint/security/noDangerouslySetInnerHtml: "this is needed."
             dangerouslySetInnerHTML={{ __html: html }}
           />
           <div
-            className="hidden overflow-auto dark:block [&>pre]:m-0 [&>pre]:!bg-background [&>pre]:p-4 [&>pre]:!text-foreground [&>pre]:text-sm [&_code]:font-mono [&_code]:text-sm"
+            className="hidden overflow-auto dark:block [&>pre]:m-0 [&>pre]:!bg-transparent [&>pre]:p-4 [&>pre]:!text-foreground [&>pre]:text-sm [&_code]:font-mono [&_code]:text-sm"
             // biome-ignore lint/security/noDangerouslySetInnerHtml: "this is needed."
             dangerouslySetInnerHTML={{ __html: darkHtml }}
           />
