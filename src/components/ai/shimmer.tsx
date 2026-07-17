@@ -1,14 +1,7 @@
 "use client";
 
 import { cn } from "../../lib/utils";
-import { motion } from "motion/react";
-import {
-  type CSSProperties,
-  type ElementType,
-  type JSX,
-  memo,
-  useMemo,
-} from "react";
+import { type CSSProperties, type ElementType, memo } from "react";
 
 export type TextShimmerProps = {
   children: string;
@@ -18,6 +11,11 @@ export type TextShimmerProps = {
   spread?: number;
 };
 
+// Pure CSS shimmer (animate-shimmer keyframes live in the tailwind preset).
+// The vendored original drove background-position from JS per frame via
+// motion AND recreated its motion component every render — on a streaming
+// chat surface that re-renders constantly, the animation restarted and
+// stuttered. A CSS keyframe loop is immune to re-renders.
 const ShimmerComponent = ({
   children,
   as: Component = "p",
@@ -25,42 +23,27 @@ const ShimmerComponent = ({
   duration = 2,
   spread = 2,
 }: TextShimmerProps) => {
-  const MotionComponent = motion.create(
-    Component as keyof JSX.IntrinsicElements
-  );
-
-  const dynamicSpread = useMemo(
-    () => (children?.length ?? 0) * spread,
-    [children, spread]
-  );
+  const dynamicSpread = (children?.length ?? 0) * spread;
 
   return (
-    <MotionComponent
-      animate={{ backgroundPosition: "0% center" }}
+    <Component
       className={cn(
-        "relative inline-block bg-[length:250%_100%,auto] bg-clip-text text-transparent",
-        // sweep highlight + base text color are Baseline tokens — the vendored
-        // original referenced Tailwind v4 --color-* theme vars that don't exist
-        // in a v3 consumer, which rendered the clipped text fully transparent
+        "relative inline-block animate-shimmer bg-[length:250%_100%,auto] bg-clip-text text-transparent",
+        // sweep highlight + base text color are Baseline tokens
         "[--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--bl-fg-primary),#0000_calc(50%+var(--spread)))] [background-repeat:no-repeat,padding-box]",
         className
       )}
-      initial={{ backgroundPosition: "100% center" }}
       style={
         {
           "--spread": `${dynamicSpread}px`,
           backgroundImage:
             "var(--bg), linear-gradient(var(--bl-fg-muted), var(--bl-fg-muted))",
+          animationDuration: `${duration}s`,
         } as CSSProperties
       }
-      transition={{
-        repeat: Number.POSITIVE_INFINITY,
-        duration,
-        ease: "linear",
-      }}
     >
       {children}
-    </MotionComponent>
+    </Component>
   );
 };
 
