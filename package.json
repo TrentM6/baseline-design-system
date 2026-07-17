@@ -5,12 +5,19 @@
   "exports": {
     "./tokens.css": "./tokens/bl-tokens.css",
     "./tailwind-preset": "./tailwind-preset.js",
-    "./validate": "./scripts/ds-validate.mjs"
+    "./validate": "./scripts/ds-validate.mjs",
+    "./ai": "./src/components/ai/index.ts",
+    "./ai/*": "./src/components/ai/*.tsx",
+    "./ui/*": "./src/components/ui/*.tsx",
+    "./composed": "./src/components/composed/index.ts",
+    "./composed/*": "./src/components/composed/*.tsx",
+    "./lib/utils": "./src/lib/utils.ts"
   },
   "files": [
     "tokens/bl-tokens.css",
     "tailwind-preset.js",
-    "scripts/ds-validate.mjs"
+    "scripts/ds-validate.mjs",
+    "src"
   ],
   "scripts": {
     "dev": "vite",
@@ -49,7 +56,9 @@
     "@radix-ui/react-toggle": "^1.1.12",
     "@radix-ui/react-toggle-group": "^1.1.13",
     "@radix-ui/react-tooltip": "^1.2.10",
+    "@radix-ui/react-use-controllable-state": "^1.2.3",
     "@tanstack/react-table": "^8.21.3",
+    "ai": "^7.0.22",
     "baseline-design-system": "github:TrentM6/baseline-design-system",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -58,6 +67,7 @@
     "embla-carousel-react": "^8.6.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^1.21.0",
+    "motion": "^12.42.2",
     "next-themes": "^0.4.6",
     "react": "^19.2.6",
     "react-day-picker": "^10.0.1",
@@ -65,8 +75,11 @@
     "react-hook-form": "^7.80.0",
     "react-resizable-panels": "^2.1.9",
     "recharts": "^3.8.1",
+    "shiki": "^4.3.1",
     "sonner": "^2.0.7",
+    "streamdown": "^2.5.0",
     "tailwind-merge": "^3.6.0",
+    "use-stick-to-bottom": "^1.1.6",
     "vaul": "^1.1.2",
     "zod": "^4.4.3"
   },
@@ -79,7 +92,7 @@
     "postcss": "^8.5.14",
     "tailwindcss": "3",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^6.0.3",
+    "typescript": "^5.8.2",
     "vite": "5"
   }
 }
