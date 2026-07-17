@@ -6,7 +6,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "../ui/card";
 
 /**
  * MetricChartCard - a titled card that frames a chart primitive.

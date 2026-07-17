@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar } from "@/components/ui/calendar";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Calendar } from "../ui/calendar";
+import { Badge } from "../ui/badge";
+import { Separator } from "../ui/separator";
 
 interface CalEvent {
   title: string;

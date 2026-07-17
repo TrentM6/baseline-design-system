@@ -11,9 +11,9 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
+} from "../ui/card";
+import { Badge } from "../ui/badge";
+import { cn } from "../../lib/utils";
 
 type DeploymentStatus = "success" | "failed" | "in-progress";
 

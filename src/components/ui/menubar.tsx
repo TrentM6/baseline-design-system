@@ -4,7 +4,7 @@ import * as React from "react"
 import * as MenubarPrimitive from "@radix-ui/react-menubar"
 import { Check, CaretRight as ChevronRight, Circle } from "@phosphor-icons/react"
 
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils"
 
 function MenubarMenu({
   ...props

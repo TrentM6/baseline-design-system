@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Bell } from "@phosphor-icons/react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "../ui/button";
+import { Badge } from "../ui/badge";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,8 +9,8 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { cn } from "@/lib/utils";
+} from "../ui/breadcrumb";
+import { cn } from "../../lib/utils";
 
 export interface DashboardHeaderProps {
   /** Page title. */

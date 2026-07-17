@@ -6,8 +6,8 @@ import {
   CloudArrowUp,
   CalendarPlus,
 } from "@phosphor-icons/react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Button } from "../ui/button";
 import type { Icon } from "@phosphor-icons/react";
 
 interface QuickAction {

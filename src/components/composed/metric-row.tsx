@@ -1,7 +1,7 @@
 import type { Icon } from "@phosphor-icons/react";
 import { TrendUp, TrendDown, Users, CurrencyDollar, ShoppingCart, Eye } from "@phosphor-icons/react";
-import { Card, CardContent } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { Card, CardContent } from "../ui/card";
+import { cn } from "../../lib/utils";
 
 export interface MetricItem {
   label: string;

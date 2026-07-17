@@ -13,8 +13,8 @@ import {
   SidebarProvider,
   SidebarRail,
   SidebarTrigger,
-} from "@/components/ui/sidebar";
-import { Separator } from "@/components/ui/separator";
+} from "../ui/sidebar";
+import { Separator } from "../ui/separator";
 
 export interface SurfaceNavItem {
   id: string;

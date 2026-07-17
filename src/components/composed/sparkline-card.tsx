@@ -1,7 +1,7 @@
 import { TrendUp, TrendDown } from "@phosphor-icons/react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "../ui/card";
 import { Area, AreaChart, ResponsiveContainer } from "recharts";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 export interface SparklineCardProps {
   /** Metric label. */

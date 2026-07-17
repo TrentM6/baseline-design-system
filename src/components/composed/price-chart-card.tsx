@@ -1,8 +1,8 @@
 import * as React from "react";
 import { CaretUp, ChartLine, ChartBar } from "@phosphor-icons/react";
-import { Card, CardContent } from "@/components/ui/card";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { AreaTrendChart, ComparisonBarChart } from "@/components/charts";
+import { Card, CardContent } from "../ui/card";
+import { ToggleGroup, ToggleGroupItem } from "../ui/toggle-group";
+import { AreaTrendChart, ComparisonBarChart } from "../charts";
 
 const RANGES = ["24H", "1W", "1M", "1Y", "All"] as const;
 type Range = (typeof RANGES)[number];

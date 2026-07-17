@@ -1,8 +1,8 @@
 import type { Icon } from "@phosphor-icons/react";
 import { Tray } from "@phosphor-icons/react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Card, CardContent } from "../ui/card";
+import { Button } from "../ui/button";
+import { cn } from "../../lib/utils";
 
 export interface EmptyStateCardProps {
   /** Phosphor icon component to display. */

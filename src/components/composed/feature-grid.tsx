@@ -1,5 +1,5 @@
 import type { Icon } from "@phosphor-icons/react";
-import { Card } from "@/components/ui/card";
+import { Card } from "../ui/card";
 
 export interface Feature {
   icon: Icon;

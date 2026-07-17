@@ -13,7 +13,7 @@ import {
   ChartLegend,
   ChartLegendContent,
   type ChartConfig,
-} from "@/components/ui/chart";
+} from "../ui/chart";
 
 export interface ScatterPoint {
   x: number;

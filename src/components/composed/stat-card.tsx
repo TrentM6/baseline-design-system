@@ -1,6 +1,6 @@
 import type { Icon } from "@phosphor-icons/react";
 import { TrendUp, TrendDown } from "@phosphor-icons/react";
-import { Card, CardContent, CardHeader, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardDescription } from "../ui/card";
 
 export interface StatCardProps {
   label: string;
