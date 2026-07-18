@@ -212,7 +212,11 @@
   --bl-bg-elevated:   var(--bl-zinc-100);
   --bl-bg-active:     var(--bl-zinc-200);
   --bl-bg-chrome:     var(--bl-white);
-  --bl-bg-well:       var(--bl-zinc-100);
+  /* the well MIRRORS dark mode's surface ladder: dark separates well→chrome
+   * by ΔL≈0.11 (0.10→0.21); light was zinc-100 on zinc-100 (Δ0!) so every
+   * surface blended. zinc-300 restores the same step below chrome (0.871 vs
+   * 0.967) — the workspace floor reads as a floor again. */
+  --bl-bg-well:       var(--bl-zinc-300);
   --bl-bg-track:      var(--bl-zinc-200);
   --bl-bg-tooltip:    var(--bl-zinc-900);
   --bl-bg-overlay:    oklch(0.1 0.004 286 / 50%);
@@ -226,7 +230,9 @@
   --bl-sidebar-primary-fg: var(--bl-orange-50);
   --bl-sidebar-accent:     var(--bl-zinc-200);
   --bl-sidebar-accent-fg:  var(--bl-zinc-900);
-  --bl-sidebar-border:     var(--bl-zinc-200);
+  /* alpha, like dark's oklch(1 0 0 / 6%): must read on chrome (0.967) AND on
+   * the darker zinc-300 well — a fixed zinc-200 line inverts against the well */
+  --bl-sidebar-border:     oklch(0 0 0 / 8%);
   --bl-sidebar-ring:       var(--bl-zinc-400);
 
   --bl-fg-primary:    var(--bl-zinc-950);
