@@ -176,6 +176,7 @@ Made the five-layer architecture real and enforced by imports, end to end:
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-07-18 | Light mode mirrors dark's surface ladder | Dark (ground truth) separates well→chrome→page→panel in clear ΔL steps (0.10→0.21→…); light had collapsed to near-identical whites (well = chrome = zinc-100), so surfaces blended. Light now: well zinc-300 < chrome zinc-100 < page zinc-50 < panel white — same hierarchy, L reversed per the OKLCH derive-by-reversing-L rule. `--bl-sidebar-border` became alpha black 8% (mirror of dark's white 6%) so one hairline reads on chrome and well alike. |
 | 2026-07-17 | Craft layer ratified from Jakub Krehel's better-ui / better-typography / better-colors (jakub.kr) | Shadows-over-borders (`--bl-shadow-raised`/`-hover`), concentric radius, scale-on-press (`--press-scale`), image outlines (`--bl-outline-image`), split/stagger enter motion (`--dur-enter`/`--ease-enter`/`--stagger`), and OKLCH ramp/gamut/gradient rules. New **Surface Details** chapter; Transitions/Motion/Typography/Color-Contrast/Color-Psychology chapters enriched; AGENTS.md product conventions extended. Baseline HQ is adopting jakub.kr's craft bar — encoding the rules + tokens here (design law) so every Baseline product inherits them. |
 | 2026-06-20 | Token prefix is `--bl-*` | Short, distinctive, no collision with `--ct-*` (CodeTogether) or `--shad-*` (shadcn) |
 | 2026-06-20 | Dark mode is primary/ground truth | Baseline brand identity is designed dark-first; the website, all marketing, and brand guide are dark |
