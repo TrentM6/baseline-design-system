@@ -311,17 +311,23 @@
   --sp-8: var(--bl-space-8);
 
   /* ── Border radii — tight, small corners throughout ── */
+  /* Radius scale — ONE system, stepped by role so nesting reads concentrically
+   * (outer = inner + padding). No one-off radii; two tiers never share a value.
+   *   frame 16 (2xl) > card 14 (xl) > well/input 10 (lg)
+   *     > button/select/row 8 (md) > chip/badge/code 5 (sm) > pill full */
   --bl-radius-none: 0;
-  --bl-radius-sm:   3px;
-  --bl-radius-md:   5px;
-  --bl-radius-lg:   7px;
-  --bl-radius-xl:   9px;
+  --bl-radius-sm:   5px;
+  --bl-radius-md:   8px;
+  --bl-radius-lg:   10px;
+  --bl-radius-xl:   14px;
+  --bl-radius-2xl:  16px;
   --bl-radius-pill:  9999px;
 
   --r-sm:   var(--bl-radius-sm);
   --r-md:   var(--bl-radius-md);
   --r-lg:   var(--bl-radius-lg);
   --r-xl:   var(--bl-radius-xl);
+  --r-2xl:  var(--bl-radius-2xl);
   --r-pill: var(--bl-radius-pill);
   --radius: var(--bl-radius-md);
 

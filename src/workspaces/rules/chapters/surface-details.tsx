@@ -27,9 +27,9 @@ export default function SurfaceDetails() {
         </p>
         <DocKeyValue
           rows={[
-            { k: "outer radius = inner radius + padding", v: "A card at --bl-radius-lg (7px) wrapping a control with --bl-space-2 (8px) padding wants an inner radius of ~15px — or, inverting: pick the inner radius, add the padding, that's the outer." },
-            { k: "Compose from the scale", v: "Reach for --bl-radius-sm/md/lg/xl (3/5/7/9px) and let padding tokens (--bl-space-*) do the arithmetic. Don't invent one-off radii." },
-            { k: "Stop nesting past ~24px padding", v: "When padding is large, the two corners are far enough apart that the eye no longer relates them — treat the layers as independent and pick radii on their own merits." },
+            { k: "outer radius = inner radius + padding", v: "The bezel is the clean case: a 16px frame with 4px padding wants a 12px inner corner. Invert it to design: pick the inner radius, add the padding between the curves, that's the outer." },
+            { k: "One scale, stepped by role", v: "Every corner is one of: frame 16 (--bl-radius-2xl) · card 14 (xl) · well/input 10 (lg) · button/select/row 8 (md) · chip/badge/code 5 (sm) · pill full. Two different tiers never share a value; a row as round as its card is the tell that there's no system. No one-off radii." },
+            { k: "Stop nesting past ~24px padding", v: "When padding is large, the two corners are far enough apart that the eye no longer relates them — treat the layers as independent and pick each element's radius from its own tier in the scale." },
           ]}
         />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
