@@ -143,6 +143,81 @@ export default function TransitionsTiming() {
           />
         </div>
       </DocSection>
+
+      <DocSection eyebrow="INTERRUPTIBILITY" heading="Interruptible animations">
+        <p>
+          Prefer CSS transitions for interactive state - hover, press, open/close
+          (from better-ui, jakub.kr). A transition interpolates from wherever the
+          element currently is toward the latest state, so it can reverse mid-flight
+          if the user changes their mind. Reserve <code className="text-[12px] px-1 py-0.5 rounded" style={{ backgroundColor: "var(--bl-bg-elevated)" }}>@keyframes</code> for
+          one-shot staged sequences that run once and don't need to respond to a
+          change of state partway through.
+        </p>
+        <p>
+          A menu the user can't close mid-open feels broken. If the trigger fires
+          again before the open animation finishes, the close animation must be
+          able to pick up from the current position - not wait for the open
+          animation to finish, and not snap.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <RuleCard
+            type="do"
+            title="Drive hover, press, and open/close state with CSS transitions"
+            description="Transitions target whatever the current computed value is, so a state change mid-animation reverses smoothly instead of restarting or snapping."
+          />
+          <RuleCard
+            type="dont"
+            title="Use @keyframes for interactive state that can be toggled again mid-animation"
+            description="Keyframe animations run a fixed timeline once started. If the user re-triggers the interaction before it finishes, the animation either ignores the new state or restarts jarringly."
+          />
+        </div>
+      </DocSection>
+
+      <DocSection heading="Property specificity & will-change">
+        <p>
+          Never write <code className="text-[12px] px-1 py-0.5 rounded" style={{ backgroundColor: "var(--bl-bg-elevated)" }}>transition: all</code> (from
+          better-ui, jakub.kr). It watches every property on the element, which
+          means it also animates properties nobody intended to animate -
+          including layout-triggering ones that showed up from an unrelated
+          class change. Name the properties explicitly:{" "}
+          <code className="text-[12px] px-1 py-0.5 rounded" style={{ backgroundColor: "var(--bl-bg-elevated)" }}>transition-property: scale, opacity</code>{" "}
+          (Tailwind: <code className="text-[12px] px-1 py-0.5 rounded" style={{ backgroundColor: "var(--bl-bg-elevated)" }}>transition-[scale,opacity]</code>).
+          Note that Tailwind's <code className="text-[12px] px-1 py-0.5 rounded" style={{ backgroundColor: "var(--bl-bg-elevated)" }}>transition-transform</code> already
+          covers translate, scale, and rotate together - no need to list them
+          separately.
+        </p>
+        <p>
+          Use <code className="text-[12px] px-1 py-0.5 rounded" style={{ backgroundColor: "var(--bl-bg-elevated)" }}>will-change</code> sparingly:
+          only on transform, opacity, filter, or clip-path, and only when a
+          first-frame stutter is actually visible (Safari benefits from it the
+          most). Each hinted property promotes the element to its own
+          compositing layer, which costs GPU memory - never write{" "}
+          <code className="text-[12px] px-1 py-0.5 rounded" style={{ backgroundColor: "var(--bl-bg-elevated)" }}>will-change: all</code>,
+          and never hint background-color, padding, top, or left.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <RuleCard
+            type="do"
+            title="Name the exact properties in transition-property"
+            description="transition-[scale,opacity] (or transition-transform for translate/scale/rotate together) animates only what you intend and keeps the browser from watching every CSS property for changes."
+          />
+          <RuleCard
+            type="dont"
+            title="Write transition: all"
+            description="Watching every property means unrelated style changes - a class toggle, a layout shift - animate too, producing motion nobody designed."
+          />
+          <RuleCard
+            type="do"
+            title="Reserve will-change for transform/opacity/filter/clip-path, added only when stutter is visible"
+            description="Each will-change hint promotes the element to its own compositing layer. Add it deliberately to fix an observed first-frame stutter, not as a blanket performance habit."
+          />
+          <RuleCard
+            type="dont"
+            title="Set will-change: all or hint background-color/padding/top/left"
+            description="Those properties don't benefit from layer promotion, and hinting them just burns GPU memory on layers that don't solve a real stutter."
+          />
+        </div>
+      </DocSection>
     </div>
   );
 }

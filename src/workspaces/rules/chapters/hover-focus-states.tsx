@@ -164,6 +164,38 @@ export default function HoverFocusStates() {
           />
         </div>
       </DocSection>
+
+      <DocSection eyebrow="TACTILE FEEDBACK" heading="Scale on press">
+        <p>
+          A subtle <code className="text-[12px] px-1 py-0.5 rounded" style={{ backgroundColor: "var(--bl-bg-elevated)" }}>active:scale-[0.96]</code> (the{" "}
+          <code className="text-[12px] px-1 py-0.5 rounded" style={{ backgroundColor: "var(--bl-bg-elevated)" }}>--press-scale</code>{" "}
+          token) gives buttons tactile feedback - the element visibly compresses
+          under the pointer, confirming the press registered before the action
+          completes (from better-ui, jakub.kr). Keep it fixed at 0.96; never scale
+          below 0.95 - anything more aggressive reads as exaggerated bounce rather
+          than a press.
+        </p>
+        <p>
+          Drive the scale with a CSS transition, not a keyframe animation, so it
+          stays interruptible - if the pointer lifts mid-press, the element eases
+          back from wherever it currently is instead of finishing a fixed
+          timeline. Offer a way to disable the press scale on controls where the
+          motion would distract - dense toolbars, drag handles, or any element
+          honoring <code className="text-[12px] px-1 py-0.5 rounded" style={{ backgroundColor: "var(--bl-bg-elevated)" }}>prefers-reduced-motion</code>.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <RuleCard
+            type="do"
+            title="Use active:scale-[0.96] driven by a CSS transition"
+            description="0.96 (--press-scale) reads as a confident, consistent press across every button in the system, and a transition lets the release ease back smoothly from any point mid-press."
+          />
+          <RuleCard
+            type="dont"
+            title="Scale below 0.95 or animate the press with @keyframes"
+            description="A more aggressive scale feels exaggerated rather than tactile, and a keyframe-driven press can't reverse cleanly if the pointer lifts before the animation finishes."
+          />
+        </div>
+      </DocSection>
     </div>
   );
 }

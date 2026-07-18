@@ -132,6 +132,121 @@ export default function TypographyRules() {
           />
         </div>
       </DocSection>
+
+      <DocSection eyebrow="WRAPPING" heading="Text wrapping & measure">
+        <p className="text-[14px] leading-relaxed mb-3" style={{ color: "var(--bl-fg-secondary)" }}>
+          Browser-native wrapping controls prevent the small readability failures
+          that spacing and font choice alone don't fix (from better-typography,
+          jakub.kr).
+        </p>
+        <DocKeyValue
+          rows={[
+            {
+              k: "text-wrap: balance",
+              v: "Headings and titles - distributes words evenly across lines so short heading wraps never leave one orphaned word on the last line. Pair with text-wrap: pretty on the paragraph beneath it.",
+            },
+            {
+              k: "text-wrap: pretty",
+              v: "Paragraphs and descriptions - avoids a single orphaned word on the final line of a block. Cheaper than balance for longer text; use it for anything balance shouldn't touch.",
+            },
+            {
+              k: "Measure (line length)",
+              v: "Long-form text caps at 65ch (roughly 560-680px) - a full-width paragraph on a wide viewport is a defect, not a stylistic choice. This is stricter than the general 45-80 character range above for body copy that's meant to be read start to finish.",
+            },
+            {
+              k: "Line-height units",
+              v: "Always unitless (line-height: 1.5, not line-height: 24px). Unitless line-height scales with the element's own font-size, so it survives responsive resizing; a pixel value locks to one size and breaks the moment text scales.",
+            },
+            {
+              k: "Letter-spacing by size",
+              v: "Large headings take a slightly negative tracking (tighter, more confident at scale). Small uppercase labels take positive tracking (legibility at small caps sizes). Body text takes neither - default tracking reads best at 13-16px.",
+            },
+          ]}
+        />
+      </DocSection>
+
+      <DocSection eyebrow="RENDERING" heading="Numerals & font rendering">
+        <DocKeyValue
+          rows={[
+            {
+              k: "Tabular numbers",
+              v: "Apply font-variant-numeric: tabular-nums (Baseline's .tnum utility) to any value that changes in place - counters, table cells, meters, live stat tiles. Fixed digit width stops the layout from twitching sideways as digits change. Prefer font-variant-numeric over font-feature-settings: \"tnum\" 1 - it's the modern, more broadly supported property.",
+            },
+            {
+              k: "Font smoothing",
+              v: "-webkit-font-smoothing: antialiased and -moz-osx-font-smoothing: grayscale, applied once at the root layout - not per component. Renders Geist and Satoshi thinner and crisper on macOS; setting it per-component is redundant and risks inconsistency if one surface forgets it.",
+            },
+            {
+              k: "font-synthesis: none",
+              v: "Prevents the browser from faking a bold or italic weight it doesn't have loaded. Use an actual font-weight value from the loaded family (400/500/600) instead of relying on synthesis - never font-variation-settings: \"wght\" as a substitute for font-weight.",
+            },
+          ]}
+        />
+      </DocSection>
+
+      <DocSection eyebrow="TRUNCATION" heading="Truncation, case & underlines">
+        <DocKeyValue
+          rows={[
+            {
+              k: "Single-line truncation",
+              v: "text-overflow: ellipsis + overflow: hidden + white-space: nowrap together - all three are required, none work alone. Keep the full text reachable via a tooltip or expand affordance; truncation must never be the only way to read a value.",
+            },
+            {
+              k: "Multi-line truncation",
+              v: "line-clamp for anything allowed to wrap before cutting off. Same rule applies - the full text stays reachable somewhere (detail view, tooltip, expand).",
+            },
+            {
+              k: "Copy case",
+              v: "Store and type text in natural case always. Uppercase presentation (eyebrows, small labels) comes from text-transform: uppercase in CSS, never from typing the string in caps - natural case stays correct for screen readers, search, and copy-paste.",
+            },
+            {
+              k: "Underlines",
+              v: "text-underline-position: from-font, text-decoration-thickness: from-font, and text-decoration-skip-ink: auto together - the underline sits where the font's own metrics intend and breaks around descenders (g, y, p) instead of cutting through them.",
+            },
+          ]}
+        />
+      </DocSection>
+
+      <DocSection eyebrow="INPUTS & LOGICAL" heading="Inputs & logical properties">
+        <DocKeyValue
+          rows={[
+            {
+              k: "Mobile input size",
+              v: "Inputs render at 16px or larger on mobile viewports (text-base sm:text-sm - 16px on small screens, 14px from sm breakpoint up). Below 16px, iOS Safari zooms the viewport on focus, which is a jarring, unrequested layout jump.",
+            },
+            {
+              k: "Logical properties",
+              v: "margin-inline-start, not margin-left. text-align: start, not text-align: left. Logical properties follow writing direction automatically instead of hard-coding a physical side, which matters the moment any surface needs RTL support.",
+            },
+            {
+              k: "Justification",
+              v: "Never justify interface text (text-align: justify). Justified text in narrow UI columns creates uneven word-spacing rivers that hurt readability - reserve justification for print, if ever.",
+            },
+          ]}
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+          <RuleCard
+            type="do"
+            title="Pair text-wrap: balance on the heading with pretty on the paragraph beneath it"
+            description="Balance keeps short titles even; pretty keeps longer copy from stranding a single word on its own last line. They solve different problems and are meant to be used together, not as alternatives."
+          />
+          <RuleCard
+            type="dont"
+            title="Type UPPERCASE labels directly into the copy"
+            description="Typed caps break screen readers (which may spell out or emphasize differently), search, and copy-paste. Use text-transform: uppercase and keep the source string in natural case."
+          />
+          <RuleCard
+            type="do"
+            title="Apply .tnum to any number that updates in place"
+            description="Stat tiles, counters, live meters, and table cells that refresh need tabular-nums so neighboring content doesn't shift sideways as digit widths change."
+          />
+          <RuleCard
+            type="dont"
+            title="Ship a mobile input below 16px font size"
+            description="iOS Safari auto-zooms on focus for any input under 16px, yanking the viewport out from under the user. Use text-base sm:text-sm so mobile stays at 16px."
+          />
+        </div>
+      </DocSection>
     </div>
   );
 }

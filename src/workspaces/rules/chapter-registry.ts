@@ -82,6 +82,7 @@ export const CHAPTER_GROUPS: ChapterGroup[] = [
       ch("click-targets", "Click Targets & Touch", "interaction"),
       ch("hover-focus-states", "Hover & Focus States", "interaction"),
       ch("transitions-timing", "Transitions & Timing", "interaction"),
+      ch("surface-details", "Surface Details", "interaction"),
       ch("feedback-patterns", "Feedback Patterns", "interaction"),
     ],
   },

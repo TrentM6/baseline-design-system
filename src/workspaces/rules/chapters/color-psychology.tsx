@@ -123,6 +123,93 @@ export default function ColorPsychology() {
           />
         </div>
       </DocSection>
+
+      <DocSection eyebrow="OKLCH" heading="Building ramps">
+        <p className="text-[14px] leading-relaxed" style={{ color: "var(--bl-fg-secondary)" }}>
+          Baseline's tokens are authored in OKLCH, which makes ramp and palette construction a
+          matter of holding the right channels constant (from better-colors, jakub.kr).
+        </p>
+        <ul className="list-disc pl-5 space-y-2">
+          <li>
+            <strong>A shade ramp holds C and H constant and steps L only.</strong> The orange scale
+            (50 through 950) is one hue, one chroma, ten lightness stops. In HSL, holding hue and
+            saturation constant while stepping lightness still drifts perceptually - purple creeps
+            into the light end, muddy brown into the dark end. Constant OKLCH hue avoids that: a hue
+            spread greater than 10&deg; across steps is a sign the ramp was built in the wrong space.
+          </li>
+          <li>
+            <strong>A set of same-weight colors holds L and C, varies H only.</strong> Status fills
+            (success green, error red, warning yellow, info blue) at the same "weight" in the UI
+            should share L and C and differ only in H - that's what makes them read as equally bright,
+            equally saturated siblings rather than one color looking louder than the rest.
+          </li>
+          <li>
+            <strong>"Same saturation" across hues means the same percentage of max chroma, not the
+            same absolute C.</strong> Max chroma varies by hue and lightness - yellow can go far more
+            saturated at high L than blue can. Matching raw C values across hues under- or
+            over-saturates some of them; match the percentage of each hue's own ceiling instead.
+          </li>
+          <li>
+            <strong>Derive dark mode from light by reversing L, keeping C and H.</strong> Baseline is
+            dark-first, but the relationship still holds in reverse: flipping a token's L (and
+            re-checking contrast) while leaving C and H untouched keeps the hue identity consistent
+            between modes instead of re-picking colors by eye.
+          </li>
+        </ul>
+      </DocSection>
+
+      <DocSection eyebrow="OKLCH" heading="Gamut & clamping">
+        <p className="text-[14px] leading-relaxed" style={{ color: "var(--bl-fg-secondary)" }}>
+          OKLCH can describe colors no display can actually show - it's a superset of sRGB and
+          Display-P3, not a match for either (from better-colors, jakub.kr).
+        </p>
+        <DocKeyValue
+          rows={[
+            {
+              k: "Out-of-gamut values",
+              v: "oklch(0.7 0.4 40) is a valid OKLCH value that sits outside sRGB. Left alone, browsers clip it to the nearest in-gamut color unpredictably - not necessarily the color you'd pick by hand.",
+            },
+            {
+              k: "Clamp chroma, not lightness or hue",
+              v: "Cap C at the maximum in-gamut value for that L/H pair in the target gamut (sRGB or Display-P3). This keeps the intended hue and lightness intact and only pulls back saturation.",
+            },
+            {
+              k: "P3 fallback for sRGB displays",
+              v: "Ship P3-only colors behind @media (color-gamut: p3) { ... } with an sRGB-safe value as the default, so displays that can't show the wider gamut still get a correct, clamped color.",
+            },
+          ]}
+        />
+      </DocSection>
+
+      <DocSection eyebrow="OKLCH" heading="Gradients">
+        <p className="text-[14px] leading-relaxed" style={{ color: "var(--bl-fg-secondary)" }}>
+          The interpolation space matters as much as the endpoint colors - sRGB interpolation
+          desaturates through the middle of a gradient, producing a muddy midpoint even when both
+          ends are vivid (from better-colors, jakub.kr).
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <RuleCard
+            type="do"
+            title="Interpolate in oklab for a safe default"
+            description="oklab moves linearly through the color space with no hue detours - it's the predictable choice when you're not sure which hue path a gradient should take."
+          />
+          <RuleCard
+            type="do"
+            title="Interpolate in oklch when you want the hue to travel"
+            description="oklch takes the short arc around the hue wheel, producing a vivid, saturated transition - use it deliberately when the gradient should visibly move through hues."
+          />
+          <RuleCard
+            type="dont"
+            title="Interpolate in sRGB and expect a clean midpoint"
+            description="linear-gradient(in srgb, red, blue) washes out through gray in the middle. If a gradient looks muddy, the interpolation space is almost always the cause, not the endpoint colors."
+          />
+          <RuleCard
+            type="dont"
+            title="Add an extra color stop just to shift the transition point"
+            description="Use a color hint instead - red, 40%, blue moves where the midpoint falls without introducing a third color. Reserve a real stop (or a hard stop: the same position twice) for an actual color change or a crisp edge."
+          />
+        </div>
+      </DocSection>
     </div>
   );
 }

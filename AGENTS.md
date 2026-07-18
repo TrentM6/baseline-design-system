@@ -207,3 +207,13 @@ The system above tells you what exists and how to compose legally. These convent
 
 ### Surface ladder (candidate tokens)
 - Depth ladder proven in HQ: window well → **canvas** (chrome and page share ONE surface tier) → **panel** (one step lighter, subtle inset highlight) → **raised detail** (one more). Chrome never sits above content. Candidate for ratification here as `--bl-bg-canvas` / `--bl-bg-panel` / `--bl-bg-panel-2` (HQ currently carries them as `--hq-*`).
+
+### Surface craft & motion (ratified — Jakub Krehel's better-ui, jakub.kr)
+The polish layer that separates a considered interface from an assembled one. Full detail in the Surface Details, Transitions & Timing, Motion & Animation, and Typography Rules chapters; the load-bearing conventions:
+- **Shadows over borders.** Raised surfaces (buttons, cards, popovers) express depth with `--bl-shadow-raised` (→ `--bl-shadow-raised-hover`), not a hard 1px border. A shadow adapts to any background; a border reads as a drawn line. Reserve solid `--bl-border-*` for dividers and structure.
+- **Concentric border radius.** Nested rounded surfaces satisfy `outer = inner + padding`. Identical radii on a card and the control inside it is the most common thing that reads as "off".
+- **Scale on press.** Interactive controls get `active:scale-[0.96]` (`--press-scale`), never below 0.95, via a CSS transition (interruptible).
+- **Image outlines.** Frame images with `--bl-outline-image` (pure black/white at 10%, inset via `outline-offset: -1px`) — never a tinted neutral, which reads as dirt on the edge.
+- **Hit areas.** Interactive targets are ≥ 44×44px (touch) / 40×40px (desktop); extend a small visible control with a pseudo-element, never overlap two targets.
+- **Motion is interruptible + specific.** CSS transitions for interactive state (reversible mid-flight); `@keyframes` only for one-shot sequences. Never `transition: all` — name the properties. Enters split + stagger (`--dur-enter`/`--ease-enter`/`--stagger`); exits are shorter and quieter. Icon swaps animate (scale/opacity/blur, spring bounce 0), never toggle visibility.
+- **Restraint is the discipline.** Prefer removing to adding; animate the exit, not the entrance-and-exit; delete a line of UI text rather than rewrite it. (Reinforces the existing restraint law.)

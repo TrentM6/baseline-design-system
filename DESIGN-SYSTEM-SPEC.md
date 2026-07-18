@@ -176,6 +176,7 @@ Made the five-layer architecture real and enforced by imports, end to end:
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-07-17 | Craft layer ratified from Jakub Krehel's better-ui / better-typography / better-colors (jakub.kr) | Shadows-over-borders (`--bl-shadow-raised`/`-hover`), concentric radius, scale-on-press (`--press-scale`), image outlines (`--bl-outline-image`), split/stagger enter motion (`--dur-enter`/`--ease-enter`/`--stagger`), and OKLCH ramp/gamut/gradient rules. New **Surface Details** chapter; Transitions/Motion/Typography/Color-Contrast/Color-Psychology chapters enriched; AGENTS.md product conventions extended. Baseline HQ is adopting jakub.kr's craft bar — encoding the rules + tokens here (design law) so every Baseline product inherits them. |
 | 2026-06-20 | Token prefix is `--bl-*` | Short, distinctive, no collision with `--ct-*` (CodeTogether) or `--shad-*` (shadcn) |
 | 2026-06-20 | Dark mode is primary/ground truth | Baseline brand identity is designed dark-first; the website, all marketing, and brand guide are dark |
 | 2026-06-21 | Small border radius (2–8px) across all components | Tight corners give a sharp, modern look. Replaces the earlier pill-shaped button decision. |
