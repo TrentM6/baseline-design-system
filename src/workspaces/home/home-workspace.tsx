@@ -34,6 +34,10 @@ const WORKSPACES = [
   },
 ] as const;
 
+/* Embedded (?embed=1): the host shell (Baseline HQ's Design app) renders the
+ * page header + tabs itself — the hero here would duplicate it. */
+const EMBED = new URLSearchParams(window.location.search).has("embed");
+
 function HomeWorkspace({
   onNavigate,
 }: {
@@ -41,28 +45,36 @@ function HomeWorkspace({
 }) {
   return (
     <ScrollArea className="h-full">
-      <div className="px-4 py-10 sm:px-6 sm:py-16 lg:py-24 max-w-[640px] mx-auto">
-        <header className="mb-12 sm:mb-16">
-          <p
-            className="text-[11px] font-mono uppercase tracking-widest mb-3"
-            style={{ color: "var(--bl-fill-primary)" }}
-          >
-            Baseline
-          </p>
-          <h1
-            className="text-3xl sm:text-4xl font-heading font-semibold tracking-tight mb-4"
-            style={{ color: "var(--bl-fg-primary)" }}
-          >
-            Design System
-          </h1>
-          <p
-            className="text-[15px] sm:text-[17px] leading-relaxed"
-            style={{ color: "var(--bl-fg-secondary)" }}
-          >
-            A composable, rule-driven design system built on shared
-            tokens.
-          </p>
-        </header>
+      <div
+        className={
+          EMBED
+            ? "px-4 py-6 sm:px-6 max-w-[640px] mx-auto"
+            : "px-4 py-10 sm:px-6 sm:py-16 lg:py-24 max-w-[640px] mx-auto"
+        }
+      >
+        {EMBED ? null : (
+          <header className="mb-12 sm:mb-16">
+            <p
+              className="text-[11px] font-mono uppercase tracking-widest mb-3"
+              style={{ color: "var(--bl-fill-primary)" }}
+            >
+              Baseline
+            </p>
+            <h1
+              className="text-3xl sm:text-4xl font-heading font-semibold tracking-tight mb-4"
+              style={{ color: "var(--bl-fg-primary)" }}
+            >
+              Design System
+            </h1>
+            <p
+              className="text-[15px] sm:text-[17px] leading-relaxed"
+              style={{ color: "var(--bl-fg-secondary)" }}
+            >
+              A composable, rule-driven design system built on shared
+              tokens.
+            </p>
+          </header>
+        )}
 
         <nav>
           {WORKSPACES.map((ws) => {
