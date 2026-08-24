@@ -1,0 +1,26 @@
+name: Build check
+
+# Required status check that gates agent auto-merge -- catches a broken build
+# before it lands on main. Added 2026-08-24.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build (typecheck + vite build)
+        run: npm run build
